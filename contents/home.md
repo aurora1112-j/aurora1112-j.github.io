@@ -1,6 +1,6 @@
 
 
-[![aurora1112-j]("D:\Documents\GitHub\aurora.github.io\static\assets\f52ed2ab579f68c6419b5e061cbbda4b.jpg"](https://github.com/aurora1112-j)
+[![aurora1112-j](https://img.shields.io/badge/senli1073-github-blue?logo=github)](https://github.com/aurora1112-j)
 
 She is a student who interested in everything.
 
