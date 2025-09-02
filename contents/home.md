@@ -1,6 +1,6 @@
 
 
-[![aurora1112-j](https://img.shields.io/badge/senli1073-github-blue?logo=github)](https://github.com/aurora1112-j)
+[![aurora1112-j](https://img.shields.io/badge/aurora1112-j-github-blue?logo=github)](https://github.com/aurora1112-j)
 
 She is a student who interested in everything.
 
