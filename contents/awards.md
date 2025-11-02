@@ -1,4 +1,4 @@
 - Second-Prize Scholarship (NJU), 2024.
-- First Prize Thesis at the Nanjing University 27th Basic Disciplines Forum, May 2024 \n(Thesis: A Study on the Educational Issues of Migrant Workers' Daughters in Urban Villages of Guangzhou)
+- First Prize Thesis at the Nanjing University 27th Basic Disciplines Forum, May 2024 /n(Thesis: A Study on the Educational Issues of Migrant Workers' Daughters in Urban Villages of Guangzhou)
 - First Prize Thesis at the Nanjing University Bingwen College Research Training Camp, Dec 2024 (Thesis: Examining the Sense of Alienation Among University Students from a Spatial Perspective)
 - Outstanding Student Staff/Cadre at the University News Center, Sep 2025
