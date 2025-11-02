@@ -1,5 +1,5 @@
 ## Papers
-- **stata数据分析：重要他人影响与中小学生人工智能学习素养**[download](https://github.com/aurora1112-j/aurora1112-j.github.io/blob/main/stata%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%EF%BC%9A%E9%87%8D%E8%A6%81%E4%BB%96%E4%BA%BA%E5%BD%B1%E5%93%8D%E4%B8%8E%E4%B8%AD%E5%B0%8F%E5%AD%A6%E7%94%9F%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%B4%A0%E5%85%BB.docx)
+- **问卷编码 + stata数据分析：重要他人影响与中小学生人工智能学习素养**[download](https://github.com/aurora1112-j/aurora1112-j.github.io/blob/main/stata%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%EF%BC%9A%E9%87%8D%E8%A6%81%E4%BB%96%E4%BA%BA%E5%BD%B1%E5%93%8D%E4%B8%8E%E4%B8%AD%E5%B0%8F%E5%AD%A6%E7%94%9F%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%B4%A0%E5%85%BB.docx)
 - **新闻评论：双减教改的困境**[download](https://github.com/aurora1112-j/aurora1112-j.github.io/blob/main/%E6%96%B0%E9%97%BB%E8%AF%84%E8%AE%BA%EF%BC%9A%E5%8F%8C%E5%87%8F%E6%95%99%E6%94%B9%E7%9A%84%E5%9B%B0%E5%A2%83.docx)
 - **以河为媒的城市发展**[download](https://github.com/aurora1112-j/aurora1112-j.github.io/blob/main/%E4%BB%A5%E6%B2%B3%E4%B8%BA%E5%AA%92%E7%9A%84%E5%9F%8E%E5%B8%82%E5%8F%91%E5%B1%95.docx)
 - **从空间角度看大学生群体的疏离感**[download](https://github.com/aurora1112-j/aurora1112-j.github.io/blob/main/%E4%BB%8E%E7%A9%BA%E9%97%B4%E8%A7%92%E5%BA%A6%E7%9C%8B%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BE%A4%E4%BD%93%E7%9A%84%E7%96%8F%E7%A6%BB%E6%84%9F.docx)
