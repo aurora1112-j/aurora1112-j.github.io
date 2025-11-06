@@ -1,4 +1,5 @@
 ## Papers & Articles
+-  **数据｜承认巴勒斯坦国，37年从0到157**  [link](https://mp.weixin.qq.com/s/-GwGfYWvAG39o_-m8O1CwA?scene=1)
 - **亚马逊裁员**  [download](https://github.com/aurora1112-j/aurora1112-j.github.io/blob/main/%E4%BA%9A%E9%A9%AC%E9%80%8A%E8%A3%81%E5%91%98.docx)
 - **高德扫街榜承诺的“真实”能否兑现？**  [link](https://mp.weixin.qq.com/s/QHHUhML1mCK2bgttbhrtrA)
 - **问卷编码 + stata数据分析：重要他人影响与中小学生人工智能学习素养**  [download](https://github.com/aurora1112-j/aurora1112-j.github.io/blob/main/stata%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%EF%BC%9A%E9%87%8D%E8%A6%81%E4%BB%96%E4%BA%BA%E5%BD%B1%E5%93%8D%E4%B8%8E%E4%B8%AD%E5%B0%8F%E5%AD%A6%E7%94%9F%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%B4%A0%E5%85%BB.docx)
