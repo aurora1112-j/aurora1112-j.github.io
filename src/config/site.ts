@@ -12,8 +12,8 @@ export const site = {
   ],
   social: [
     { label: "GitHub", href: "https://github.com/aurora1112-j" },
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/yourname" },
-    { label: "Instagram", href: "https://www.instagram.com/yourname" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/黄晨熙" },
+    { label: "Instagram", href: "https://www.instagram.com/" },
   ],
   hero: {
     title: "Algorithmic explorer & computational social researcher",
