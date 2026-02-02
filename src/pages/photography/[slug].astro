@@ -1,0 +1,56 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import { getCollection } from "astro:content";
+import { formatDate } from "../../utils/formatDate";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("photography");
+  return entries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<BaseLayout title={entry.data.title} description={entry.data.description}>
+  <SiteHeader />
+  <main class="container section">
+    <a class="kicker" href="/photography">Back to Photography</a>
+    <h1>{entry.data.title}</h1>
+    <p class="muted">{entry.data.description}</p>
+    <div class="tag-list" style="margin: 16px 0;">
+      {entry.data.location && <span class="tag">{entry.data.location}</span>}
+      {entry.data.camera && <span class="tag">{entry.data.camera}</span>}
+      <span class="tag">{formatDate(entry.data.date)}</span>
+      {entry.data.tags.map((tag) => (
+        <span class="tag">{tag}</span>
+      ))}
+    </div>
+    {entry.data.coverImage && (
+      <div class="card-media" style="margin: 24px 0;">
+        <img src={entry.data.coverImage} alt="" />
+      </div>
+    )}
+    <article class="prose">
+      <Content />
+    </article>
+    {entry.data.gallery && (
+      <section class="section">
+        <h2>Series</h2>
+        <div class="grid grid-2">
+          {entry.data.gallery.map((image: string) => (
+            <div class="card-media">
+              <img src={image} alt="" loading="lazy" />
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+  </main>
+  <SiteFooter />
+</BaseLayout>

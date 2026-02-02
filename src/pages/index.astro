@@ -1,0 +1,148 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import ContentCard from "../components/ContentCard.astro";
+import { site } from "../config/site";
+import { getCollection } from "astro:content";
+import { formatDate } from "../utils/formatDate";
+
+const byDate = (a, b) => b.data.date.getTime() - a.data.date.getTime();
+
+const articles = (await getCollection("articles"))
+  .filter((entry) => !entry.data.draft)
+  .sort(byDate)
+  .slice(0, 3);
+
+const projects = (await getCollection("projects"))
+  .sort(byDate)
+  .slice(0, 3);
+
+const photography = (await getCollection("photography"))
+  .sort(byDate)
+  .slice(0, 3);
+
+const dataviz = (await getCollection("dataviz"))
+  .sort(byDate)
+  .slice(0, 3);
+---
+
+<BaseLayout>
+  <SiteHeader />
+  <main class="container">
+    <section class="hero">
+      <div class="hero-card reveal">
+        <span class="kicker">{site.tagline}</span>
+        <h1>{site.hero.title}</h1>
+        <p class="muted">{site.hero.subtitle}</p>
+        <div class="button-row">
+          <a class="button primary" href={site.hero.primaryAction.href}>
+            {site.hero.primaryAction.label}
+          </a>
+          <a class="button" href={site.hero.secondaryAction.href}>
+            {site.hero.secondaryAction.label}
+          </a>
+        </div>
+      </div>
+      <div class="hero-media reveal delay-1">
+        <img src="/images/placeholder-hero.svg" alt="" />
+        <div class="grid grid-2">
+          <div>
+            <p class="kicker">Focus</p>
+            <p class="muted">
+              Writing, product work, photography, and data storytelling.
+            </p>
+          </div>
+          <div>
+            <p class="kicker">Currently</p>
+            <p class="muted">
+              Building a portfolio that mixes narrative and evidence.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <SectionHeader
+        kicker="Writing"
+        title="Articles"
+        description="Essays, field notes, and research summaries."
+      />
+      <div class="grid grid-3">
+        {articles.map((entry) => (
+          <ContentCard
+            href={`/articles/${entry.slug}`}
+            title={entry.data.title}
+            description={entry.data.description}
+            meta={formatDate(entry.data.date)}
+            image={entry.data.heroImage}
+            tags={entry.data.tags}
+          />
+        ))}
+      </div>
+    </section>
+
+    <section class="section reveal delay-1">
+      <SectionHeader
+        kicker="Build"
+        title="Projects"
+        description="Selected product and research work."
+      />
+      <div class="grid grid-3">
+        {projects.map((entry) => (
+          <ContentCard
+            href={`/projects/${entry.slug}`}
+            title={entry.data.title}
+            description={entry.data.description}
+            meta={entry.data.role}
+            image={entry.data.coverImage}
+            tags={entry.data.stack}
+          />
+        ))}
+      </div>
+    </section>
+
+    <section class="section reveal delay-2">
+      <SectionHeader
+        kicker="Visuals"
+        title="Photography"
+        description="Photo series and field documentation."
+      />
+      <div class="grid grid-3">
+        {photography.map((entry) => (
+          <ContentCard
+            href={`/photography/${entry.slug}`}
+            title={entry.data.title}
+            description={entry.data.description}
+            meta={entry.data.location}
+            image={entry.data.coverImage}
+            tags={entry.data.tags}
+          />
+        ))}
+      </div>
+    </section>
+
+    <section class="section reveal delay-3">
+      <SectionHeader
+        kicker="Evidence"
+        title="Data Visualization"
+        description="Interactive stories and analytic visuals."
+      />
+      <div class="grid grid-3">
+        {dataviz.map((entry) => (
+          <ContentCard
+            href={`/dataviz/${entry.slug}`}
+            title={entry.data.title}
+            description={entry.data.description}
+            meta={formatDate(entry.data.date)}
+            image={entry.data.coverImage}
+            tags={entry.data.tools}
+          />
+        ))}
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</BaseLayout>

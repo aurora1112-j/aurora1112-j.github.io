@@ -1,0 +1,59 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import { getCollection } from "astro:content";
+import { formatDate } from "../../utils/formatDate";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("dataviz");
+  return entries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<BaseLayout title={entry.data.title} description={entry.data.description}>
+  <SiteHeader />
+  <main class="container section">
+    <a class="kicker" href="/dataviz">Back to Data Viz</a>
+    <h1>{entry.data.title}</h1>
+    <p class="muted">{entry.data.description}</p>
+    <div class="tag-list" style="margin: 16px 0;">
+      <span class="tag">{formatDate(entry.data.date)}</span>
+      {entry.data.tools.map((tool) => (
+        <span class="tag">{tool}</span>
+      ))}
+    </div>
+    {entry.data.coverImage && (
+      <div class="card-media" style="margin: 24px 0;">
+        <img src={entry.data.coverImage} alt="" />
+      </div>
+    )}
+    {entry.data.demoUrl && (
+      <div class="button-row" style="margin-bottom: 24px;">
+        <a class="button primary" href={entry.data.demoUrl}>View Demo</a>
+      </div>
+    )}
+    <article class="prose">
+      <Content />
+    </article>
+    {entry.data.gallery && (
+      <section class="section">
+        <h2>Gallery</h2>
+        <div class="grid grid-2">
+          {entry.data.gallery.map((image: string) => (
+            <div class="card-media">
+              <img src={image} alt="" loading="lazy" />
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+  </main>
+  <SiteFooter />
+</BaseLayout>

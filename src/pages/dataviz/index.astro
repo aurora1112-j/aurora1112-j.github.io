@@ -1,0 +1,37 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+import ContentCard from "../../components/ContentCard.astro";
+import { getCollection } from "astro:content";
+import { formatDate } from "../../utils/formatDate";
+
+const dataviz = (await getCollection("dataviz")).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+---
+
+<BaseLayout title="Data Visualization">
+  <SiteHeader />
+  <main class="container section">
+    <SectionHeader
+      kicker="Evidence"
+      title="Data Visualization"
+      description="Interactive storytelling and analytic visuals."
+    />
+    <div class="grid grid-3">
+      {dataviz.map((entry) => (
+        <ContentCard
+          href={`/dataviz/${entry.slug}`}
+          title={entry.data.title}
+          description={entry.data.description}
+          meta={formatDate(entry.data.date)}
+          image={entry.data.coverImage}
+          tags={entry.data.tools}
+        />
+      ))}
+    </div>
+  </main>
+  <SiteFooter />
+</BaseLayout>

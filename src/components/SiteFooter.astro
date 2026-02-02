@@ -1,0 +1,28 @@
+---
+import { site } from "../config/site";
+---
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <h3>{site.title}</h3>
+      <p class="muted">{site.description}</p>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <ul class="list-reset">
+        <li>{site.location}</li>
+        <li>
+          <a href={`mailto:${site.email}`}>{site.email}</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>Elsewhere</h3>
+      <ul class="list-reset">
+        {site.social.map((item) => (
+          <li><a href={item.href}>{item.label}</a></li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</footer>

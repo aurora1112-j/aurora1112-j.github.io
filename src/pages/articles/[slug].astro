@@ -1,0 +1,36 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import { getCollection } from "astro:content";
+import { formatDate } from "../../utils/formatDate";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("articles");
+  return entries
+    .filter((entry) => !entry.data.draft)
+    .map((entry) => ({ params: { slug: entry.slug }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<BaseLayout title={entry.data.title} description={entry.data.description}>
+  <SiteHeader />
+  <main class="container section">
+    <a class="kicker" href="/articles">Back to Articles</a>
+    <h1>{entry.data.title}</h1>
+    <p class="muted">{entry.data.description}</p>
+    <p class="card-meta">{formatDate(entry.data.date)}</p>
+    {entry.data.heroImage && (
+      <div class="card-media" style="margin: 24px 0;">
+        <img src={entry.data.heroImage} alt="" />
+      </div>
+    )}
+    <article class="prose">
+      <Content />
+    </article>
+  </main>
+  <SiteFooter />
+</BaseLayout>

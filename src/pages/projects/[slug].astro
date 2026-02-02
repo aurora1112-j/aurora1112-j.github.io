@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import { getCollection } from "astro:content";
+import { formatDate } from "../../utils/formatDate";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("projects");
+  return entries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const links = entry.data.links ?? {};
+---
+
+<BaseLayout title={entry.data.title} description={entry.data.description}>
+  <SiteHeader />
+  <main class="container section">
+    <a class="kicker" href="/projects">Back to Projects</a>
+    <h1>{entry.data.title}</h1>
+    <p class="muted">{entry.data.description}</p>
+    <div class="tag-list" style="margin: 16px 0;">
+      {entry.data.role && <span class="tag">{entry.data.role}</span>}
+      <span class="tag">{formatDate(entry.data.date)}</span>
+      {entry.data.stack.map((item) => (
+        <span class="tag">{item}</span>
+      ))}
+    </div>
+    {entry.data.coverImage && (
+      <div class="card-media" style="margin: 24px 0;">
+        <img src={entry.data.coverImage} alt="" />
+      </div>
+    )}
+    <div class="button-row" style="margin-bottom: 24px;">
+      {links.live && (
+        <a class="button primary" href={links.live}>Live Demo</a>
+      )}
+      {links.repo && <a class="button" href={links.repo}>Repository</a>}
+      {links.caseStudy && (
+        <a class="button" href={links.caseStudy}>Case Study</a>
+      )}
+    </div>
+    <article class="prose">
+      <Content />
+    </article>
+    {entry.data.gallery && (
+      <section class="section">
+        <h2>Gallery</h2>
+        <div class="grid grid-2">
+          {entry.data.gallery.map((image: string) => (
+            <div class="card-media">
+              <img src={image} alt="" loading="lazy" />
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+  </main>
+  <SiteFooter />
+</BaseLayout>

@@ -1,0 +1,36 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+import ContentCard from "../../components/ContentCard.astro";
+import { getCollection } from "astro:content";
+
+const photography = (await getCollection("photography")).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+---
+
+<BaseLayout title="Photography">
+  <SiteHeader />
+  <main class="container section">
+    <SectionHeader
+      kicker="Visuals"
+      title="Photography"
+      description="Photo series, travel notes, and image essays."
+    />
+    <div class="grid grid-3">
+      {photography.map((entry) => (
+        <ContentCard
+          href={`/photography/${entry.slug}`}
+          title={entry.data.title}
+          description={entry.data.description}
+          meta={entry.data.location}
+          image={entry.data.coverImage}
+          tags={entry.data.tags}
+        />
+      ))}
+    </div>
+  </main>
+  <SiteFooter />
+</BaseLayout>
