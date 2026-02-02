@@ -15,6 +15,9 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 const pdfUrl = entry.data.pdfUrl;
+const downloads =
+  entry.data.downloads ??
+  (pdfUrl ? [{ label: "Download article", url: pdfUrl }] : []);
 ---
 
 <BaseLayout title={entry.data.title} description={entry.data.description}>
@@ -25,11 +28,18 @@ const pdfUrl = entry.data.pdfUrl;
     <p class="muted">{entry.data.description}</p>
     {entry.data.abstract && <p>{entry.data.abstract}</p>}
     <p class="card-meta">{formatDate(entry.data.date)}</p>
-    {pdfUrl && (
+    {downloads.length > 0 && (
       <div class="button-row" style="margin: 16px 0 24px;">
-        <a class="button primary" href={pdfUrl} target="_blank" rel="noopener">
-          Download article
-        </a>
+        {downloads.map((item) => (
+          <a
+            class="button primary"
+            href={item.url}
+            target="_blank"
+            rel="noopener"
+          >
+            {item.label}
+          </a>
+        ))}
       </div>
     )}
     {entry.data.heroImage && (

@@ -10,6 +10,14 @@ const articles = defineCollection({
     tags: z.array(z.string()).default([]),
     heroImage: z.string().optional(),
     pdfUrl: z.string().optional(),
+    downloads: z
+      .array(
+        z.object({
+          label: z.string(),
+          url: z.string(),
+        })
+      )
+      .optional(),
     draft: z.boolean().default(false),
   }),
 });
