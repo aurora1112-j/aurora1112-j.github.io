@@ -4,7 +4,7 @@ description: "A notebook pipeline that collects German newspaper pages and store
 date: 2025-10-21
 role: "Researcher, Data Engineer"
 stack: ["Python", "Jupyter", "Pandas", "MongoDB", "Web Scraping"]
-coverImage: "/images/placeholder-project.svg"
+coverImage: "/images/security-layer.png"
 featured: false
 ---
 
