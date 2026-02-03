@@ -6,7 +6,7 @@ role: "Author"
 stack: ["Jupyter", "Python", "Statistics"]
 links:
   live: "/notes/mathbook/index.html"
-coverImage: "/images/placeholder-project.svg"
+coverImage: "/images/mathbook.png"
 featured: true
 ---
 
