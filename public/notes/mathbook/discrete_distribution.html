@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Discrete Distribution | Mathbook Notes</title>
+  <style>:root { color-scheme: light; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; margin: 40px auto; max-width: 960px; padding: 0 20px; color: #1f1d1a; }
+header { margin-bottom: 32px; }
+header a { color: #0f766e; text-decoration: none; font-weight: 600; }
+section { margin: 24px 0 40px; padding-bottom: 16px; border-bottom: 1px solid #e6e1d9; }
+.cell-label { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #6b645c; margin-bottom: 8px; }
+pre { background: #f6f2ea; padding: 16px; border-radius: 12px; overflow-x: auto; }
+code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.9rem; }
+ul { padding-left: 1.2rem; }
+.output { background: #ffffff; border: 1px solid #e6e1d9; }</style>
+</head>
+<body>
+  <header>
+    <a href="/notes/mathbook/index.html">← Back to Mathbook</a>
+    <h1>Discrete Distribution</h1>
+  </header>
+  <section><div class='cell-label'>Markdown</div><p>&lt;a href=&quot;https://colab.research.google.com/github/aurora1112-j/aurora1112-j.github.io/blob/main/probability_statistics/discrete_distribution.ipynb&quot; target=&quot;_parent&quot;&gt;&lt;img src=&quot;https://colab.research.google.com/assets/colab-badge.svg&quot; alt=&quot;Open In Colab&quot;/&gt;&lt;/a&gt;</p></section><section><div class='cell-label'>Markdown</div><h1>Poisson Distribution</h1></section><section>
+<div class='cell-label'>Code</div>
+<pre><code>from scipy.stats import poisson
+import matplotlib.pyplot as plt
+import numpy as np</code></pre>
+</section><section>
+<div class='cell-label'>Code</div>
+<pre><code>plt.style.use(&#x27;/content/rose-pine-dawn.mplstyle&#x27;) # 应用rose-pine-dawn样式
+
+p = plt.rcParams  # 获取默认绘图参数
+p[&quot;font.family&quot;] = &quot;serif&quot; # 设置字体族为衬线体
+p[&quot;font.serif&quot;] = [&quot;Times New Roman&quot;, &quot;DejaVu Serif&quot;, &quot;Computer Modern Roman&quot;] # Times New Roman
+p[&quot;font.weight&quot;] = &quot;light&quot;  # 设置字体粗细为 light
+p[&quot;ytick.minor.visible&quot;] = True  # 显示 y 轴的小刻度
+p[&quot;xtick.minor.visible&quot;] = True  # 显示 x 轴的小刻度
+p[&quot;axes.grid&quot;] = True  # 启用坐标轴网格
+p[&quot;grid.color&quot;] = &quot;0.5&quot;  # 设置网格颜色为灰色
+p[&quot;grid.linewidth&quot;] = 0.5  # 设置网格线宽度</code></pre>
+</section><section>
+<div class='cell-label'>Code</div>
+<pre><code>x_array = np.arange(0, 20 + 1)  # 生成x的取值从0到20的数组</code></pre>
+</section><section>
+<div class='cell-label'>Code</div>
+<pre><code>fig, ax = plt.subplots(figsize = (8,6))  # 创建绘图窗口
+
+lambda_values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]  # 定义不同的λ值
+# num_colors = len(lambda_values)  # 计算颜色数量
+
+for idx, lambda_ in enumerate(lambda_values):  # 遍历不同的λ值
+    # color = plt.cm.hsv(idx / num_colors)  # 根据HSV色谱生成颜色
+    plt.plot(
+        x_array,
+        poisson.pmf(x_array, lambda_),  # 计算并绘制PMF曲线
+        marker=&#x27;.&#x27;,
+        markersize=6,
+        linewidth=0.6,
+        label=r&#x27;$\lambda$ = &#x27; + str(lambda_),
+        # color=color,  # 设置线条颜色
+    )
+
+plt.xlabel(&#x27;x&#x27;)  # 设置x轴标签
+plt.ylabel(&#x27;PMF&#x27;)  # 设置y轴标签
+# plt.gca().spines[&#x27;right&#x27;].set_visible(False)  # 隐藏右边框
+# plt.gca().spines[&#x27;top&#x27;].set_visible(False)  # 隐藏上边框
+# plt.gca().yaxis.set_ticks_position(&#x27;left&#x27;)  # y轴刻度在左侧
+# plt.gca().xaxis.set_ticks_position(&#x27;bottom&#x27;)  # x轴刻度在底部
+plt.xlim(0, x_array.max())  # 设置x轴范围
+plt.ylim(0, 0.4)  # 设置y轴范围
+plt.xticks([0, 5, 10, 15, 20])  # 设置x轴刻度
+plt.legend()  # 显示图例
+plt.show()  # 显示图形</code></pre>
+<div class='cell-label'>Output</div><pre class='output'><code>&lt;Figure size 800x600 with 1 Axes&gt;</code></pre>
+</section>
+</body>
+</html>

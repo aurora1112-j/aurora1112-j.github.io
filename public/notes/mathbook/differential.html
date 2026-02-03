@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Differential | Mathbook Notes</title>
+  <style>:root { color-scheme: light; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; margin: 40px auto; max-width: 960px; padding: 0 20px; color: #1f1d1a; }
+header { margin-bottom: 32px; }
+header a { color: #0f766e; text-decoration: none; font-weight: 600; }
+section { margin: 24px 0 40px; padding-bottom: 16px; border-bottom: 1px solid #e6e1d9; }
+.cell-label { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #6b645c; margin-bottom: 8px; }
+pre { background: #f6f2ea; padding: 16px; border-radius: 12px; overflow-x: auto; }
+code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.9rem; }
+ul { padding-left: 1.2rem; }
+.output { background: #ffffff; border: 1px solid #e6e1d9; }</style>
+</head>
+<body>
+  <header>
+    <a href="/notes/mathbook/index.html">← Back to Mathbook</a>
+    <h1>Differential</h1>
+  </header>
+  <section><div class='cell-label'>Markdown</div><p>&lt;a href=&quot;https://colab.research.google.com/github/aurora1112-j/aurora1112-j.github.io/blob/main/mathbook/differential.ipynb&quot; target=&quot;_parent&quot;&gt;&lt;img src=&quot;https://colab.research.google.com/assets/colab-badge.svg&quot; alt=&quot;Open In Colab&quot;/&gt;&lt;/a&gt;</p></section><section><div class='cell-label'>Markdown</div><h1>Taylor&#x27;s Theorem</h1></section><section><div class='cell-label'>Markdown</div><p>**Definition**</p></section><section><div class='cell-label'>Markdown</div><p>如果函数 $f(x)$ 在点 $x=a$ 处具有任意阶导数，则它在该点的泰勒级数定义为：$$f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!} (x-a)^n$$$f^{(n)}(a)$：表示函数在 $a$ 点的 $n$ 阶导数。</p>
+<p>$n!$：阶乘，作为归一化系数</p></section><section><div class='cell-label'>Markdown</div><p>&gt; 当对 $x^n$ 求导时：</p>
+<p>&gt; 一次导数：$n \cdot x^{n-1}$</p>
+<p>&gt; 二次导数：$n(n-1) \cdot x^{n-2}$</p>
+<p>&gt; $n$ 次导数：$n!$</p>
+<p>&gt; 为了让多项式的第 $n$ 阶导数等于函数的第 $n$ 阶导数，需要除以 $n!$ 来把求导产生的系数归一化</p></section><section><div class='cell-label'>Markdown</div><p>**麦克劳林级数** (Maclaurin Series)是泰勒级数的特例。当我们选择在原点 $a=0$ 展开时，公式简化为：$$f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(0)}{n!} x^n$$</p></section><section><div class='cell-label'>Markdown</div><p>---</p></section><section><div class='cell-label'>Markdown</div><p>**example1:    $e^x = \sum \frac{x^n}{n!}$**</p></section><section><div class='cell-label'>Markdown</div><p>$f^{(n)}(x) = e^x$, $f^{(n)}(0) = 1$ (所有阶导数在 0 点的值都是 1)</p></section><section><div class='cell-label'>Markdown</div><p>将 $f^{(n)}(0) = 1$ 代入麦克劳林公式：$$e^x = \sum_{n=0}^{\infty} \frac{1}{n!} x^n = 1 + \frac{x}{1!} + \frac{x^2}{2!} + \frac{x^3}{3!} + \dots$$</p></section><section><div class='cell-label'>Markdown</div><p>$$\sum_{n=0}^{\infty} \frac{x^n}{n!} = e^x$$</p></section><section><div class='cell-label'>Markdown</div><p>---</p></section><section><div class='cell-label'>Markdown</div><p>**example2: 拆分：$e^{\lambda} = 1 + \sum_{j=1}^{\infty} \dots$**</p></section><section><div class='cell-label'>Markdown</div><p>$$e^{\lambda} = \sum_{j=0}^{\infty} \frac{\lambda^j}{j!} = \underbrace{\frac{\lambda^0}{0!}}_{\text{当 } j=0} + \sum_{j=1}^{\infty} \frac{\lambda^j}{j!}$$</p></section><section><div class='cell-label'>Markdown</div><p>$$e^{\lambda} = 1 + \sum_{j=1}^{\infty} \frac{\lambda^j}{j!}$$</p></section>
+</body>
+</html>

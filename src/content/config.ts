@@ -32,9 +32,9 @@ const projects = defineCollection({
     stack: z.array(z.string()).default([]),
     links: z
       .object({
-        live: z.string().url().optional(),
-        repo: z.string().url().optional(),
-        caseStudy: z.string().url().optional(),
+        live: z.string().optional(),
+        repo: z.string().optional(),
+        caseStudy: z.string().optional(),
       })
       .default({}),
     coverImage: z.string().optional(),
