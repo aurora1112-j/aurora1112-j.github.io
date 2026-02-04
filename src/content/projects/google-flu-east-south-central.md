@@ -4,6 +4,7 @@ description: "Predicting weekly influenza-like illness in the U.S. East South Ce
 date: 2026-02-04
 role: "Data Scientist"
 stack: ["Python", "Pandas", "Jupyter", "Time Series", "Public Health Data"]
+coverImage: "/projects/flu_prediction.png"
 featured: false
 ---
 
