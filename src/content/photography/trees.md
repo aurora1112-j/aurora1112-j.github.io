@@ -39,6 +39,6 @@ gallery:
 tags: ["nikon-z-5", "iphone-14", "2025-2026"]
 ---
 
-Between 2025-01-19 and 2026-01-06, this series gathers trees seen over changing light, captured on a Nikon Z 5 and an iPhone 14. Two frames retain GPS traces around 30.15-30.24, 120.07-120.16.
+Between 2025-01-19 and 2026-01-06, this series traces trees seen across shifting light, with two frames anchored around 30.15–30.24, 120.07–120.16. Branches, bark, and canopy become a quiet record of place: some trees lean into salt air, some hold their crowns tightly against winter, some unfurl in softer, inland light.
 
-Trees stand as slow sentences: trunks like lines of ink, leaves a soft grammar of wind. The camera lingers on their quiet endurance, letting the canopy carry time.
+Across these different grounds, growth reads like a dialect—rings of endurance, silhouettes of patience, leaves writing their brief, green sentences before the wind turns the page.
