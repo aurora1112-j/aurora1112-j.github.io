@@ -4,10 +4,10 @@ description: "Tree studies spanning 2025-01-19 to 2026-01-06, shot on Nikon Z 5 
 date: 2026-01-06
 location: "30.15-30.24, 120.07-120.16"
 camera: "NIKON Z 5; iPhone 14"
-coverImage: "/photography/trees/01.heic"
+coverImage: "/photography/trees/01.jpg"
 gallery:
-  - "/photography/trees/01.heic"
-  - "/photography/trees/02.heic"
+  - "/photography/trees/01.jpg"
+  - "/photography/trees/02.jpg"
   - "/photography/trees/03.jpg"
   - "/photography/trees/04.jpg"
   - "/photography/trees/05.jpg"
