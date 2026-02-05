@@ -9,6 +9,4 @@ pdfUrl: "/pdfs/social-pressure-network-structure-game-equilibria.pdf"
 draft: false
 ---
 
-中文标题：社会压力与集体非理性：网络结构对博弈均衡的影响
-
 Full report available in the attached PDF.
