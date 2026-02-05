@@ -1,14 +1,16 @@
 ---
-title: "MindFlow 2: CBT Micro-Practice Companion"
+title: "MindFlow"
 description: "A collaborative CBT micro-journey app that helps users name emotions, reframe thoughts, and take small actions with AI-guided prompts."
 date: 2026-02-05
 role: "Collaborator, Frontend Engineer"
 stack: ["React", "TypeScript", "Vite", "Tailwind CSS", "Supabase", "Framer Motion"]
+links:
+  repo: "https://github.com/aurora1112-j/mindflow"
 coverImage: "/projects/mindflow2/og-image.png"
 featured: false
 ---
 
-MindFlow 2 is a collaborative, mobile-first CBT companion designed to guide users
+MindFlow is a collaborative, mobile-first CBT companion designed to guide users
 through a short emotional reset. The flow moves from emotion naming, to cognitive
 restructuring with Socratic prompts, to a concrete micro-action that can be completed
 in minutes. The interface and prompts are in Simplified Chinese.
@@ -28,10 +30,10 @@ in minutes. The interface and prompts are in Simplified Chinese.
 - Supabase Auth, Storage, and Postgres-backed session history.
 - PWA-ready configuration for installable web app behavior.
 
-## Download
+## Repository
 
 <div class="button-row">
-  <a class="button primary" href="/projects/mindflow2/mindflow2-source.zip" download>
-    Download Source (ZIP)
+  <a class="button primary" href="https://github.com/aurora1112-j/mindflow">
+    View on GitHub
   </a>
 </div>
