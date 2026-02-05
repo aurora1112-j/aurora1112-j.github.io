@@ -5,7 +5,7 @@ date: 2026-02-05
 role: "Collaborator, Frontend Engineer"
 stack: ["React", "TypeScript", "Vite", "Tailwind CSS", "Supabase", "Framer Motion"]
 links:
-  repo: "https://github.com/aurora1112-j/mindflow"
+  live: "https://modelscope.cn/studios/aurorasein/mindflow/summary"
 coverImage: "/projects/mindflow2/og-image.png"
 featured: false
 ---
