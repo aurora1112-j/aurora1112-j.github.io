@@ -7,6 +7,10 @@ stack: ["React", "Vite", "SVG", "Zustand", "ModelScope", "Tavily"]
 links:
   live: "https://aurora1112-j.github.io/knotree/"
   repo: "https://github.com/aurora1112-j/knotree"
+coverImage: "/knotree.png"
+gallery:
+  - "/knotree_card.png"
+  - "/knotree.png"
 featured: true
 ---
 
