@@ -1,0 +1,40 @@
+---
+title: "Hong Kong"
+description: "A single-day walk through Hong Kong from late morning to early evening."
+date: 2026-02-06
+location: "Hong Kong"
+camera: "SONY ZV-E10M2"
+coverImage: "/photography/hong-kong/01.jpg"
+gallery:
+  - "/photography/hong-kong/01.jpg"
+  - "/photography/hong-kong/02.jpg"
+  - "/photography/hong-kong/03.jpg"
+  - "/photography/hong-kong/04.jpg"
+  - "/photography/hong-kong/05.jpg"
+  - "/photography/hong-kong/06.jpg"
+  - "/photography/hong-kong/07.jpg"
+  - "/photography/hong-kong/08.jpg"
+  - "/photography/hong-kong/09.jpg"
+  - "/photography/hong-kong/10.jpg"
+  - "/photography/hong-kong/11.jpg"
+  - "/photography/hong-kong/12.jpg"
+  - "/photography/hong-kong/13.jpg"
+  - "/photography/hong-kong/14.jpg"
+  - "/photography/hong-kong/15.jpg"
+  - "/photography/hong-kong/16.jpg"
+  - "/photography/hong-kong/17.jpg"
+  - "/photography/hong-kong/18.jpg"
+  - "/photography/hong-kong/19.jpg"
+  - "/photography/hong-kong/20.jpg"
+  - "/photography/hong-kong/21.jpg"
+  - "/photography/hong-kong/22.jpg"
+  - "/photography/hong-kong/23.jpg"
+  - "/photography/hong-kong/24.jpg"
+  - "/photography/hong-kong/25.jpg"
+  - "/photography/hong-kong/26.jpg"
+  - "/photography/hong-kong/27.jpg"
+  - "/photography/hong-kong/28.jpg"
+tags: ["city", "hong-kong"]
+---
+
+Shot on 2026-02-06 with a SONY ZV-E10M2, the sequence tracks the day from late morning into evening.
