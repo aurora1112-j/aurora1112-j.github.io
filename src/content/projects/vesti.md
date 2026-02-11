@@ -8,7 +8,7 @@ links:
   live: "https://vesti-landing-page0211.vercel.app/"
   repo: "https://github.com/aurora1112-j/vesti"
   caseStudy: "https://modelscope.cn/studios/aurorasein/Vesti/summary"
-coverImage: "/projects/vesti/landing-page-preview.png"
+coverImage: "/projects/vesti/screenshot.jpg"
 gallery:
   - "/projects/vesti/screenshot.jpg"
 featured: true
@@ -26,12 +26,7 @@ featured: true
 </section>
 
 <section class="project-landing-hero" id="top">
-  <p class="project-landing-overline">Local-first AI memory</p>
   <h1>Every thought deserves a home.</h1>
-  <p class="project-landing-subtitle">
-    Vesti auto-captures your chatbot (ChatGPT, Claude, Gemini, and DeepSeek)
-    conversations — searchable, quantified, and stored entirely in your browser.
-  </p>
   <div class="project-landing-actions">
     <a class="project-landing-btn primary" href="#download">Download</a>
     <a class="project-landing-btn" href="#demo">Watch Demo</a>
@@ -120,40 +115,39 @@ featured: true
   <h2>Get Started</h2>
   <p>Install Vesti in under a minute.</p>
 
-  <div class="project-landing-download-grid">
-    <article class="project-landing-download-card">
-      <p class="project-landing-overline">Recommended</p>
-      <h3>Official Landing Page</h3>
-      <p>Visit the live Vesti page for the latest release updates.</p>
-      <a
-        class="project-landing-btn primary"
-        href="https://vesti-landing-page0211.vercel.app/"
-        target="_blank"
-        rel="noreferrer"
-      >
-        Open Landing Page
-      </a>
-    </article>
-
-    <article class="project-landing-download-card">
-      <p class="project-landing-overline">Developer</p>
-      <h3>Manual Install</h3>
-      <p>Download the packaged build and load it from Chrome extensions.</p>
-      <a
-        class="project-landing-btn project-landing-btn-download"
-        href="/projects/vesti/Vesti_MVP.zip"
-        download="Vesti_MVP.zip"
-      >
-        Download .zip
-      </a>
-      <ol class="project-landing-steps">
-        <li>Download and unzip the package.</li>
-        <li>Open <code>chrome://extensions</code> in your browser.</li>
-        <li>Enable Developer mode.</li>
-        <li>Click Load unpacked and select the unzipped folder.</li>
-      </ol>
-    </article>
-  </div>
+<div class="project-landing-download-grid">
+  <article class="project-landing-download-card">
+    <p class="project-landing-overline">Recommended</p>
+    <h3>Official Landing Page</h3>
+    <p>Visit the live Vesti page for the latest release updates.</p>
+    <a
+      class="project-landing-btn primary"
+      href="https://vesti-landing-page0211.vercel.app/"
+      target="_blank"
+      rel="noreferrer"
+    >
+      Open Landing Page
+    </a>
+  </article>
+  <article class="project-landing-download-card">
+    <p class="project-landing-overline">Developer</p>
+    <h3>Manual Install</h3>
+    <p>Download the packaged build and load it from Chrome extensions.</p>
+    <a
+      class="project-landing-btn project-landing-btn-download"
+      href="/projects/vesti/Vesti_MVP.zip"
+      download="Vesti_MVP.zip"
+    >
+      Download .zip
+    </a>
+    <ol class="project-landing-steps">
+      <li>Download and unzip the package.</li>
+      <li>Open <code>chrome://extensions</code> in your browser.</li>
+      <li>Enable Developer mode.</li>
+      <li>Click Load unpacked and select the unzipped folder.</li>
+    </ol>
+  </article>
+</div>
 
   <p class="project-landing-compatibility">
     Compatible with Chrome, Edge, Arc, Brave, and Chromium-based browsers.

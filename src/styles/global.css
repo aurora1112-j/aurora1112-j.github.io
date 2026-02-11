@@ -398,7 +398,7 @@ h3 {
 
 .project-landing-hero {
   text-align: center;
-  margin-bottom: 38px;
+  margin-bottom: 52px;
 }
 
 .project-landing-overline {
@@ -421,7 +421,7 @@ h3 {
 }
 
 .project-landing-subtitle {
-  margin: 18px auto 0;
+  margin: 0 auto;
   max-width: 560px;
   font-size: 1rem;
   line-height: 1.72;
@@ -429,11 +429,13 @@ h3 {
 }
 
 .project-landing-actions {
-  margin-top: 26px;
+  margin-top: 8px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
+  position: relative;
+  z-index: 2;
 }
 
 .project-landing-btn {
@@ -480,7 +482,7 @@ h3 {
 
 .project-landing-screenshot,
 .project-landing-demo {
-  margin-top: 16px;
+  margin-top: 22px;
 }
 
 .project-landing-media-frame {
@@ -500,6 +502,10 @@ h3 {
 .project-landing-screenshot .project-landing-media-frame {
   max-width: 680px;
   margin: 0 auto;
+}
+
+.project-landing-screenshot {
+  padding-top: 8px;
 }
 
 .project-landing-platforms {
@@ -639,7 +645,8 @@ h3 {
 
 .project-landing-download-card .project-landing-btn {
   margin-top: 14px;
-  width: fit-content;
+  display: inline-flex;
+  width: 100%;
   min-width: 150px;
 }
 
