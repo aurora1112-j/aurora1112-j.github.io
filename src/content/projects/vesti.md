@@ -10,7 +10,7 @@ links:
   caseStudy: "https://modelscope.cn/studios/aurorasein/Vesti/summary"
 coverImage: "/projects/vesti/landing-page-preview.png"
 gallery:
-  - "/projects/vesti/landing-page-preview.png"
+  - "/projects/vesti/screenshot.jpg"
 featured: true
 ---
 
@@ -42,8 +42,8 @@ featured: true
 <section class="project-landing-screenshot">
   <div class="project-landing-media-frame">
     <img
-      src="/projects/vesti/landing-page-preview.png"
-      alt="Vesti landing page preview"
+      src="/projects/vesti/screenshot.jpg"
+      alt="Vesti extension panel and conversation timeline inside Claude"
       loading="eager"
     />
   </div>
@@ -139,7 +139,11 @@ featured: true
       <p class="project-landing-overline">Developer</p>
       <h3>Manual Install</h3>
       <p>Download the packaged build and load it from Chrome extensions.</p>
-      <a class="project-landing-btn" href="/projects/vesti/Vesti_MVP.zip" download>
+      <a
+        class="project-landing-btn project-landing-btn-download"
+        href="/projects/vesti/Vesti_MVP.zip"
+        download="Vesti_MVP.zip"
+      >
         Download .zip
       </a>
       <ol class="project-landing-steps">
