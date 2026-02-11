@@ -46,7 +46,18 @@ const dataviz = (await getCollection("dataviz"))
         </div>
       </div>
       <div class="hero-media reveal delay-1">
-        <img src="/images/placeholder-hero.svg" alt="" />
+        <div class="hero-mosaic" role="navigation" aria-label="Quick links">
+          <a class="hero-mosaic-card hero-mosaic-card-articles" href="/articles">
+            <span class="hero-mosaic-title">Articles</span>
+          </a>
+          <a class="hero-mosaic-card hero-mosaic-card-projects" href="/projects">
+            <span class="hero-mosaic-title">Projects</span>
+          </a>
+          <a class="hero-mosaic-card hero-mosaic-card-photography" href="/photography">
+            <span class="hero-mosaic-title">Photography</span>
+            <span class="hero-mosaic-subtitle">Data Viz + Essays</span>
+          </a>
+        </div>
         <div class="grid grid-2">
           <div>
             <p class="kicker">Focus</p>
