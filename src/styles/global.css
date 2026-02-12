@@ -81,6 +81,24 @@ p {
   padding: 80px 0;
 }
 
+.section-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 18px;
+}
+
+.section-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.section-more::after {
+  content: "->";
+}
+
 .section-header {
   display: flex;
   flex-direction: column;
@@ -264,19 +282,19 @@ h3 {
 
 .hero-mosaic {
   display: grid;
-  gap: 14px;
-  grid-template-columns: 360px 1fr;
-  grid-template-rows: 220px 220px;
+  gap: 12px;
+  grid-template-columns: repeat(2, minmax(160px, 1fr));
+  grid-auto-rows: 160px;
   grid-template-areas:
-    "articles photography"
-    "projects photography";
+    "articles projects"
+    "photography dataviz";
 }
 
 .hero-mosaic-card {
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 24px;
-  padding: 28px;
+  border-radius: 20px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -308,12 +326,14 @@ h3 {
 
 .hero-mosaic-card-photography {
   grid-area: photography;
-  justify-content: flex-start;
-  padding-top: 98px;
+}
+
+.hero-mosaic-card-dataviz {
+  grid-area: dataviz;
 }
 
 .hero-mosaic-title {
-  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
   line-height: 1.12;
   font-family: var(--font-serif);
   font-weight: 700;
@@ -327,27 +347,17 @@ h3 {
   color: var(--accent-2);
 }
 
-.hero-mosaic-subtitle {
-  color: var(--muted);
-  font-size: 1.25rem;
-}
-
 @media (max-width: 980px) {
   .hero-mosaic {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
+    grid-template-columns: repeat(2, minmax(140px, 1fr));
+    grid-auto-rows: 140px;
     grid-template-areas:
-      "articles"
-      "projects"
-      "photography";
+      "articles projects"
+      "photography dataviz";
   }
 
   .hero-mosaic-card {
-    min-height: 170px;
-  }
-
-  .hero-mosaic-card-photography {
-    padding-top: 32px;
+    min-height: 140px;
   }
 }
 
@@ -817,6 +827,16 @@ h3 {
 
   .hero {
     padding-top: 30px;
+  }
+
+  .hero-mosaic {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 140px;
+    grid-template-areas:
+      "articles"
+      "projects"
+      "photography"
+      "dataviz";
   }
 
   .project-landing-navbar {

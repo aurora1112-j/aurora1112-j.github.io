@@ -47,15 +47,17 @@ const dataviz = (await getCollection("dataviz"))
       </div>
       <div class="hero-media reveal delay-1">
         <div class="hero-mosaic" role="navigation" aria-label="Quick links">
-          <a class="hero-mosaic-card hero-mosaic-card-articles" href="/articles">
+          <a class="hero-mosaic-card hero-mosaic-card-articles" href="#articles">
             <span class="hero-mosaic-title">Articles</span>
           </a>
-          <a class="hero-mosaic-card hero-mosaic-card-projects" href="/projects">
+          <a class="hero-mosaic-card hero-mosaic-card-projects" href="#projects">
             <span class="hero-mosaic-title">Projects</span>
           </a>
-          <a class="hero-mosaic-card hero-mosaic-card-photography" href="/photography">
+          <a class="hero-mosaic-card hero-mosaic-card-photography" href="#photography">
             <span class="hero-mosaic-title">Photography</span>
-            <span class="hero-mosaic-subtitle">Data Viz + Essays</span>
+          </a>
+          <a class="hero-mosaic-card hero-mosaic-card-dataviz" href="#dataviz">
+            <span class="hero-mosaic-title">Data Viz</span>
           </a>
         </div>
         <div class="grid grid-2">
@@ -75,7 +77,7 @@ const dataviz = (await getCollection("dataviz"))
       </div>
     </section>
 
-    <section class="section reveal">
+    <section class="section reveal" id="articles">
       <SectionHeader
         kicker="Writing"
         title="Articles"
@@ -93,9 +95,12 @@ const dataviz = (await getCollection("dataviz"))
           />
         ))}
       </div>
+      <div class="section-footer">
+        <a class="section-more" href="/articles">Read more</a>
+      </div>
     </section>
 
-    <section class="section reveal delay-1">
+    <section class="section reveal delay-1" id="projects">
       <SectionHeader
         kicker="Build"
         title="Projects"
@@ -113,9 +118,12 @@ const dataviz = (await getCollection("dataviz"))
           />
         ))}
       </div>
+      <div class="section-footer">
+        <a class="section-more" href="/projects">Read more</a>
+      </div>
     </section>
 
-    <section class="section reveal delay-2">
+    <section class="section reveal delay-2" id="photography">
       <SectionHeader
         kicker="Visuals"
         title="Photography"
@@ -133,9 +141,12 @@ const dataviz = (await getCollection("dataviz"))
           />
         ))}
       </div>
+      <div class="section-footer">
+        <a class="section-more" href="/photography">Read more</a>
+      </div>
     </section>
 
-    <section class="section reveal delay-3">
+    <section class="section reveal delay-3" id="dataviz">
       <SectionHeader
         kicker="Evidence"
         title="Data Visualization"
@@ -152,6 +163,9 @@ const dataviz = (await getCollection("dataviz"))
             tags={entry.data.tools}
           />
         ))}
+      </div>
+      <div class="section-footer">
+        <a class="section-more" href="/dataviz">Read more</a>
       </div>
     </section>
   </main>
