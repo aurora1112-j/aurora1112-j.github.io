@@ -5,6 +5,11 @@ abstract: "How did West German society narrate and negotiate the Nazi past in ev
 date: 2026-02-16
 tags: ["denazification", "vergangenheitsbewältigung", "collective-memory", "framing", "local-newspapers", "topic-modeling", "diachronic-word-embeddings"]
 pdfUrl: "/pdfs/denazification-local-press-1945-1977.docx"
+downloads:
+  - label: "Download article"
+    url: "/pdfs/denazification-local-press-1945-1977.docx"
+  - label: "Download code"
+    url: "https://github.com/aurora1112-j/denazification/raw/main/ipynb.zip"
 draft: false
 ---
 
