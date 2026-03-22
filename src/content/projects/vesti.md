@@ -8,8 +8,8 @@ links:
   live: "https://vesti.rth3.xyz/"
   repo: "https://github.com/abraxas914/VESTI"
   caseStudy: "https://modelscope.cn/studios/aurorasein/Vesti/summary"
-coverImage: "/projects/vesti/library.png"
+coverImage: "/projects/vesti/cover-hero.svg"
 gallery:
-  - "/projects/vesti/library.png"
+  - "/projects/vesti/cover-hero.svg"
 featured: true
 ---

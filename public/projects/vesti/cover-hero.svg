@@ -1,0 +1,103 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1000" fill="#F7F3EB"/>
+  <rect y="84" width="1600" height="1" fill="#DDD6CA"/>
+  <circle cx="108" cy="138" r="11" fill="#F26D21"/>
+  <text x="146" y="148" fill="#1B1E27" font-size="24" font-family="monospace" letter-spacing="8">VISION</text>
+
+  <text x="69" y="270" fill="#141824" font-size="72" font-weight="700" font-family="Arial, Helvetica, sans-serif">Local-first memory</text>
+  <text x="69" y="345" fill="#141824" font-size="72" font-weight="700" font-family="Arial, Helvetica, sans-serif">for AI</text>
+  <text x="69" y="420" fill="#141824" font-size="72" font-weight="700" font-family="Arial, Helvetica, sans-serif">conversations.</text>
+
+  <text x="69" y="495" fill="#6F685E" font-size="32" font-family="monospace">The memory system that keeps the work you do with</text>
+  <text x="69" y="535" fill="#6F685E" font-size="32" font-family="monospace">AI searchable, structured, and close at hand.</text>
+  <text x="69" y="628" fill="#6F685E" font-size="32" font-family="monospace">Capture prompts, dead ends, references, and</text>
+  <text x="69" y="668" fill="#6F685E" font-size="32" font-family="monospace">decisions without changing your tools, your tabs,</text>
+  <text x="69" y="708" fill="#6F685E" font-size="32" font-family="monospace">or your workflow.</text>
+
+  <rect x="69" y="760" width="292" height="74" rx="37" fill="#141824"/>
+  <text x="101" y="806" fill="#FFFFFF" font-size="26" font-family="monospace" letter-spacing="4">INSTALL VESTI</text>
+  <path d="M304 797H325M325 797L315 787M325 797L315 807" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="379" y="761" width="240" height="72" rx="36" fill="none" stroke="#CDD2DB" stroke-width="2"/>
+  <text x="415" y="806" fill="#1B1E27" font-size="26" font-family="monospace" letter-spacing="4">WATCH DEMO</text>
+
+  <g fill="none" stroke="#CDD2DB" stroke-width="2">
+    <rect x="69" y="867" width="94" height="42" rx="21"/>
+    <rect x="178" y="867" width="74" height="42" rx="21"/>
+    <rect x="267" y="867" width="82" height="42" rx="21"/>
+    <rect x="364" y="867" width="109" height="42" rx="21"/>
+    <rect x="488" y="867" width="195" height="42" rx="21"/>
+    <rect x="69" y="925" width="219" height="42" rx="21"/>
+  </g>
+
+  <g fill="#1B1E27" font-size="20" font-family="monospace" letter-spacing="4">
+    <text x="89" y="894">CHROME</text>
+    <text x="204" y="894">ARC</text>
+    <text x="289" y="894">EDGE</text>
+    <text x="392" y="894">BRAVE</text>
+    <text x="523" y="894" fill="#7E776D">LOCAL INDEX</text>
+    <text x="90" y="952" fill="#7E776D">PRIVACY BY DEFAULT</text>
+  </g>
+
+  <g fill="#1B1E27" font-size="20" font-family="monospace" letter-spacing="6">
+    <text x="519" y="48">SYSTEM</text>
+    <text x="662" y="48">PRIVACY</text>
+    <text x="817" y="48">DEMO</text>
+    <text x="939" y="48">GITHUB</text>
+  </g>
+
+  <rect x="1232" y="20" width="160" height="58" rx="29" fill="none" stroke="#CDD2DB" stroke-width="2"/>
+  <text x="1260" y="56" fill="#1B1E27" font-size="22" font-family="monospace" letter-spacing="4">INSTALL</text>
+  <rect x="1408" y="20" width="184" height="58" rx="29" fill="#141824"/>
+  <text x="1432" y="56" fill="#FFFFFF" font-size="22" font-family="monospace" letter-spacing="4">WATCH DEMO</text>
+
+  <g fill="#1B1E27">
+    <circle cx="94" cy="35" r="8"/>
+    <circle cx="72" cy="35" r="8"/>
+    <circle cx="83" cy="41" r="3" fill="#F7F3EB"/>
+  </g>
+  <text x="125" y="48" fill="#1B1E27" font-size="28" font-family="Arial, Helvetica, sans-serif" font-weight="700" letter-spacing="5">VESTI</text>
+
+  <g stroke="#DDD6CA" stroke-width="2" stroke-dasharray="5 5">
+    <line x1="865" y1="315" x2="1045" y2="315"/>
+    <line x1="1247" y1="397" x2="1370" y2="397"/>
+    <line x1="848" y1="680" x2="1015" y2="680"/>
+  </g>
+
+  <g stroke="#E5DED1" stroke-width="2">
+    <line x1="1093" y1="445" x2="1128" y2="390"/>
+    <line x1="1128" y1="390" x2="1204" y2="428"/>
+    <line x1="1204" y1="428" x2="1255" y2="387"/>
+    <line x1="1255" y1="387" x2="1313" y2="417"/>
+    <line x1="1204" y1="428" x2="1197" y2="492"/>
+    <line x1="1197" y1="492" x2="1156" y2="506"/>
+    <line x1="1156" y1="506" x2="1118" y2="467"/>
+    <line x1="1118" y1="467" x2="1093" y2="445"/>
+    <line x1="1156" y1="506" x2="1212" y2="621"/>
+    <line x1="1156" y1="506" x2="1234" y2="495"/>
+    <line x1="1234" y1="495" x2="1212" y2="621"/>
+    <line x1="1234" y1="495" x2="1266" y2="544"/>
+    <line x1="1266" y1="544" x2="1255" y2="387"/>
+  </g>
+
+  <g>
+    <circle cx="1204" cy="350" r="22" fill="#4E68DF"/>
+    <circle cx="1255" cy="387" r="17" fill="#3D4C96"/>
+    <circle cx="1313" cy="417" r="19" fill="#3D4C96"/>
+    <circle cx="1197" cy="445" r="21" fill="#4E68DF"/>
+    <circle cx="1156" cy="441" r="16" fill="#4E68DF"/>
+    <circle cx="1266" cy="544" r="21" fill="#3D4C96"/>
+    <circle cx="1234" cy="495" r="18" fill="#F3C78E"/>
+    <circle cx="1197" cy="506" r="20" fill="#F3C78E"/>
+    <circle cx="1212" cy="621" r="16" fill="#F3C78E"/>
+    <circle cx="1118" cy="467" r="14" fill="#F7F3EB" stroke="#FFFFFF" stroke-width="3"/>
+    <circle cx="1093" cy="445" r="14" fill="#F7F3EB" stroke="#FFFFFF" stroke-width="3"/>
+    <circle cx="1156" cy="531" r="21" fill="#F0EAE0" stroke="#FFFFFF" stroke-width="3"/>
+  </g>
+
+  <g opacity="0.34" fill="#8F8B84">
+    <text x="1040" y="882" font-size="34" font-family="Arial, Helvetica, sans-serif" font-weight="700">DeepSeek</text>
+    <text x="1348" y="882" font-size="34" font-family="Arial, Helvetica, sans-serif" font-weight="700">Claude</text>
+    <text x="1560" y="882" font-size="34" font-family="Arial, Helvetica, sans-serif" font-weight="700">Gemini</text>
+  </g>
+</svg>
