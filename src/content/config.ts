@@ -65,6 +65,12 @@ const dataviz = defineCollection({
     date: z.date(),
     tools: z.array(z.string()).default([]),
     demoUrl: z.string().url().optional(),
+    links: z
+      .object({
+        live: z.string().optional(),
+        repo: z.string().optional(),
+      })
+      .default({}),
     coverImage: z.string().optional(),
     gallery: z.array(z.string()).optional(),
   }),

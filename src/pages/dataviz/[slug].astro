@@ -14,6 +14,7 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
+const links = entry.data.links ?? {};
 const { Content } = await entry.render();
 ---
 
@@ -34,12 +35,17 @@ const { Content } = await entry.render();
         <img src={entry.data.coverImage} alt="" />
       </div>
     )}
-    {entry.data.demoUrl && (
+    {(entry.data.demoUrl || links.live || links.repo) && (
       <div class="button-row" style="margin-bottom: 24px;">
-        <a class="button primary" href={entry.data.demoUrl}>View Demo</a>
+        {(links.live || entry.data.demoUrl) && (
+          <a class="button primary" href={links.live ?? entry.data.demoUrl}>
+            View Demo
+          </a>
+        )}
+        {links.repo && <a class="button" href={links.repo}>Repository</a>}
       </div>
     )}
-    <article class="prose">
+    <article class="prose dataviz-prose">
       <Content />
     </article>
     {entry.data.gallery && (
