@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import SiteHeader from "../../components/SiteHeader.astro";
 import SiteFooter from "../../components/SiteFooter.astro";
+import VestiLanding from "../../components/VestiLanding.astro";
 import { getCollection } from "astro:content";
 import { formatDate } from "../../utils/formatDate";
 
@@ -14,21 +15,23 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
 const links = entry.data.links ?? {};
 const isLandingProject = entry.slug === "vesti";
+const { Content } = isLandingProject ? { Content: null } : await entry.render();
 ---
 
 <BaseLayout title={entry.data.title} description={entry.data.description}>
-  <SiteHeader />
-  <main class:list={["container", "section", isLandingProject && "project-landing-shell"]}>
-    <a class="kicker" href="/projects">Back to Projects</a>
-    {isLandingProject ? (
+  {isLandingProject ? (
+    <main class="project-landing-shell">
       <article class="project-landing-content">
-        <Content />
+        <VestiLanding />
       </article>
-    ) : (
-      <>
+    </main>
+  ) : (
+    <>
+      <SiteHeader />
+      <main class="container section">
+        <a class="kicker" href="/projects">Back to Projects</a>
         <h1>{entry.data.title}</h1>
         <p class="muted">{entry.data.description}</p>
         <div class="tag-list" style="margin: 16px 0;">
@@ -67,8 +70,8 @@ const isLandingProject = entry.slug === "vesti";
             </div>
           </section>
         )}
-      </>
-    )}
-  </main>
-  <SiteFooter />
+      </main>
+      <SiteFooter />
+    </>
+  )}
 </BaseLayout>
