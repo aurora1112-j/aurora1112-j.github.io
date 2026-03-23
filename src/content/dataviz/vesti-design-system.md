@@ -5,7 +5,7 @@ date: 2026-03-23
 tools: ["Design system", "UI prototype", "Editorial print"]
 links:
   repo: "https://github.com/aurora1112-j/vesti"
-coverImage: "/images/vesti-design-system/ui-system-board.jpg"
+coverImage: "/images/vesti-design-system/landing-live.png"
 ---
 
 <section class="dataviz-intro">
