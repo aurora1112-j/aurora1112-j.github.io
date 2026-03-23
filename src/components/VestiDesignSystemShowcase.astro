@@ -1,0 +1,806 @@
+---
+const cards = [
+  {
+    number: "01",
+    title: "Dark Edition — Blueprint on Navy",
+    desc: "A print-ready poster that pushes Vesti toward an exhibition mood: technical, composed, and slightly nocturnal.",
+    tag: "Print · Poster",
+    tools: ["A3 print", "CMYK", "Figma"],
+    image: "/images/vesti-design-system/poster-dark.png",
+    filterTags: ["print", "brand"],
+    size: "card--wide card--dark",
+  },
+  {
+    number: "02",
+    title: "Light Edition — Ink on Cream",
+    desc: "The primary poster expression. Large serif typography, pale glyph texture, and quiet feature modules carry the system most clearly.",
+    tag: "Print · Poster",
+    tools: ["A3 print", "CMYK"],
+    image: "/images/vesti-design-system/poster-light.png",
+    filterTags: ["print", "brand"],
+    size: "card--tall",
+  },
+  {
+    divider: "Extension UI / Product Screens",
+  },
+  {
+    number: "03",
+    title: "Marketing Site Hero",
+    desc: "A restrained landing page that introduces the local-first premise before the product details, using wide spacing and soft network cues.",
+    tag: "Web · Landing page",
+    tools: ["Next.js", "Typography", "Brand"],
+    image: "/images/vesti-design-system/landing-live.png",
+    filterTags: ["ui", "brand"],
+    size: "card--half",
+  },
+  {
+    number: "04",
+    title: "Threads View — Capture Panel",
+    desc: "The compact entry point: searchable thread cards, platform-colored tags, and a layout designed to stay visible without overwhelming the host page.",
+    tag: "Chrome extension · Popup",
+    tools: ["Overlay", "Capture", "Search"],
+    image: "/images/vesti-design-system/ui-panel-detail.jpg",
+    filterTags: ["ui"],
+    size: "card--half",
+  },
+  {
+    number: "05",
+    title: "In-Context Archive Overlay",
+    desc: "A sidecar archive that lives beside the AI interface. The goal is continuity: preserve the browsing context while exposing memory and retrieval.",
+    tag: "Product surface · Threads",
+    tools: ["Overlay UI", "Archive", "Search"],
+    image: "/images/vesti-design-system/ui-library-detail.jpg",
+    filterTags: ["ui", "brand"],
+    size: "card--wide",
+  },
+  {
+    number: "06",
+    title: "Explore Mode — Ask the Archive",
+    desc: "A conversational knowledge surface that reframes past chats as a searchable base. Sample prompts reduce the distance between archive and action.",
+    tag: "Dashboard · Explore",
+    tools: ["Prompt UI", "RAG", "History"],
+    image: "/images/vesti-design-system/explore-screen.png",
+    filterTags: ["ui"],
+    size: "card--half",
+  },
+  {
+    number: "07",
+    title: "Network View — Temporal Knowledge Graph",
+    desc: "A graph surface that turns semantic similarity into a navigable cluster view, paired with a timeline replay to show how topics accumulate over time.",
+    tag: "Dashboard · Network",
+    tools: ["Graph", "Timeline", "Similarity"],
+    image: "/images/vesti-design-system/network-screen.png",
+    filterTags: ["ui"],
+    size: "card--half",
+  },
+  {
+    divider: "Print Collateral",
+  },
+  {
+    number: "08",
+    title: "Conference Postcard — CMYK",
+    desc: "A compact bilingual handout translating the same glyph, type hierarchy, and QR-led call to action into a portable format.",
+    tag: "Print · Postcard",
+    tools: ["A6 card", "CMYK", "Bilingual"],
+    image: "/images/vesti-design-system/postcard.png",
+    filterTags: ["print", "brand"],
+    size: "card--half",
+  },
+  {
+    number: "09",
+    title: "Bookmark — Portable Brand Piece",
+    desc: "The narrowest artifact in the system. It keeps only the essentials: title, glyph, short promise, and a direct path back to the product.",
+    tag: "Print · Bookmark",
+    tools: ["Bookmark", "QR", "Identity"],
+    image: "/images/vesti-design-system/bookmark.png",
+    filterTags: ["print", "brand"],
+    size: "card--half",
+  },
+];
+---
+
+<section class="vds-section">
+  <div class="vds-header">
+    <div class="vds-header-left">
+      <a class="vds-back" href="/dataviz">Back to Data Viz</a>
+      <div class="vds-label">Selected Work</div>
+      <h1>Vesti <em>Design</em><br />System</h1>
+    </div>
+    <div class="vds-header-right">
+      <div class="vds-meta-line">2025 — 2026</div>
+      <div class="vds-meta-line">Brand · Print · UI</div>
+      <div class="vds-meta-line">
+        <a href="https://github.com/aurora1112-j/vesti" target="_blank" rel="noreferrer">Repository</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="vds-intro">
+    <div class="vds-intro-count">09</div>
+    <p class="vds-intro-text">
+      A cohesive visual system built for <strong>Vesti</strong>, a local-first AI
+      memory hub. The language spans posters, a postcard, a bookmark, and product
+      interfaces, all organized around <strong>restraint over decoration</strong>
+      and <strong>typography as structure</strong>.
+    </p>
+  </div>
+
+  <div class="vds-filters" aria-label="Filter showcase">
+    <button class="vds-filter-btn is-active" data-filter="all">All</button>
+    <button class="vds-filter-btn" data-filter="print">Print</button>
+    <button class="vds-filter-btn" data-filter="ui">UI</button>
+    <button class="vds-filter-btn" data-filter="brand">Brand</button>
+  </div>
+
+  <div class="vds-grid" id="vds-grid">
+    {cards.map((card) =>
+      card.divider ? (
+        <div class="vds-card vds-card--divider">
+          <div class="vds-divider-label">{card.divider}</div>
+        </div>
+      ) : (
+        <article
+          class:list={["vds-card", card.size]}
+          data-tags={card.filterTags.join(" ")}
+          data-lightbox={card.image}
+          tabindex="0"
+          role="button"
+          aria-label={`Open ${card.title}`}
+        >
+          <div class="vds-card-thumb">
+            <img src={card.image} alt={card.title} loading="lazy" />
+            <span class="vds-card-num">{card.number}</span>
+          </div>
+          <div class="vds-card-body">
+            <div class="vds-card-tag">{card.tag}</div>
+            <h2 class="vds-card-title">{card.title}</h2>
+            <p class="vds-card-desc">{card.desc}</p>
+            <div class="vds-card-footer">
+              <div class="vds-card-tools">
+                {card.tools.map((tool) => (
+                  <span class="vds-pill">{tool}</span>
+                ))}
+              </div>
+              <div class="vds-card-arrow" aria-hidden="true">→</div>
+            </div>
+          </div>
+        </article>
+      )
+    )}
+  </div>
+
+  <div class="vds-stats">
+    <div class="vds-stat">
+      <div class="vds-stat-n">2</div>
+      <div class="vds-stat-label">Print posters</div>
+    </div>
+    <div class="vds-stat">
+      <div class="vds-stat-n">5</div>
+      <div class="vds-stat-label">UI surfaces</div>
+    </div>
+    <div class="vds-stat">
+      <div class="vds-stat-n">2</div>
+      <div class="vds-stat-label">Compact print pieces</div>
+    </div>
+    <div class="vds-stat">
+      <div class="vds-stat-n">8</div>
+      <div class="vds-stat-label">Supported platforms</div>
+    </div>
+  </div>
+</section>
+
+<div class="vds-lightbox" id="vds-lightbox" aria-hidden="true">
+  <button class="vds-lightbox-close" id="vds-lightbox-close" type="button">Close</button>
+  <div class="vds-lightbox-inner">
+    <img id="vds-lightbox-img" src="" alt="" />
+  </div>
+</div>
+
+<script>
+  const filterButtons = Array.from(document.querySelectorAll(".vds-filter-btn"));
+  const cards = Array.from(document.querySelectorAll(".vds-card[data-tags]"));
+  const lightbox = document.getElementById("vds-lightbox");
+  const lightboxImg = document.getElementById("vds-lightbox-img");
+  const lightboxClose = document.getElementById("vds-lightbox-close");
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const filter = button.dataset.filter ?? "all";
+      filterButtons.forEach((item) => item.classList.remove("is-active"));
+      button.classList.add("is-active");
+
+      cards.forEach((card) => {
+        const tags = card.dataset.tags ?? "";
+        const matches = filter === "all" || tags.includes(filter);
+        card.classList.toggle("is-dimmed", !matches);
+      });
+    });
+  });
+
+  function openLightbox(src, alt) {
+    if (!lightbox || !lightboxImg) return;
+    lightboxImg.setAttribute("src", src);
+    lightboxImg.setAttribute("alt", alt);
+    lightbox.classList.add("is-open");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    if (!lightbox || !lightboxImg) return;
+    lightbox.classList.remove("is-open");
+    lightbox.setAttribute("aria-hidden", "true");
+    lightboxImg.setAttribute("src", "");
+    document.body.style.overflow = "";
+  }
+
+  cards.forEach((card) => {
+    const src = card.dataset.lightbox;
+    const alt = card.getAttribute("aria-label") ?? "Showcase image";
+    if (!src) return;
+    card.addEventListener("click", () => openLightbox(src, alt));
+    card.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openLightbox(src, alt);
+      }
+    });
+  });
+
+  lightbox?.addEventListener("click", (event) => {
+    if (event.target === lightbox) closeLightbox();
+  });
+
+  lightboxClose?.addEventListener("click", closeLightbox);
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeLightbox();
+  });
+</script>
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400&display=swap");
+
+  :global(body) {
+    background: #f5f0e8;
+  }
+
+  .vds-section {
+    --cream: #f5f0e8;
+    --ink: #1a1814;
+    --blue-deep: #1e3a8a;
+    --gold: #d4a017;
+    --muted: #8a8070;
+    --rule: rgba(26, 24, 20, 0.12);
+    --card-bg: #fdfaf4;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 72px 40px 120px;
+    color: var(--ink);
+    font-family: "Instrument Sans", var(--font-sans, sans-serif);
+    font-weight: 300;
+  }
+
+  .vds-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 32px;
+    margin-bottom: 64px;
+    gap: 40px;
+  }
+
+  .vds-back,
+  .vds-label,
+  .vds-meta-line,
+  .vds-filter-btn,
+  .vds-card-tag,
+  .vds-pill,
+  .vds-divider-label,
+  .vds-stat-label,
+  .vds-lightbox-close {
+    font-family: "Space Mono", monospace;
+  }
+
+  .vds-back {
+    display: inline-block;
+    margin-bottom: 18px;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .vds-label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .vds-label::before {
+    content: "";
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  h1 {
+    font-family: "Playfair Display", var(--font-serif, serif);
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--blue-deep);
+  }
+
+  .vds-header-right {
+    text-align: right;
+    padding-bottom: 6px;
+  }
+
+  .vds-meta-line {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    line-height: 1.9;
+    text-transform: uppercase;
+  }
+
+  .vds-meta-line a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .vds-intro {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+    margin-bottom: 72px;
+    align-items: start;
+  }
+
+  .vds-intro-count {
+    font-family: "Playfair Display", var(--font-serif, serif);
+    font-size: 5rem;
+    font-weight: 400;
+    color: var(--blue-deep);
+    opacity: 0.18;
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+
+  .vds-intro-text {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: #4a4540;
+    max-width: 560px;
+    margin: 0;
+  }
+
+  .vds-intro-text strong {
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .vds-filters {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+
+  .vds-filter-btn {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 8px 18px;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .vds-filter-btn:hover,
+  .vds-filter-btn.is-active {
+    background: var(--ink);
+    color: var(--cream);
+    border-color: var(--ink);
+  }
+
+  .vds-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+  }
+
+  .vds-card {
+    background: var(--card-bg);
+    border: 1px solid var(--rule);
+    overflow: hidden;
+    cursor: pointer;
+    transition:
+      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.2s ease;
+    position: relative;
+    opacity: 0;
+    transform: translateY(24px);
+    animation: vds-rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  .vds-card:nth-child(1) { animation-delay: 0.05s; }
+  .vds-card:nth-child(2) { animation-delay: 0.12s; }
+  .vds-card:nth-child(3) { animation-delay: 0.19s; }
+  .vds-card:nth-child(4) { animation-delay: 0.26s; }
+  .vds-card:nth-child(5) { animation-delay: 0.33s; }
+  .vds-card:nth-child(6) { animation-delay: 0.40s; }
+  .vds-card:nth-child(7) { animation-delay: 0.47s; }
+  .vds-card:nth-child(8) { animation-delay: 0.54s; }
+  .vds-card:nth-child(9) { animation-delay: 0.61s; }
+  .vds-card:nth-child(10) { animation-delay: 0.68s; }
+
+  .vds-card.is-dimmed {
+    opacity: 0.22;
+    pointer-events: none;
+  }
+
+  .vds-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 60px rgba(26, 24, 20, 0.1);
+  }
+
+  .vds-card:hover .vds-card-thumb img {
+    transform: scale(1.04);
+  }
+
+  .card--wide { grid-column: span 7; }
+  .card--tall { grid-column: span 5; }
+  .card--half { grid-column: span 6; }
+
+  .vds-card-thumb {
+    overflow: hidden;
+    position: relative;
+    background: #ece5da;
+  }
+
+  .vds-card-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .card--wide .vds-card-thumb { height: 340px; }
+  .card--tall .vds-card-thumb { height: 500px; }
+  .card--half .vds-card-thumb { height: 340px; }
+
+  .card--tall .vds-card-thumb img,
+  .card--half .vds-card-thumb img[src$="bookmark.png"] {
+    object-fit: contain;
+    background: #efe7da;
+  }
+
+  .vds-card-thumb::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--blue-deep);
+    opacity: 0;
+    transition: opacity 0.35s;
+  }
+
+  .vds-card:hover .vds-card-thumb::after {
+    opacity: 0.08;
+  }
+
+  .vds-card-body {
+    padding: 22px 26px 24px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .vds-card-tag {
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .vds-card-title {
+    font-family: "Playfair Display", var(--font-serif, serif);
+    font-size: 1.15rem;
+    font-weight: 400;
+    line-height: 1.35;
+    margin: 0 0 8px;
+  }
+
+  .vds-card-desc {
+    font-size: 0.84rem;
+    color: var(--muted);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .vds-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .vds-card-tools {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .vds-pill {
+    font-size: 8.5px;
+    letter-spacing: 0.1em;
+    padding: 3px 8px;
+    border: 1px solid var(--rule);
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .vds-card-arrow {
+    width: 28px;
+    height: 28px;
+    border: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    color: var(--muted);
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+
+  .vds-card:hover .vds-card-arrow {
+    background: var(--ink);
+    color: var(--cream);
+    border-color: var(--ink);
+  }
+
+  .card--dark {
+    background: var(--blue-deep);
+    border-color: var(--blue-deep);
+  }
+
+  .card--dark .vds-card-body {
+    border-top-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .card--dark .vds-card-tag {
+    color: var(--gold);
+  }
+
+  .card--dark .vds-card-title {
+    color: #fff;
+  }
+
+  .card--dark .vds-card-desc {
+    color: rgba(255, 255, 255, 0.62);
+  }
+
+  .card--dark .vds-card-footer {
+    border-top-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .card--dark .vds-pill {
+    border-color: rgba(255, 255, 255, 0.16);
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .card--dark .vds-card-arrow {
+    border-color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .card--dark:hover .vds-card-arrow {
+    background: var(--gold);
+    color: var(--ink);
+    border-color: var(--gold);
+  }
+
+  .vds-card-num {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    font-family: "Space Mono", monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    background: rgba(245, 240, 232, 0.92);
+    color: var(--muted);
+    padding: 4px 8px;
+    z-index: 2;
+    backdrop-filter: blur(4px);
+  }
+
+  .card--dark .vds-card-num {
+    background: rgba(0, 0, 0, 0.35);
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .vds-card--divider {
+    grid-column: span 12;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-top: 1px solid var(--rule);
+    cursor: default;
+    transform: none !important;
+    box-shadow: none !important;
+    opacity: 1;
+    animation: none;
+  }
+
+  .vds-divider-label {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+    padding: 18px 0;
+  }
+
+  .vds-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    margin-top: 80px;
+    border: 1px solid var(--rule);
+  }
+
+  .vds-stat {
+    background: var(--card-bg);
+    padding: 28px 32px;
+  }
+
+  .vds-stat-n {
+    font-family: "Playfair Display", var(--font-serif, serif);
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: var(--blue-deep);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .vds-stat-label {
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .vds-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: rgba(26, 24, 20, 0.88);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+
+  .vds-lightbox.is-open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .vds-lightbox-inner {
+    position: relative;
+    max-width: 88vw;
+    max-height: 88vh;
+    padding: 24px;
+  }
+
+  .vds-lightbox-inner img {
+    max-width: 100%;
+    max-height: 82vh;
+    object-fit: contain;
+    display: block;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .vds-lightbox-close {
+    position: fixed;
+    top: 28px;
+    right: 32px;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(245, 240, 232, 0.7);
+    background: transparent;
+    border: 1px solid rgba(245, 240, 232, 0.22);
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .vds-lightbox-close:hover {
+    background: var(--cream);
+    color: var(--ink);
+  }
+
+  @media (max-width: 860px) {
+    .card--wide,
+    .card--tall,
+    .card--half {
+      grid-column: span 12;
+    }
+
+    .card--wide .vds-card-thumb,
+    .card--tall .vds-card-thumb,
+    .card--half .vds-card-thumb {
+      height: 300px;
+    }
+
+    .vds-intro {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .vds-intro-count {
+      font-size: 3rem;
+    }
+
+    .vds-stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .vds-header {
+      grid-template-columns: 1fr;
+    }
+
+    .vds-header-right {
+      text-align: left;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .vds-section {
+      padding: 48px 20px 96px;
+    }
+
+    .vds-lightbox-close {
+      top: 16px;
+      right: 16px;
+    }
+  }
+
+  @keyframes vds-rise {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import SiteHeader from "../../components/SiteHeader.astro";
 import SiteFooter from "../../components/SiteFooter.astro";
+import VestiDesignSystemShowcase from "../../components/VestiDesignSystemShowcase.astro";
 import { getCollection } from "astro:content";
 import { formatDate } from "../../utils/formatDate";
 
@@ -15,51 +16,58 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const links = entry.data.links ?? {};
+const isVestiDesignSystem = entry.slug === "vesti-design-system";
 const { Content } = await entry.render();
 ---
 
 <BaseLayout title={entry.data.title} description={entry.data.description}>
   <SiteHeader />
-  <main class="container section">
-    <a class="kicker" href="/dataviz">Back to Data Viz</a>
-    <h1>{entry.data.title}</h1>
-    <p class="muted">{entry.data.description}</p>
-    <div class="tag-list" style="margin: 16px 0;">
-      <span class="tag">{formatDate(entry.data.date)}</span>
-      {entry.data.tools.map((tool) => (
-        <span class="tag">{tool}</span>
-      ))}
-    </div>
-    {entry.data.coverImage && (
-      <div class="card-media" style="margin: 24px 0;">
-        <img src={entry.data.coverImage} alt="" />
+  {isVestiDesignSystem ? (
+    <main>
+      <VestiDesignSystemShowcase />
+    </main>
+  ) : (
+    <main class="container section">
+      <a class="kicker" href="/dataviz">Back to Data Viz</a>
+      <h1>{entry.data.title}</h1>
+      <p class="muted">{entry.data.description}</p>
+      <div class="tag-list" style="margin: 16px 0;">
+        <span class="tag">{formatDate(entry.data.date)}</span>
+        {entry.data.tools.map((tool) => (
+          <span class="tag">{tool}</span>
+        ))}
       </div>
-    )}
-    {(entry.data.demoUrl || links.live || links.repo) && (
-      <div class="button-row" style="margin-bottom: 24px;">
-        {(links.live || entry.data.demoUrl) && (
-          <a class="button primary" href={links.live ?? entry.data.demoUrl}>
-            View Demo
-          </a>
-        )}
-        {links.repo && <a class="button" href={links.repo}>Repository</a>}
-      </div>
-    )}
-    <article class="prose dataviz-prose">
-      <Content />
-    </article>
-    {entry.data.gallery && (
-      <section class="section">
-        <h2>Gallery</h2>
-        <div class="grid grid-2">
-          {entry.data.gallery.map((image: string) => (
-            <div class="card-media">
-              <img src={image} alt="" loading="lazy" />
-            </div>
-          ))}
+      {entry.data.coverImage && (
+        <div class="card-media" style="margin: 24px 0;">
+          <img src={entry.data.coverImage} alt="" />
         </div>
-      </section>
-    )}
-  </main>
+      )}
+      {(entry.data.demoUrl || links.live || links.repo) && (
+        <div class="button-row" style="margin-bottom: 24px;">
+          {(links.live || entry.data.demoUrl) && (
+            <a class="button primary" href={links.live ?? entry.data.demoUrl}>
+              View Demo
+            </a>
+          )}
+          {links.repo && <a class="button" href={links.repo}>Repository</a>}
+        </div>
+      )}
+      <article class="prose dataviz-prose">
+        <Content />
+      </article>
+      {entry.data.gallery && (
+        <section class="section">
+          <h2>Gallery</h2>
+          <div class="grid grid-2">
+            {entry.data.gallery.map((image: string) => (
+              <div class="card-media">
+                <img src={image} alt="" loading="lazy" />
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+    </main>
+  )}
   <SiteFooter />
 </BaseLayout>
