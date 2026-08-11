@@ -32,11 +32,11 @@ const getFilesFromDir = (dir) => {
   try {
     const items = fs.readdirSync(dir);
     const files = [];
-    
+
     items.forEach((item) => {
       const fullPath = path.join(dir, item);
       const stat = fs.statSync(fullPath);
-      
+
       if (stat.isDirectory()) {
         // It's a directory, look for .mdx files inside it
         const subFiles = fs.readdirSync(fullPath)
@@ -48,7 +48,7 @@ const getFilesFromDir = (dir) => {
         files.push(item);
       }
     });
-    
+
     return files;
   } catch (e) {
     console.warn(`No directory found for ${dir}`);
@@ -94,7 +94,7 @@ const getDataForBacklinks = (fileNames, filePath) => {
 
   // Group by base slug and return only latest versions for link mapping
   const groups = new Map();
-  
+
   allPosts.forEach(post => {
     const baseSlug = extractBaseSlug(post.slug);
     if (!groups.has(baseSlug)) {
@@ -109,7 +109,7 @@ const getDataForBacklinks = (fileNames, filePath) => {
     const latestVersion = versions.reduce((latest, current) => {
       return current.version > latest.version ? current : latest;
     });
-    
+
     // Update slug to be the canonical (base) slug
     latestVersions.push({
       ...latestVersion,

@@ -24,10 +24,10 @@ export async function getStaticPaths() {
   // Function to add paths for a collection with versioning support
   const addContentPaths = (entries: any[], type: string) => {
     const processedBaseSlugs = new Set<string>();
-    
+
     entries.forEach((entry) => {
       const baseSlug = extractBaseSlug(entry.id);
-      
+
       // Only add canonical path once per base slug
       if (!processedBaseSlugs.has(baseSlug)) {
         const allVersions = getAllVersionsForPost(baseSlug, entries);

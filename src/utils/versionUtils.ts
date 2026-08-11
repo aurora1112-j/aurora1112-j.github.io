@@ -48,11 +48,11 @@ export function getVersionFromEntry(entry: VersionedContent): number {
  */
 export function isArchivedVersion(entry: VersionedContent, allEntries: VersionedContent[]): boolean {
   if (!isVersionedEntry(entry)) return false;
-  
+
   const baseSlug = extractBaseSlug(entry.id);
   const allVersions = getAllVersionsForPost(baseSlug, allEntries);
   const latestVersion = getLatestVersion(allVersions);
-  
+
   return getVersionFromEntry(entry) !== getVersionFromEntry(latestVersion);
 }
 
@@ -91,7 +91,7 @@ export function getVersionInfo(currentEntry: VersionedContent, allEntries: Versi
   const baseSlug = extractBaseSlug(currentEntry.id);
   const allVersions = getAllVersionsForPost(baseSlug, allEntries);
   const latestVersion = getLatestVersion(allVersions);
-  
+
   return {
     baseSlug,
     version: getVersionFromEntry(currentEntry),
@@ -114,17 +114,17 @@ export function hasMultipleVersions(baseSlug: string, allEntries: VersionedConte
 export function generateVersionedPaths(entries: VersionedContent[]): Array<{ slug: string; entry: VersionedContent }> {
   const paths: Array<{ slug: string; entry: VersionedContent }> = [];
   const processedBaseSlugs = new Set<string>();
-  
+
   for (const entry of entries) {
     const baseSlug = extractBaseSlug(entry.id);
-    
+
     if (isVersionedEntry(entry)) {
       // This is a versioned entry in a folder
       const version = getVersionFromEntry(entry);
-      
+
       // Add versioned path (e.g., /v1/ai-dark-forest, /v2/ai-dark-forest)
       paths.push({ slug: `v${version}/${baseSlug}`, entry });
-      
+
       // Add canonical path for latest version (only once per base slug)
       if (!processedBaseSlugs.has(baseSlug)) {
         const allVersions = getAllVersionsForPost(baseSlug, entries);
@@ -137,7 +137,7 @@ export function generateVersionedPaths(entries: VersionedContent[]): Array<{ slu
       paths.push({ slug: entry.id.replace(/\.mdx$/, ''), entry });
     }
   }
-  
+
   return paths;
 }
 
@@ -162,40 +162,40 @@ export function getCanonicalDates(currentEntry: VersionedContent, allEntries: Ve
       updated: currentEntry.data.updated
     };
   }
-  
+
   const baseSlug = extractBaseSlug(currentEntry.id);
   const allVersions = getAllVersionsForPost(baseSlug, allEntries);
-  
+
   // Find the earliest startDate (when the post was first published)
   let earliestStartDate = allVersions[0].data.startDate;
-  
+
   // Find the latest updated date (most recent update across all versions)
   let latestUpdated = allVersions[0].data.updated;
-  
+
   for (const version of allVersions) {
     // Compare startDates to find the earliest
     if (version.data.startDate) {
       const versionStart = version.data.startDate instanceof Date ? version.data.startDate : new Date(version.data.startDate);
       const currentEarliest = earliestStartDate instanceof Date ? earliestStartDate : new Date(earliestStartDate);
-      
+
       if (versionStart < currentEarliest) {
         earliestStartDate = version.data.startDate;
       }
     }
-    
+
     // Compare updated dates to find the latest
     if (version.data.updated) {
       const versionUpdated = version.data.updated instanceof Date ? version.data.updated : new Date(version.data.updated);
-      const currentLatest = latestUpdated ? 
+      const currentLatest = latestUpdated ?
         (latestUpdated instanceof Date ? latestUpdated : new Date(latestUpdated)) :
         new Date(0); // If no latest yet, use epoch
-      
+
       if (versionUpdated > currentLatest) {
         latestUpdated = version.data.updated;
       }
     }
   }
-  
+
   return {
     startDate: earliestStartDate,
     updated: latestUpdated
