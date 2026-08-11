@@ -1,0 +1,78 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageWrapper from "../components/layouts/PageWrapper.astro";
+import LocalizedText from "../components/i18n/LocalizedText.astro";
+import BotanicalSymbol from "../components/icons/BotanicalSymbol.astro";
+import BotanicalSystemMap from "../components/garden/BotanicalSystemMap.astro";
+import { SITE } from "../data/site";
+---
+
+<Layout title="关于 Chenxi Huang" titleEn="About Chenxi Huang">
+	<PageWrapper>
+		<header class="about-hero">
+			<div>
+				<p class="eyebrow"><LocalizedText zh="关于" en="ABOUT" /></p>
+				<h1>Chenxi Huang</h1>
+				<p class="role"><LocalizedText zh={SITE.roleZh} en={SITE.roleEn} /></p>
+			</div>
+			<img src={SITE.avatar} alt="Chenxi Huang" width="460" height="460" />
+		</header>
+
+		<div class="about-grid">
+			<div class="story">
+				<section>
+					<h2><LocalizedText zh="我关心什么" en="What I care about" /></h2>
+					<p><LocalizedText zh="我在南京大学学习，个人定位是 AI 产品经理与设计师。我关注的不是如何把 AI 塞进更多界面，而是怎样让人与智能系统建立清晰、可理解、可以随时接管的协作关系。" en="I study at Nanjing University and work at the intersection of AI product management and design. I care less about adding AI to more screens and more about building collaboration with intelligent systems that is legible, controllable, and easy to take over." /></p>
+				</section>
+				<section>
+					<h2><LocalizedText zh="为什么是 Botanical Systems" en="Why Botanical Systems" /></h2>
+					<p><LocalizedText zh="知识不是一次写完的结论，更像会扎根、分枝、嫁接和留下年轮的生命体。这个网站用植物系统表达内容的来源、成熟度、关系与修订，让 AI 也能在可追溯的知识空间里参与工作。" en="Knowledge is not a conclusion written once. It behaves more like a living thing that takes root, branches, grafts, and records rings. This site uses a botanical system to express provenance, maturity, relationships, and revision—so AI can participate in a traceable knowledge space." /></p>
+				</section>
+				<section>
+					<h2><LocalizedText zh="正在探索" en="Currently exploring" /></h2>
+					<ul>
+						<li><LocalizedText zh="Agent 的行动边界、反馈回路与长期记忆" en="Agent action boundaries, feedback loops, and long-term memory" /></li>
+						<li><LocalizedText zh="AI 产品中的来源、不确定性与可撤销性" en="Provenance, uncertainty, and reversibility in AI products" /></li>
+						<li><LocalizedText zh="个人知识空间如何支持研究、创作与协作" en="How personal knowledge spaces support research, making, and collaboration" /></li>
+					</ul>
+				</section>
+			</div>
+
+			<aside>
+				<BotanicalSymbol name="graft" size={72} />
+				<dl>
+					<div><dt><LocalizedText zh="角色" en="Role" /></dt><dd><LocalizedText zh={SITE.roleZh} en={SITE.roleEn} /></dd></div>
+					<div><dt><LocalizedText zh="学校" en="School" /></dt><dd><LocalizedText zh={SITE.schoolZh} en={SITE.schoolEn} /></dd></div>
+					<div><dt><LocalizedText zh="关注" en="Focus" /></dt><dd><LocalizedText zh="AI、Agent、知识管理" en="AI, agents, knowledge management" /></dd></div>
+				</dl>
+				<a href="/contact" class="contact-link"><LocalizedText zh="联系我" en="Contact me" /> →</a>
+			</aside>
+		</div>
+		<div id="botanical-systems" class="system-philosophy">
+			<BotanicalSystemMap />
+		</div>
+	</PageWrapper>
+</Layout>
+
+<style>
+	.about-hero { display: flex; justify-content: space-between; align-items: end; gap: var(--space-l); padding: var(--space-xl) 0 var(--space-l); border-bottom: 1px solid var(--color-tinted-cream); }
+	.eyebrow { color: var(--color-sea-blue); font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: .14em; }
+	h1 { font-family: var(--font-serif); font-size: clamp(2.4rem, 5.5vw, 5rem); font-weight: 300; line-height: .9; margin: .5rem 0; }
+	.role { font-size: var(--font-size-md); color: var(--color-gray-600); }
+	.about-hero img { width: min(24vw, 220px); aspect-ratio: 1; object-fit: cover; border-radius: 49% 39% 46% 43%; transform: rotate(2deg); box-shadow: var(--box-shadow-md); }
+	.about-grid { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(230px, .7fr); gap: clamp(2rem, 8vw, 7rem); margin: var(--space-xl) 0 var(--space-2xl); }
+	.story { max-width: 760px; }
+	.story section + section { margin-top: var(--space-xl); }
+	h2 { font-family: var(--font-serif); font-size: var(--font-size-xl); font-weight: 400; margin-bottom: var(--space-xs); }
+	.story p, li { line-height: var(--leading-loose); color: var(--color-gray-700); }
+	.story ul { padding-left: 1.2rem; }
+	aside { align-self: start; margin-top: var(--space-xl); padding: var(--space-m); border-left: 1px solid var(--color-sea-blue); background: var(--color-light-cream); }
+	aside :global(svg) { color: var(--color-sea-blue); margin-bottom: var(--space-s); }
+	dl { margin: 0; }
+	dl div { margin-bottom: var(--space-s); }
+	dt { font-family: var(--font-sans); font-size: var(--font-size-xs); color: var(--color-gray-500); text-transform: uppercase; letter-spacing: .08em; }
+	dd { margin: .25rem 0 0; }
+	.contact-link { display: inline-block; margin-top: var(--space-xs); color: var(--color-crimson); }
+	.system-philosophy { scroll-margin-top: 6rem; }
+	@media (max-width: 700px) { .about-hero { align-items: start; } .about-hero img { width: 110px; } .about-grid { grid-template-columns: 1fr; } aside { margin-top: 0; } }
+</style>

@@ -1,0 +1,4 @@
+# Botanical Systems is intentionally indexable.
+User-agent: *
+Allow: /
+Sitemap: https://aurora1112-j.github.io/sitemap-index.xml

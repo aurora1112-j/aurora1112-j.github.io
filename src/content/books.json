@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "title": "占位：Agent 系统",
+    "titleEn": "Placeholder: Agent Systems",
+    "subtitle": "未来阅读清单笔记",
+    "subtitleEn": "Notes for a future reading list",
+    "author": "待选择",
+    "authorEn": "To be selected",
+    "cover": "../images/placeholders/agent-branching.svg",
+    "link": "https://example.com/library/agent-systems"
+  },
+  {
+    "id": 2,
+    "title": "占位：知识花园",
+    "titleEn": "Placeholder: Knowledge Gardens",
+    "subtitle": "未来阅读清单笔记",
+    "subtitleEn": "Notes for a future reading list",
+    "author": "待选择",
+    "authorEn": "To be selected",
+    "cover": "../images/placeholders/knowledge-roots.svg",
+    "link": "https://example.com/library/knowledge-gardens"
+  },
+  {
+    "id": 3,
+    "title": "占位：人机协作",
+    "titleEn": "Placeholder: Human–AI Collaboration",
+    "subtitle": "未来阅读清单笔记",
+    "subtitleEn": "Notes for a future reading list",
+    "author": "待选择",
+    "authorEn": "To be selected",
+    "cover": "../images/placeholders/ai-canopy.svg",
+    "link": "https://example.com/library/human-ai-collaboration"
+  }
+]

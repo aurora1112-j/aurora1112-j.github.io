@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Agent branching placeholder</title>
+  <desc id="desc">A winding agent path branches through observation, action, and reflection nodes.</desc>
+  <rect width="1200" height="760" fill="#f1e8dc"/>
+  <path d="M124 592C279 580 298 384 465 402c137 14 111-203 279-195 120 6 177 79 328 22M467 402c54 112 127 184 247 222M744 207c-18 105 25 179 145 232" fill="none" stroke="#315448" stroke-width="16" stroke-linecap="round"/>
+  <g stroke="#315448" stroke-width="10"><circle cx="124" cy="592" r="38" fill="#d77a5b"/><circle cx="465" cy="402" r="42" fill="#e1b95f"/><circle cx="744" cy="207" r="44" fill="#708fa3"/><circle cx="714" cy="624" r="35" fill="#7da06b"/><circle cx="889" cy="439" r="35" fill="#a37c9b"/><circle cx="1072" cy="229" r="38" fill="#d77a5b"/></g>
+</svg>

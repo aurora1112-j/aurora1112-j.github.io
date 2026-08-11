@@ -1,0 +1,161 @@
+---
+import PostLayout from "../layouts/PostLayout.astro";
+import SmidgeonLayout from "../layouts/SmidgeonLayout.astro";
+import ProseWrapper from "../components/layouts/ProseWrapper.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+import { render } from "astro:content";
+import { generateVersionedPaths } from "../utils/versionUtils";
+import TableOfContents from "../components/layouts/TableOfContents.astro";
+// Component imports
+import Title1 from "../components/mdx/typography/Title1.astro";
+import Title2 from "../components/mdx/typography/Title2.astro";
+import Title3 from "../components/mdx/typography/Title3.astro";
+import Title4 from "../components/mdx/typography/Title4.astro";
+import TooltipLink from "../components/mdx/TooltipLink.astro";
+import InternalTooltipLink from "../components/mdx/InternalTooltipLink.astro";
+import IntroParagraph from "../components/mdx/IntroParagraph.astro";
+import BasicImage from "../components/mdx/BasicImage.astro";
+
+type ContentType = "concept" | "project" | "photography" | "smidgeon";
+type Collections = "concepts" | "projects" | "photography" | "smidgeons";
+
+// Add type definitions for different frontmatter types
+type BaseFrontmatter = {
+	title: string;
+	startDate: Date;
+	topics?: string[];
+};
+
+type SmidgeonFrontmatter = BaseFrontmatter & {
+	type: "smidgeon";
+};
+
+interface Props {
+	entry: CollectionEntry<Collections>;
+	type: ContentType;
+}
+
+// Get params from URL
+export async function getStaticPaths() {
+	const concepts = await getCollection("concepts");
+	const projects = await getCollection("projects");
+	const photography = await getCollection("photography");
+	const smidgeons = await getCollection("smidgeons");
+
+	const conceptPaths = generateVersionedPaths(concepts).map(({ slug, entry }) => ({
+		params: { slug },
+		props: { entry, type: "concept" } as const,
+	}));
+	const projectPaths = generateVersionedPaths(projects).map(({ slug, entry }) => ({
+		params: { slug },
+		props: { entry, type: "project" } as const,
+	}));
+	const photographyPaths = generateVersionedPaths(photography).map(({ slug, entry }) => ({
+		params: { slug },
+		props: { entry, type: "photography" } as const,
+	}));
+
+	return [
+		...conceptPaths,
+		...projectPaths,
+		...photographyPaths,
+		// Smidgeons don't support versioning, so keep the original mapping
+		...smidgeons.map((entry) => ({
+			params: { slug: entry.id },
+			props: { entry, type: "smidgeon" } as const,
+		})),
+	];
+}
+
+const { entry } = Astro.props;
+const { Content, headings } = await render(entry);
+
+const components = {
+	h1: Title1,
+	h2: Title2,
+	h3: Title3,
+	h4: Title4,
+	a: TooltipLink,
+	img: BasicImage,
+	InternalTooltipLink,
+	IntroParagraph,
+	BasicImage,
+};
+
+// Type guard for checking if data has TOC
+function hasTOC(data: any): data is { toc: boolean } {
+	return "toc" in data;
+}
+
+// Type guard for checking if frontmatter is SmidgeonFrontmatter
+function isSmidgeonFrontmatter(data: any): data is SmidgeonFrontmatter {
+	return data.type === "smidgeon";
+}
+
+// Prepare frontmatter data based on type
+const frontmatter = entry.data;
+---
+
+{
+	isSmidgeonFrontmatter(frontmatter) ? (
+		<SmidgeonLayout frontmatter={frontmatter}>
+			<ProseWrapper>
+				<Content components={components} />
+			</ProseWrapper>
+		</SmidgeonLayout>
+	) : (
+		<PostLayout frontmatter={frontmatter} headings={headings} entry={entry as CollectionEntry<"concepts"> | CollectionEntry<"projects"> | CollectionEntry<"photography">}>
+			{headings.length > 0 && hasTOC(frontmatter) && frontmatter.toc ? (
+				<div class="post-body-layout">
+					<aside class="post-body-toc" aria-label="Table of contents">
+						<TableOfContents headings={headings} />
+					</aside>
+					<div class="post-body-content">
+						<ProseWrapper>
+							<Content components={components} />
+						</ProseWrapper>
+					</div>
+				</div>
+			) : (
+				<ProseWrapper>
+					<Content components={components} />
+				</ProseWrapper>
+			)}
+		</PostLayout>
+	)
+}
+
+<style>
+	.post-body-layout {
+		display: grid;
+		grid-template-columns: minmax(12rem, 18rem) minmax(0, 1fr);
+		gap: clamp(var(--space-m), 4vw, var(--space-2xl));
+		align-items: start;
+		width: 100%;
+	}
+
+	.post-body-toc,
+	.post-body-content {
+		min-width: 0;
+	}
+
+	.post-body-toc {
+		position: sticky;
+		top: var(--space-s);
+	}
+
+	/* Full-width story components may fill the article lane, but never the TOC lane. */
+	.post-body-content :global(.prose-wrapper > *) {
+		max-width: 100%;
+	}
+
+	@media (max-width: 1310px) {
+		.post-body-layout {
+			display: block;
+		}
+
+		.post-body-toc {
+			position: static;
+		}
+	}
+</style>

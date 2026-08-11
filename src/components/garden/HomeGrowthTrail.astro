@@ -1,0 +1,51 @@
+---
+import BotanicalSymbol from "../icons/BotanicalSymbol.astro";
+import LocalizedText from "../i18n/LocalizedText.astro";
+---
+
+<a class="growth-trail" href="/about#botanical-systems" aria-label="Read the Botanical Systems philosophy">
+	<span class="trail-copy">
+		<LocalizedText
+			zh="从来源扎根，在连接中分枝，向公共表达生长"
+			en="Rooted in sources, branching through connections, growing toward public work"
+		/>
+	</span>
+	<span class="trail-path" aria-hidden="true">
+		<span class="symbol roots"><BotanicalSymbol name="roots" size={36} /></span>
+		<span class="stem"></span>
+		<span class="symbol branch"><BotanicalSymbol name="branch" size={39} /></span>
+		<span class="stem second"></span>
+		<span class="symbol canopy"><BotanicalSymbol name="canopy" size={40} /></span>
+	</span>
+	<span class="trail-link"><LocalizedText zh="设计哲学" en="Design philosophy" /> ↗</span>
+</a>
+
+<style>
+	.growth-trail {
+		display: grid;
+		grid-template-columns: minmax(180px, .9fr) minmax(260px, 1.4fr) auto;
+		align-items: center;
+		gap: clamp(1rem, 3vw, 2.6rem);
+		margin: calc(var(--space-s) * -.3) 0 var(--space-l);
+		padding: var(--space-xs) 0;
+		color: inherit;
+		font-family: var(--font-sans);
+	}
+	.trail-copy { max-width: 21rem; color: var(--color-gray-600); font-size: var(--font-size-xs); line-height: 1.6; }
+	.trail-path { display: flex; align-items: center; min-width: 0; color: var(--color-sea-blue); }
+	.symbol { display: grid; place-items: center; flex: 0 0 auto; transition: transform .35s ease; }
+	.branch { transform: translateY(-5px) rotate(2deg); }
+	.canopy { transform: translateY(3px) rotate(-2deg); }
+	.stem { height: 1px; flex: 1; min-width: 2.5rem; margin: 0 .45rem; background: linear-gradient(90deg, var(--color-sea-blue), var(--color-tinted-cream)); transform: rotate(-1.5deg); opacity: .7; }
+	.stem.second { transform: rotate(1.5deg); background: linear-gradient(90deg, var(--color-tinted-cream), var(--color-sea-blue)); }
+	.trail-link { color: var(--color-crimson); font-size: var(--font-size-xs); white-space: nowrap; }
+	.growth-trail:hover .roots { transform: translateY(2px); }
+	.growth-trail:hover .branch { transform: translateY(-8px) rotate(4deg); }
+	.growth-trail:hover .canopy { transform: translateY(0) rotate(-4deg); }
+	@media (max-width: 720px) {
+		.growth-trail { grid-template-columns: 1fr auto; margin-top: 0; }
+		.trail-path { grid-column: 1 / -1; grid-row: 1; }
+		.trail-copy { grid-column: 1; grid-row: 2; }
+		.trail-link { grid-column: 2; grid-row: 2; }
+	}
+</style>

@@ -1,0 +1,124 @@
+---
+import { Icon } from "astro-icon/components";
+import LocalizedText from "../../i18n/LocalizedText.astro";
+---
+
+<div id="mobile-menu" class="mobile-menu">
+	<nav class="mobile-nav">
+		<a href="/garden" class="nav-link"><LocalizedText zh="花园" en="The Garden" /></a>
+		<a href="/concepts" class="nav-link"><LocalizedText zh="概念" en="Concepts" /></a>
+		<a href="/projects" class="nav-link"><LocalizedText zh="作品" en="Works" /></a>
+		<a href="/photography" class="nav-link"><LocalizedText zh="摄影" en="Photography" /></a>
+		<a href="/smidgeons" class="nav-link"><LocalizedText zh="碎片" en="Fragments" /></a>
+		<a href="/now" class="nav-link"><LocalizedText zh="此刻" en="Now" /></a>
+		<a href="/about" class="nav-link"><LocalizedText zh="关于" en="About" /></a>
+		<a href="/contact" class="nav-link"><LocalizedText zh="联系" en="Contact" /></a>
+	</nav>
+</div>
+
+<style>
+	.mobile-menu {
+		position: fixed;
+		top: 0;
+		right: 0;
+		width: 100%;
+		min-height: 100dvh;
+		background: var(--color-cream);
+		z-index: 1000;
+		transform: translateX(100%);
+		transition: transform 240ms cubic-bezier(0.215, 0.61, 0.355, 1);
+		padding: var(--space-xl) var(--space-m);
+	}
+
+	.mobile-menu.open {
+		transform: translateX(0);
+	}
+
+	.mobile-nav {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xs);
+		margin-top: var(--space-l);
+	}
+
+	.nav-link {
+		display: flex;
+		align-items: center;
+		min-height: 2.75rem;
+		font-family: var(--font-body);
+		font-size: var(--font-size-md);
+		color: var(--color-gray-800);
+		text-decoration: none;
+		transition: color 0.2s ease-in-out;
+	}
+
+	.nav-link:hover {
+		color: var(--color-crimson);
+	}
+
+	@media screen and (min-width: 551px) {
+		.mobile-menu {
+			display: none;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.mobile-menu {
+			transition: none;
+		}
+	}
+</style>
+
+<script>
+	import { onPageLifecycle } from "../../../utils/viewTransitionLifecycle";
+	import { navigate } from "astro:transitions/client";
+
+	onPageLifecycle(() => {
+		const mobileMenu = document.getElementById("mobile-menu") as HTMLElement;
+		const links = mobileMenu?.querySelectorAll("a");
+
+		if (!mobileMenu || !links) return;
+
+		// Instant close for non-click navigation (back button, etc.)
+		const closeMobileMenu = () => {
+			mobileMenu.classList.remove("open");
+			document.body.style.overflow = "auto";
+		};
+
+		const handleLinkClick = (e: Event) => {
+			const link = e.currentTarget as HTMLAnchorElement;
+			e.preventDefault();
+
+			mobileMenu.classList.remove("open");
+			document.body.style.overflow = "auto";
+
+			if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+				navigate(link.href);
+				return;
+			}
+
+			let hasNavigated = false;
+			const navigateAfterClose = () => {
+				if (hasNavigated) return;
+				hasNavigated = true;
+				navigate(link.href);
+			};
+
+			mobileMenu.addEventListener("transitionend", navigateAfterClose, { once: true });
+			window.setTimeout(navigateAfterClose, 280);
+		};
+
+		links.forEach((link) => {
+			link.addEventListener("click", handleLinkClick);
+		});
+
+		document.addEventListener("astro:before-preparation", closeMobileMenu);
+
+		return () => {
+			links.forEach((link) => {
+				link.removeEventListener("click", handleLinkClick);
+			});
+			document.removeEventListener("astro:before-preparation", closeMobileMenu);
+		};
+	});
+</script>

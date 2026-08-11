@@ -1,0 +1,10 @@
+{
+	"name": "Botanical Systems — Chenxi Huang",
+	"short_name": "Botanical Systems",
+	"icons": [{ "src": "/images/favicon/favicon.svg", "sizes": "any", "type": "image/svg+xml" }],
+	"theme_color": "#960462",
+	"background_color": "#FCFBF7",
+	"start_url": "/",
+	"display": "standalone",
+	"orientation": "portrait"
+}

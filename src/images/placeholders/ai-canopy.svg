@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">AI canopy placeholder</title>
+  <desc id="desc">A branching coral and green canopy growing from a small blue intelligence node.</desc>
+  <rect width="1200" height="760" fill="#f3efe4"/>
+  <path d="M600 650c-8-157 21-278 2-410M600 468c-88-48-151-105-196-178M602 410c84-60 142-127 173-204M598 536c-92-15-177-2-254 38M604 518c106-21 195-13 267 27" fill="none" stroke="#284d3b" stroke-width="18" stroke-linecap="round"/>
+  <g fill="#d96b52"><ellipse cx="390" cy="270" rx="92" ry="54" transform="rotate(28 390 270)"/><ellipse cx="786" cy="194" rx="96" ry="56" transform="rotate(-28 786 194)"/></g>
+  <g fill="#80a46b"><ellipse cx="326" cy="576" rx="94" ry="51" transform="rotate(-8 326 576)"/><ellipse cx="892" cy="542" rx="92" ry="50" transform="rotate(10 892 542)"/></g>
+  <circle cx="600" cy="655" r="44" fill="#496f8c"/><circle cx="600" cy="655" r="13" fill="#f3efe4"/>
+</svg>

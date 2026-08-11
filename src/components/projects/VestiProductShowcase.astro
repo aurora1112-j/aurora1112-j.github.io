@@ -1,0 +1,162 @@
+---
+import { Image } from "astro:assets";
+import LocalizedText from "../i18n/LocalizedText.astro";
+import library from "../../images/projects/vesti/library.png";
+import screenshot from "../../images/projects/vesti/screenshot.jpg";
+import landing from "../../images/projects/vesti/landing-page-preview.png";
+
+const stages = [
+	{ index: "01", zh: "捕获", en: "Capture", detailZh: "停留在对话发生的地方", detailEn: "Stay beside the active conversation" },
+	{ index: "02", zh: "保存", en: "Keep", detailZh: "保留原始线程与来源", detailEn: "Keep raw threads and provenance" },
+	{ index: "03", zh: "检索", en: "Retrieve", detailZh: "让过去的判断重新出现", detailEn: "Return to earlier judgement" },
+	{ index: "04", zh: "重连", en: "Reconnect", detailZh: "在时间与主题之间发现联系", detailEn: "Reconnect ideas across time" },
+	{ index: "05", zh: "控制", en: "Control", detailZh: "导出、删除并检查系统状态", detailEn: "Export, delete, and inspect state" },
+];
+---
+
+<section class="vesti-case" aria-label="Vesti product system">
+	<header class="system-intro">
+		<p class="eyebrow">PRODUCT SYSTEM · LOCAL FIRST</p>
+		<h2><LocalizedText zh="不是另一个聊天工具，而是一层属于用户的记忆。" en="Not another chat tool, but a memory layer the user owns." /></h2>
+		<p class="lede"><LocalizedText zh="Vesti 将不同 AI 平台里的对话保留为可检索、可追溯、可迁移的个人材料。界面围绕五个连续动作组织，而不是围绕功能卡片组织。" en="Vesti keeps conversations from different AI platforms as searchable, traceable, and portable personal material. The interface follows five continuous actions rather than a grid of features." /></p>
+	</header>
+
+	<ol class="memory-path">
+		{stages.map((stage) => (
+			<li>
+				<span>{stage.index}</span>
+				<strong><LocalizedText zh={stage.zh} en={stage.en} /></strong>
+				<small><LocalizedText zh={stage.detailZh} en={stage.detailEn} /></small>
+			</li>
+		))}
+	</ol>
+
+	<div class="context-view">
+		<div class="context-copy">
+			<span class="section-number">01 / EXTENSION</span>
+			<h3><LocalizedText zh="记忆层停留在工作旁边" en="Memory stays beside the work" /></h3>
+			<p><LocalizedText zh="侧栏不试图取代 Claude、ChatGPT 或其他平台。它只承担捕获状态、快速检索和线程入口，把正在发生的对话留在视觉中心。" en="The side panel does not replace Claude, ChatGPT, or any source platform. It carries capture state, retrieval, and thread entry points while the active conversation remains visually primary." /></p>
+			<ul>
+				<li><LocalizedText zh="原平台仍是主要工作区" en="The source platform remains the primary workspace" /></li>
+				<li><LocalizedText zh="捕获状态始终可见" en="Capture state is always legible" /></li>
+				<li><LocalizedText zh="来源、时间与标题形成最小记录" en="Source, time, and title form the minimum record" /></li>
+			</ul>
+		</div>
+		<figure class="browser-evidence">
+			<Image src={screenshot} alt="Vesti beside an AI conversation" widths={[900, 1400, 1900]} sizes="(max-width: 800px) 96vw, 1180px" quality={90} />
+			<figcaption><LocalizedText zh="真实使用语境：Vesti 与原有 AI 对话并存，而不是成为新的孤岛。" en="In context: Vesti coexists with the original AI conversation rather than becoming another silo." /></figcaption>
+		</figure>
+	</div>
+
+	<div class="workspace-view">
+		<figure class="library-evidence">
+			<Image src={library} alt="Vesti conversation library" widths={[680, 1000, 1400]} sizes="(max-width: 800px) 94vw, 760px" quality={90} />
+		</figure>
+		<div class="workspace-copy">
+			<span class="section-number">02 / LIBRARY</span>
+			<h3><LocalizedText zh="线程、阅读与笔记是同一条工作链" en="Threads, reading, and notes share one working chain" /></h3>
+			<p><LocalizedText zh="Library 保存原始材料；Reader 负责回到证据；Note 与 Explore 才在此基础上形成新的解释。生成内容不会盖住来源。" en="Library holds the raw material; Reader returns to evidence; Note and Explore form new interpretations on top. Generated material never conceals its sources." /></p>
+			<div class="region-list" aria-label="Vesti workspace regions">
+				<span>LIBRARY <em>raw material</em></span>
+				<span>EXPLORE <em>generative abstraction</em></span>
+				<span>NETWORK <em>relations over time</em></span>
+			</div>
+		</div>
+	</div>
+
+	<div class="trust-band">
+		<div>
+			<span class="section-number">03 / TRUST MODEL</span>
+			<h3><LocalizedText zh="信任来自可逆，而不是一句隐私承诺。" en="Trust comes from reversibility, not a privacy slogan." /></h3>
+		</div>
+		<dl>
+			<div><dt>LOCAL</dt><dd><LocalizedText zh="档案默认留在浏览器附近" en="The archive stays close to the browser" /></dd></div>
+			<div><dt>PORTABLE</dt><dd><LocalizedText zh="材料可以被导出与迁移" en="Material can be exported and moved" /></dd></div>
+			<div><dt>INSPECTABLE</dt><dd><LocalizedText zh="捕获、生成和失败状态可见" en="Capture, generation, and failure stay visible" /></dd></div>
+			<div><dt>REVERSIBLE</dt><dd><LocalizedText zh="用户始终可以删除与退出" en="The user can always delete and leave" /></dd></div>
+		</dl>
+	</div>
+
+	<div class="demo-view">
+		<div class="demo-heading">
+			<span>04 / WORKING DEMO</span>
+			<p><LocalizedText zh="捕获、归档与重新找到一次对话。" en="Capture, archive, and retrieve a conversation." /></p>
+		</div>
+		<video controls muted playsinline preload="metadata" poster={library.src}>
+			<source src="/media/vesti-demo.mp4" type="video/mp4" />
+		</video>
+	</div>
+
+	<div class="public-expression">
+		<div>
+			<span class="section-number">05 / PUBLIC EXPRESSION</span>
+			<h3><LocalizedText zh="公共页面解释立场，产品界面承担证据。" en="The public page explains the position; the product interface carries the evidence." /></h3>
+		</div>
+		<figure>
+			<Image src={landing} alt="Vesti public product page" widths={[520, 760, 1100]} sizes="(max-width: 800px) 88vw, 560px" quality={88} />
+		</figure>
+	</div>
+</section>
+
+<style>
+	.vesti-case {
+		--v-ink: #15161c;
+		--v-text: #30333d;
+		--v-muted: #6d7280;
+		--v-paper: #fafbfd;
+		--v-surface: #f0f2f7;
+		--v-line: #d4d8e2;
+		--v-signal: #7c3aed;
+		grid-column: 1 / 4 !important;
+		width: min(1320px, calc(100vw - clamp(1.5rem, 5vw, 5rem)));
+		margin: var(--space-xl) 50% var(--space-3xl);
+		transform: translateX(-50%);
+		color: var(--v-text);
+	}
+	.system-intro { width: min(920px, 92%); margin: 0 auto var(--space-xl); text-align: center; }
+	.eyebrow, .section-number { font-family: var(--font-sans); font-size: .66rem; font-weight: 700; letter-spacing: .16em; color: var(--v-signal); }
+	.system-intro h2 { margin: .65rem 0 .9rem; color: var(--v-ink); font-size: clamp(2.2rem, 5vw, 4.8rem); font-weight: 300; line-height: 1.02; text-wrap: balance; }
+	.lede { max-width: 68ch; margin: auto; color: var(--v-muted); font-family: var(--font-sans); font-size: clamp(.9rem, 1.3vw, 1.05rem); line-height: 1.75; }
+	.memory-path { display: grid; grid-template-columns: repeat(5, 1fr); margin: var(--space-2xl) 0; padding: 0; border-top: 1px solid var(--v-line); list-style: none; }
+	.memory-path li { position: relative; min-height: 150px; padding: 1rem 1rem 1rem 0; border-right: 1px solid var(--v-line); }
+	.memory-path li:last-child { border-right: 0; }
+	.memory-path li::before { content: ""; position: absolute; top: -4px; left: 0; width: 7px; height: 7px; border-radius: 50%; background: var(--v-signal); }
+	.memory-path span, .memory-path small { display: block; color: var(--v-muted); font-family: var(--font-sans); font-size: .7rem; }
+	.memory-path strong { display: block; margin: 1rem 0 .45rem; color: var(--v-ink); font-family: var(--font-body); font-size: 1.45rem; font-weight: 400; }
+	.memory-path small { max-width: 18ch; line-height: 1.5; }
+	.context-view { display: grid; grid-template-columns: 3fr 9fr; gap: clamp(1rem, 3vw, 3rem); align-items: start; margin: var(--space-3xl) 0; }
+	.context-copy { position: sticky; top: 6rem; padding-top: 1rem; border-top: 2px solid var(--v-ink); }
+	.context-copy h3, .workspace-copy h3, .trust-band h3, .public-expression h3 { margin: .8rem 0; color: var(--v-ink); font-size: clamp(1.8rem, 3vw, 3rem); font-weight: 300; line-height: 1.08; }
+	.context-copy p, .workspace-copy p { color: var(--v-muted); font-family: var(--font-sans); font-size: .82rem; line-height: 1.75; }
+	.context-copy ul { margin-top: 1.4rem; padding: 0; border-top: 1px solid var(--v-line); list-style: none; }
+	.context-copy li { padding: .7rem 0; border-bottom: 1px solid var(--v-line); font-family: var(--font-sans); font-size: .72rem; line-height: 1.45; }
+	.browser-evidence, .library-evidence, .public-expression figure { margin: 0; }
+	.browser-evidence :global(img), .library-evidence :global(img), .public-expression :global(img) { display: block; width: 100%; height: auto; border: 1px solid var(--v-line); border-radius: 2px; box-shadow: 0 22px 64px rgba(21,22,28,.1); }
+	.browser-evidence figcaption { max-width: 65ch; margin: .65rem 0 0 auto; color: var(--v-muted); font-family: var(--font-sans); font-size: .67rem; line-height: 1.5; text-align: right; }
+	.workspace-view { display: grid; grid-template-columns: 7fr 4fr; gap: clamp(1.5rem, 5vw, 5rem); align-items: center; margin: var(--space-3xl) 3vw; }
+	.library-evidence { transform: rotate(-.35deg); }
+	.workspace-copy { padding: 1.2rem 0 1.2rem 1.5rem; border-left: 1px solid var(--v-line); }
+	.region-list { margin-top: 1.4rem; }
+	.region-list span { display: flex; justify-content: space-between; gap: 1rem; padding: .7rem 0; border-bottom: 1px solid var(--v-line); color: var(--v-ink); font-family: var(--font-sans); font-size: .68rem; font-weight: 700; letter-spacing: .08em; }
+	.region-list em { color: var(--v-muted); font-weight: 400; letter-spacing: 0; }
+	.trust-band { display: grid; grid-template-columns: 5fr 7fr; gap: var(--space-l); margin: var(--space-3xl) 0; padding: clamp(2rem, 5vw, 5rem); background: var(--v-ink); color: #f6f7fa; }
+	.trust-band h3 { color: #f6f7fa; }
+	.trust-band dl { display: grid; grid-template-columns: 1fr 1fr; margin: 0; border-top: 1px solid rgba(255,255,255,.18); }
+	.trust-band dl div { min-height: 110px; padding: 1rem; border-right: 1px solid rgba(255,255,255,.18); border-bottom: 1px solid rgba(255,255,255,.18); }
+	.trust-band dt { color: #ad89eb; font-family: var(--font-sans); font-size: .66rem; font-weight: 700; letter-spacing: .14em; }
+	.trust-band dd { margin: 1rem 0 0; color: rgba(255,255,255,.72); font-family: var(--font-sans); font-size: .76rem; line-height: 1.55; }
+	.demo-view { margin: var(--space-3xl) 6vw; padding: .8rem; background: var(--v-ink); color: #f6f7fa; }
+	.demo-heading { display: flex; justify-content: space-between; gap: 1rem; padding: .2rem .25rem .7rem; font-family: var(--font-sans); font-size: .68rem; letter-spacing: .12em; }
+	.demo-heading p { margin: 0; color: rgba(255,255,255,.58); letter-spacing: 0; }
+	video { display: block; width: 100%; height: auto; background: #0e0f12; }
+	.public-expression { display: grid; grid-template-columns: 5fr 6fr; gap: clamp(2rem, 7vw, 7rem); align-items: end; margin: var(--space-3xl) 8vw 0; }
+	@media (max-width: 760px) {
+		.memory-path { grid-template-columns: 1fr; }
+		.memory-path li { min-height: auto; border-right: 0; border-bottom: 1px solid var(--v-line); }
+		.context-view, .workspace-view, .trust-band, .public-expression { grid-template-columns: 1fr; margin-left: 0; margin-right: 0; }
+		.context-copy { position: static; }
+		.workspace-copy { padding-left: 0; border-left: 0; border-top: 1px solid var(--v-line); }
+		.trust-band dl { grid-template-columns: 1fr; }
+		.demo-heading { display: block; }
+	}
+</style>

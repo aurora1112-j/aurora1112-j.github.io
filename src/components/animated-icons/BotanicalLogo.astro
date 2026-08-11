@@ -1,0 +1,27 @@
+---
+import BotanicalSymbol from "../icons/BotanicalSymbol.astro";
+---
+
+<span class="botanical-logo" aria-hidden="true">
+	<BotanicalSymbol name="branch" size={40} />
+	<span>BS</span>
+</span>
+
+<style>
+	.botanical-logo {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.3rem;
+		color: var(--color-crimson);
+	}
+
+	.botanical-logo :global(svg) {
+		color: var(--color-sea-blue);
+	}
+
+	.botanical-logo span {
+		font-family: var(--font-body);
+		font-size: 1.15rem;
+		letter-spacing: -0.05em;
+	}
+</style>

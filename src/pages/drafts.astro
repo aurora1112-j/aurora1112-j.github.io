@@ -1,0 +1,72 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import PageWrapper from "../components/layouts/PageWrapper.astro";
+
+if (import.meta.env.PROD) return Astro.redirect("/404");
+
+const [essays, notes, patterns, talks, smidgeons, now] = await Promise.all([
+	getCollection("essays", ({ data }) => data.draft === true),
+	getCollection("notes", ({ data }) => data.draft === true),
+	getCollection("patterns", ({ data }) => data.draft === true),
+	getCollection("talks", ({ data }) => data.draft === true),
+	getCollection("smidgeons", ({ data }) => data.draft === true),
+	getCollection("now", ({ data }) => data.draft === true),
+]);
+
+const groups = [
+	{ label: "Essays", items: essays, href: (id: string) => `/${id}` },
+	{ label: "Notes", items: notes, href: (id: string) => `/${id}` },
+	{ label: "Patterns", items: patterns, href: (id: string) => `/${id}` },
+	{ label: "Talks", items: talks, href: (id: string) => `/${id}` },
+	{ label: "Fragments", items: smidgeons, href: (id: string) => `/${id}` },
+	{ label: "Now", items: now, href: (id: string) => `/now-${id}` },
+].filter(({ items }) => items.length > 0);
+
+const total = groups.reduce((sum, { items }) => sum + items.length, 0);
+---
+
+<Layout title="Draft greenhouse | Botanical Systems">
+	<PageWrapper>
+		<section class="draft-greenhouse">
+			<header>
+				<p class="eyebrow">Local greenhouse</p>
+				<h1>Drafts <span>{total}</span></h1>
+				<p>These working notes only appear while the local site is running.</p>
+			</header>
+
+			{groups.length === 0 ? (
+				<p class="empty-state">Nothing is waiting in the greenhouse.</p>
+			) : (
+				<div class="draft-groups">
+					{groups.map(({ label, items, href }) => (
+						<section>
+							<h2>{label} <span>{items.length}</span></h2>
+							<ul>
+								{items.map((entry) => (
+									<li><a href={href(entry.id)}>{entry.data.title}</a></li>
+								))}
+							</ul>
+						</section>
+					))}
+				</div>
+			)}
+		</section>
+	</PageWrapper>
+</Layout>
+
+<style>
+	.draft-greenhouse { max-width: 72rem; margin: 0 auto; padding: var(--space-2xl) 0; }
+	header { max-width: 42rem; margin-bottom: var(--space-xl); }
+	.eyebrow { color: var(--color-accent-text); font-family: var(--font-sans); text-transform: uppercase; letter-spacing: .08em; }
+	h1 { margin: 0; font-family: var(--font-serif); font-size: var(--font-size-3xl); font-weight: 400; }
+	h1 span, h2 span { color: var(--color-sea-blue); font-family: var(--font-sans); font-size: .55em; }
+	.draft-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: var(--space-m); }
+	section { border-top: 1px solid var(--color-sea-blue); padding-top: var(--space-s); }
+	h2 { font-family: var(--font-serif); font-weight: 400; }
+	ul { list-style: none; margin: 0; padding: 0; }
+	li { padding: var(--space-2xs) 0; border-bottom: 1px solid var(--color-gray-200); }
+	a { color: var(--color-bright-crimson); text-decoration: none; }
+	a:hover { color: var(--color-crimson); }
+	.empty-state { padding: var(--space-l); border: 1px dashed var(--color-gray-300); }
+</style>

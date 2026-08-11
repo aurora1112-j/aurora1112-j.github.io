@@ -1,0 +1,36 @@
+---
+interface Props {
+	name: "seed" | "bud" | "canopy" | "roots" | "branch" | "rings" | "graft" | "leaf";
+	size?: number;
+	class?: string;
+}
+
+const { name, size = 48, class: className } = Astro.props;
+
+const paths = {
+	seed: '<path d="M24 40V20M24 25c-8 0-12-5-12-12 8 0 12 4 12 12Zm0 6c8 0 12-5 12-12-8 0-12 4-12 12Z"/><path d="M16 41c4-4 12-4 16 0"/>',
+	bud: '<path d="M24 42V21M24 25C14 20 14 10 24 6c10 4 10 14 0 19Z"/><path d="M24 32c-6-5-11-4-14-1 4 6 9 7 14 4m0 1c6-5 11-4 14-1-4 6-9 7-14 4"/>',
+	canopy: '<circle cx="32" cy="30" r="20"/><path d="M32 60V12M32 22l-11-7m11 18 14-9M32 43l-16-9m16 4 12 8"/>',
+	roots: '<path d="M32 6v22m0 0c-8 4-13 12-13 29m13-29c8 5 14 13 15 29M32 35c-2 8-1 14 1 22M25 39c-8 2-13 8-17 14m32-15c8 2 12 8 16 14"/>',
+	branch: '<path d="M31 58V9m0 17L16 15m15 23 18-17M31 47 18 37m13 8 16-6"/><path d="M11 10c9 0 13 4 13 12-9 0-13-4-13-12Zm42 5c0 9-4 13-12 13 0-9 4-13 12-13Z"/>',
+	rings: '<path d="M32 7c17 0 26 10 26 25S47 57 32 57 7 47 7 32 17 7 32 7Zm0 9c11 0 18 6 18 16S43 48 32 48s-16-7-16-16 6-16 16-16Zm0 9c6 0 9 3 9 8s-4 8-9 8-8-3-8-8 3-8 8-8Z"/><path d="M32 7v50" opacity=".35"/>',
+	graft: '<path d="M26 57c0-20 8-28 25-39M34 35 18 17m16 18 9-17M26 45 12 35"/><path d="M46 12c8 0 10 5 9 12-8 0-11-5-9-12ZM11 30c8-1 12 3 13 10-8 2-12-2-13-10Z"/>',
+	leaf: '<path d="M54 9C28 10 13 22 13 43c16 5 34-4 41-34Z"/><path d="M11 56c9-17 22-27 38-38"/>',
+};
+
+const viewBox = name === "seed" || name === "bud" ? "0 0 48 48" : "0 0 64 64";
+---
+
+<svg
+	class={className}
+	width={size}
+	height={size}
+	viewBox={viewBox}
+	fill="none"
+	stroke="currentColor"
+	stroke-width="2"
+	stroke-linecap="round"
+	stroke-linejoin="round"
+	aria-hidden="true"
+	set:html={paths[name]}
+/>

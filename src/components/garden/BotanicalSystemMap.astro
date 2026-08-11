@@ -1,0 +1,104 @@
+---
+import BotanicalSymbol from "../icons/BotanicalSymbol.astro";
+import LocalizedText from "../i18n/LocalizedText.astro";
+
+const systems = [
+	{
+		icon: "roots",
+		zh: "根",
+		en: "Roots",
+		descZh: "来源、观察、约束与真实经验。每个判断都应能回到它从哪里长出来。",
+		descEn: "Sources, observations, constraints, and lived experience. Every claim should lead back to where it grew.",
+	},
+	{
+		icon: "bud",
+		zh: "芽",
+		en: "Buds",
+		descZh: "尚未定型的问题、假设与灵感。允许它们稚嫩，也明确标记不确定。",
+		descEn: "Questions, hypotheses, and sparks that are not ready yet. They can stay tender while uncertainty remains visible.",
+	},
+	{
+		icon: "branch",
+		zh: "枝",
+		en: "Branches",
+		descZh: "相互竞争的路径、反例与跨主题连接。知识通过分叉，而不是排成一列。",
+		descEn: "Competing paths, counterexamples, and cross-topic links. Knowledge branches instead of lining up in a row.",
+	},
+	{
+		icon: "rings",
+		zh: "年轮",
+		en: "Rings",
+		descZh: "修订、时间与认知变化留下的痕迹。新版本不会抹掉旧版本。",
+		descEn: "Traces of revision, time, and changing understanding. A new version does not erase the old one.",
+	},
+	{
+		icon: "graft",
+		zh: "嫁接",
+		en: "Grafts",
+		descZh: "把产品、设计、AI 与知识管理中的方法移植到新的问题上。",
+		descEn: "Methods transplanted across product, design, AI, and knowledge work to answer new questions.",
+	},
+	{
+		icon: "canopy",
+		zh: "树冠",
+		en: "Canopy",
+		descZh: "可以被理解、讨论与复用的公开成果，同时仍与根和生长过程相连。",
+		descEn: "Public work others can understand, discuss, and reuse—while staying connected to its roots and growth.",
+	},
+] as const;
+---
+
+<section class="system-map" aria-labelledby="system-map-title">
+	<div class="system-intro">
+		<p class="eyebrow"><LocalizedText zh="BOTANICAL SYSTEMS" en="BOTANICAL SYSTEMS" /></p>
+		<h2 id="system-map-title">
+			<LocalizedText zh="植物不是装饰，而是一套知识结构" en="The botanical language is a knowledge structure, not decoration" />
+		</h2>
+		<p>
+			<LocalizedText
+				zh="这里的内容不会被包装成整齐、完成的卡片。它们从来源扎根，在问题中分枝，经由修订留下年轮，最后才形成可分享的树冠。"
+				en="The work here is not packaged as a wall of finished cards. It takes root in sources, branches through questions, records revisions as rings, and only then becomes a shareable canopy."
+			/>
+		</p>
+	</div>
+
+	<div class="growth-path">
+		<div class="vine" aria-hidden="true"></div>
+		{
+			systems.map((system, index) => (
+				<article class="system-node" style={`--node-index:${index}`}>
+					<div class="symbol"><BotanicalSymbol name={system.icon} size={62} /></div>
+					<div>
+						<h3><LocalizedText zh={system.zh} en={system.en} /></h3>
+						<p><LocalizedText zh={system.descZh} en={system.descEn} /></p>
+					</div>
+				</article>
+			))
+		}
+	</div>
+</section>
+
+<style>
+	.system-map {
+		position: relative;
+		margin: var(--space-2xl) 0 calc(var(--space-2xl) * 1.4);
+		padding: 0 clamp(0px, 3vw, 2.5rem);
+	}
+	.system-intro { max-width: 760px; margin: 0 auto var(--space-xl); }
+	.eyebrow { color: var(--color-sea-blue); font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: .16em; }
+	h2 { max-width: 720px; font-family: var(--font-serif); font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 300; line-height: 1.05; margin: var(--space-2xs) 0 var(--space-s); }
+	.system-intro > p:last-child { max-width: 650px; color: var(--color-gray-600); font-size: var(--font-size-md); }
+	.growth-path { position: relative; max-width: 920px; margin: 0 auto; display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--space-s) 0; }
+	.vine { position: absolute; inset: 4% 49% 5%; width: 2px; background: linear-gradient(var(--color-sea-blue), var(--color-tinted-cream), var(--color-crimson)); transform: rotate(4deg); opacity: .65; }
+	.system-node { position: relative; z-index: 1; display: grid; grid-template-columns: 70px minmax(0, 1fr); gap: var(--space-xs); align-items: start; padding: var(--space-s) 0; }
+	.system-node:nth-of-type(odd) { grid-column: 1 / span 7; }
+	.system-node:nth-of-type(even) { grid-column: 6 / span 7; transform: translateY(2rem); }
+	.symbol { display: grid; place-items: center; width: 64px; height: 64px; color: var(--color-sea-blue); transform: rotate(calc((var(--node-index) - 2) * 2deg)); }
+	h3 { margin: .2rem 0 .35rem; font-family: var(--font-serif); font-size: var(--font-size-lg); font-weight: 500; }
+	.system-node p { margin: 0; max-width: 34rem; color: var(--color-gray-600); line-height: var(--leading-base); }
+	@media (max-width: 720px) {
+		.growth-path { display: block; padding-left: 1rem; }
+		.vine { left: 46px; right: auto; transform: none; }
+		.system-node, .system-node:nth-of-type(even), .system-node:nth-of-type(odd) { transform: none; margin-bottom: var(--space-s); }
+	}
+</style>

@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "title": "待读：多 Agent 协作",
+    "titleEn": "To Explore: Multi-Agent Coordination",
+    "subtitle": "未读占位",
+    "subtitleEn": "Unread placeholder",
+    "author": "待选择",
+    "authorEn": "To be selected",
+    "cover": "../images/placeholders/agent-branching.svg",
+    "link": "https://example.com/antilibrary/multi-agent"
+  },
+  {
+    "id": 2,
+    "title": "待读：记忆与遗忘",
+    "titleEn": "To Explore: Memory and Forgetting",
+    "subtitle": "未读占位",
+    "subtitleEn": "Unread placeholder",
+    "author": "待选择",
+    "authorEn": "To be selected",
+    "cover": "../images/placeholders/knowledge-roots.svg",
+    "link": "https://example.com/antilibrary/memory"
+  },
+  {
+    "id": 3,
+    "title": "待读：AI 认识论",
+    "titleEn": "To Explore: AI Epistemology",
+    "subtitle": "未读占位",
+    "subtitleEn": "Unread placeholder",
+    "author": "待选择",
+    "authorEn": "To be selected",
+    "cover": "../images/placeholders/ai-canopy.svg",
+    "link": "https://example.com/antilibrary/ai-epistemology"
+  }
+]

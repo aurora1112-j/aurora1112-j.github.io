@@ -1,0 +1,61 @@
+---
+title: "渐进式自主权"
+titleEn: "Progressive Autonomy"
+description: "让 Agent 的行动权限随风险、信任与可逆性逐步增长，而不是在全自动和全手动之间二选一。"
+descriptionEn: "Letting agent authority grow with risk, trust, and reversibility instead of choosing between fully automatic and fully manual."
+startDate: "2026-07-18"
+updated: "2026-08-02"
+type: "concept"
+topics: ["AI Agents", "Human–AI Collaboration", "Trust"]
+growthStage: "budding"
+toc: true
+connections:
+  - slug: "context-engineering"
+    relationship: "builds-on"
+    labelZh: "渐进式自主权建立在上下文工程的信息架构之上"
+    labelEn: "Progressive autonomy builds on the information architecture of context engineering"
+  - slug: "agent-memory"
+    relationship: "informed-by"
+    labelZh: "Agent 记忆中的交互历史为自主权决策提供依据"
+    labelEn: "Interaction history in agent memory informs autonomy decisions"
+---
+
+import LanguageBlock from "../../components/i18n/LanguageBlock.astro";
+
+<LanguageBlock lang="zh">
+
+<IntroParagraph>自主权不是一个开关，而是一组可以按动作、场景和信任水平调整的权限。</IntroParagraph>
+
+## 三层行动
+
+1. 可逆、低风险动作可以直接完成并留下记录。
+2. 高影响但可恢复的动作应在执行前解释计划。
+3. 不可逆或涉及他人的动作必须明确确认。
+
+## 设计目标
+
+减少不必要的打断，同时让用户始终知道系统做过什么、接下来准备做什么，以及如何撤销。
+
+## 执行成本下降后的责任
+
+Agent 可以让执行越来越便宜，但不会自动回答“什么值得做”。自主权设计最终仍要让判断者和责任归属保持清晰。参见碎片：[执行变便宜后，判断更重要](/initiative-after-execution-gets-cheap)。
+</LanguageBlock>
+
+<LanguageBlock lang="en">
+
+<IntroParagraph>Autonomy is not a switch. It is a set of permissions that can vary by action, situation, and level of trust.</IntroParagraph>
+
+## Three action layers
+
+1. Reversible, low-risk actions can complete directly with a visible record.
+2. Consequential but recoverable actions should explain the plan first.
+3. Irreversible actions or actions affecting others require explicit confirmation.
+
+## Design goal
+
+Reduce needless interruption while keeping past actions, future intent, and reversal paths legible.
+
+## Responsibility after execution gets cheaper
+
+Agents can keep lowering the cost of execution, but they do not automatically answer what is worth doing. Autonomy design must keep judgement and responsibility legible. See the fragment: [When Execution Gets Cheaper, Judgement Matters More](/initiative-after-execution-gets-cheap).
+</LanguageBlock>

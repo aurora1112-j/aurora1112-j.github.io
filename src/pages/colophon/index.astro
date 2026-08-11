@@ -1,0 +1,39 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Title1 from "../../components/mdx/typography/Title1.astro";
+import Title2 from "../../components/mdx/typography/Title2.astro";
+import Title3 from "../../components/mdx/typography/Title3.astro";
+import PageWrapper from "../../components/layouts/PageWrapper.astro";
+import ProseWrapper from "../../components/layouts/ProseWrapper.astro";
+import TooltipLink from "../../components/mdx/TooltipLink.astro";
+import ColophonContent from "../../components/pages/ColophonContent.astro";
+import LocalizedText from "../../components/i18n/LocalizedText.astro";
+---
+
+<Layout title="网站说明｜Chenxi Huang" titleEn="Colophon | Chenxi Huang">
+	<PageWrapper>
+		<header style="margin: var(--space-xl) auto; max-width: 800px">
+			<Title1><LocalizedText zh="网站说明" en="Colophon" /></Title1>
+			<Title2>
+				<LocalizedText zh="关于这座网站如何被设计、建造，并继续生长。" en="How this site was designed, built, and continues to grow." />
+			</Title2>
+		</header>
+		<section style="margin: var(--space-xl) auto; max-width: 800px">
+			<ProseWrapper>
+				<ColophonContent />
+			</ProseWrapper>
+		</section>
+	</PageWrapper>
+
+	<style>
+		@media (max-width: 768px) {
+			header {
+				margin: var(--space-m) 0;
+				max-width: 100%;
+			}
+			section {
+				max-width: 100%;
+			}
+		}
+	</style>
+</Layout>

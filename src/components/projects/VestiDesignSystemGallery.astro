@@ -1,0 +1,164 @@
+---
+import { Image } from "astro:assets";
+import LocalizedText from "../i18n/LocalizedText.astro";
+import posterDark from "../../images/projects/vesti-design-system/poster-dark.png";
+import posterIteration from "../../images/projects/vesti-design-system/poster-iteration.png";
+import posterLight from "../../images/projects/vesti-design-system/poster-light.png";
+import printFamily from "../../images/projects/vesti-design-system/print-family.jpg";
+import uiCover from "../../images/projects/vesti-design-system/ui-cover.jpg";
+import uiBoard from "../../images/projects/vesti-design-system/ui-system-board.jpg";
+import explore from "../../images/projects/vesti-design-system/explore-screen.png";
+import network from "../../images/projects/vesti-design-system/network-screen.png";
+import postcard from "../../images/projects/vesti-design-system/postcard.png";
+import bookmark from "../../images/projects/vesti-design-system/bookmark.png";
+
+const platforms = [
+	["ChatGPT", "#8ABCA9"], ["Claude", "#C9977D"], ["Gemini", "#A99BC8"],
+	["DeepSeek", "#8FA4C4"], ["Qwen", "#B8A1C4"], ["Doubao", "#91AEC7"],
+	["Yuanbao", "#82B5A7"], ["Kimi", "#AAA79C"],
+];
+
+const officialOwl = "https://raw.githubusercontent.com/aurora1112-j/vesti/3b1cdf7/frontend/assets/icon.png";
+
+const archive = [
+	{ image: posterLight, zh: "海报：8 字记忆回环与底纹的原始语法", en: "Poster: the original figure-eight memory-loop grammar", kind: "ORIGIN" },
+	{ image: uiCover, zh: "浏览器扩展的早期产品表达", en: "Early browser-extension expression", kind: "PRODUCT" },
+	{ image: uiBoard, zh: "界面系统板：语境与尺度", en: "Interface board: context and scale", kind: "PRODUCT" },
+	{ image: explore, zh: "Explore：从档案生成解释", en: "Explore: interpretations grounded in the archive", kind: "PRODUCT" },
+	{ image: network, zh: "Network：关系随时间出现", en: "Network: relationships unfolding over time", kind: "PRODUCT" },
+	{ image: posterDark, zh: "深色海报：蓝图式层级实验", en: "Dark poster: blueprint hierarchy study", kind: "ARCHIVE" },
+	{ image: printFamily, zh: "印刷家族与尺度实验", en: "Print family and scale studies", kind: "ARCHIVE" },
+	{ image: postcard, zh: "双语明信片", en: "Bilingual postcard", kind: "ARCHIVE" },
+	{ image: bookmark, zh: "书签：最小品牌载体", en: "Bookmark: the smallest brand surface", kind: "ARCHIVE" },
+];
+---
+
+<section class="vds" aria-label="Vesti design system">
+	<header class="vds-intro">
+		<div class="wordmark">Vesti</div>
+		<p class="version">LOCAL-FIRST MEMORY DESIGN SYSTEM · V2</p>
+		<div class="owl-field" aria-hidden="true">
+			<span class="orbit orbit-a"></span><span class="orbit orbit-b"></span>
+			<img class="hero-owl" src={officialOwl} alt="" />
+		</div>
+		<div class="manifesto">
+			<p>LOCAL-FIRST AI MEMORY</p>
+			<h2><LocalizedText zh="每一个想法，" en="Every thought" /><br/><LocalizedText zh="都值得一个归处。" en="deserves a home." /></h2>
+			<div class="manifesto-copy"><LocalizedText zh="仓库中的猫头鹰图标负责产品识别；海报中由微小符号构成的 8 字回环，负责表达记忆不断返回、连接和生长。它们来自两份不同的正式资产。" en="The repository owl is the product identifier. The poster's glyph-filled figure eight expresses memory returning, connecting, and growing. They are two distinct source assets." /></div>
+		</div>
+	</header>
+
+	<section class="spec-section brand-model">
+		<div class="spec-heading"><span>01</span><h3>Owl & memory loop</h3><p><LocalizedText zh="一个负责识别，一个负责叙事。" en="One identifies; one tells the story." /></p></div>
+		<div class="brand-content">
+			<div class="brand-asset official-owl">
+				<div><img src={officialOwl} alt="Vesti 仓库中的官方猫头鹰图标" /></div>
+				<small>OFFICIAL OWL · frontend/assets/icon.png · 512 × 512 PNG</small>
+				<p class="rule"><LocalizedText zh="这是产品仓库中的正式图标：双眼形成近似无限回环，菱形构成喙。网页与 Figma 都直接使用这份原图，不再重新描画。" en="This is the official repository mark: two eyes form an infinity-like loop and a diamond forms the beak. The website and Figma use this source image directly, without retracing it." /></p>
+			</div>
+			<div class="brand-asset texture-source">
+				<div><Image src={posterIteration} alt="Vesti 海报中的符号填充 8 字记忆回环" widths={[560, 900]} sizes="(max-width: 800px) 90vw, 42vw" quality={90} /></div>
+				<small>POSTER TEXTURE · poster-iteration.png · EXACT RASTER REFERENCE</small>
+				<p class="rule"><LocalizedText zh="微小符号填充的是海报中的 8 字记忆回环，而不是猫头鹰身体。当前源文件是位图，因此在 Figma 中作为可替换图片资产保留；获得原始矢量稿之前，不声称它能逐路径编辑。" en="The tiny glyphs fill the poster's figure-eight memory loop, not the owl's body. The current source is raster, so Figma keeps it as a replaceable image asset; it is not presented as editable paths until original vector artwork exists." /></p>
+			</div>
+		</div>
+	</section>
+
+	<section class="spec-section foundations">
+		<div class="spec-heading"><span>02</span><h3>Paper, ink, type</h3><p><LocalizedText zh="温暖的纸、可追溯的墨、双语编辑节奏。" en="Warm paper, traceable ink, bilingual editorial rhythm." /></p></div>
+		<div class="foundation-content">
+			<div class="color-system">
+				<div class="paper-scale"><i></i><i></i><i></i><i></i><i></i></div>
+				<div class="ink-scale"><i></i><i></i><i></i><i></i><i></i></div>
+			</div>
+			<div class="type-system">
+				<div><span>BRAND / DISPLAY</span><strong>Vesti</strong><small>DM Serif Display · high-contrast identity</small></div>
+				<div><span>EDITORIAL</span><strong>Every thought deserves a home.</strong><small>Cormorant Garamond · italic voice</small></div>
+				<div><span>PRODUCT</span><strong>Capture · Search · Link · Retrieve</strong><small>Lexend + Noto Sans SC · functional clarity</small></div>
+				<div><span>PROVENANCE</span><strong>SOURCE 04 · LOCAL TRACE · 14:32</strong><small>IBM Plex Mono · evidence and state</small></div>
+			</div>
+		</div>
+	</section>
+
+	<section class="spec-section platforms">
+		<div class="spec-heading"><span>03</span><h3>Platform traces</h3><p><LocalizedText zh="平台色是来源线索，不是界面底色。" en="Platform color is provenance, not surface." /></p></div>
+		<div>
+			<div class="platform-row">{platforms.map(([name, color]) => <span style={`--platform:${color}`}>{name}</span>)}</div>
+			<p class="rule"><LocalizedText zh="标签改为轻底描边胶囊。它们保留身份，却不再把产品切碎成八套高饱和色块。" en="Outlined, lightly tinted capsules preserve identity without fragmenting the product into eight saturated color blocks." /></p>
+		</div>
+	</section>
+
+	<section class="spec-section components">
+		<div class="spec-heading"><span>04</span><h3>Product grammar</h3><p><LocalizedText zh="去掉卡片墙，让时间、来源与路径成为结构。" en="Remove the card wall; let time, source, and path carry structure." /></p></div>
+		<div class="component-board">
+			<div class="search-spec"><span>agent memory</span><kbd>18 TRACES</kbd></div>
+			<div class="trace-list">
+				<div><time>AUG 06 · 14:32</time><strong>Designing a memory architecture for agents</strong><em>Claude</em></div>
+				<div><time>AUG 05 · 21:08</time><strong>Local-first knowledge as a product promise</strong><em>ChatGPT</em></div>
+				<div><time>AUG 04 · 09:46</time><strong>What should an agent remember?</strong><em>Gemini</em></div>
+			</div>
+			<div class="summary-spec"><span>STRUCTURED MEMORY · 6 SOURCES</span><h4>What makes agent memory reliable?</h4><p>A durable memory system separates capture, indexing, retrieval, and provenance. Each trace remains locally inspectable and links back to its source.</p><ol><li>Capture before compression</li><li>Preserve source boundaries</li><li>Make retrieval state visible</li></ol></div>
+			<div class="capture-spec"><div><strong>linking memory</strong><small>LOCAL PROCESS · 66%</small></div></div>
+		</div>
+	</section>
+
+	<section class="spec-section states">
+		<div class="spec-heading"><span>05</span><h3>State contract</h3><p><LocalizedText zh="系统设计的是过程，而不只是完成态。" en="The system designs the process, not only completion." /></p></div>
+		<div class="state-matrix">
+			<div><b>CAPTURE</b><span>Capturing</span><span>Extracting</span><span>Linking</span><span>Ready</span><span>Error</span><span>Paused</span></div>
+			<div><b>RETRIEVAL</b><span>Empty</span><span>Focused</span><span>Query</span><span>Results</span></div>
+			<div><b>KNOWLEDGE</b><span>Collapsed</span><span>Expanded</span><span>With sources</span></div>
+			<div><b>ACTION</b><span>Default</span><span>Hover</span><span>Disabled</span></div>
+		</div>
+	</section>
+
+	<section class="archive-section">
+		<div class="spec-heading"><span>06</span><h3>Origin & archive</h3><p><LocalizedText zh="海报提供身份，代码提供功能，设计系统负责翻译。" en="The poster supplies identity, code supplies function, and the system translates between them." /></p></div>
+		<div class="archive-grid">
+			{archive.map((item, index) => (
+				<figure>
+					<div><Image src={item.image} alt={item.en} widths={[520, 820, 1200]} sizes="(max-width: 720px) 94vw, 46vw" quality={88} loading={index < 2 ? "eager" : "lazy"} /></div>
+					<figcaption><span>{item.kind} · {String(index + 1).padStart(2, "0")}</span><LocalizedText zh={item.zh} en={item.en} /></figcaption>
+				</figure>
+			))}
+		</div>
+	</section>
+</section>
+
+<style>
+	.vds { --v-ink:#171512; --v-text:#3a3732; --v-muted:#6d6961; --v-glyph:#b7b3aa; --v-paper:#faf7f0; --v-paper-2:#f6f1e8; --v-paper-3:#eee8dc; --v-line:#ddd8cf; --v-orbit:#cfd0b1; grid-column:1/4!important; width:min(1440px,calc(100vw - clamp(1rem,3vw,3rem))); margin:var(--space-xl) 50% var(--space-3xl); transform:translateX(-50%); color:var(--v-text); background-color:var(--v-paper); background-image:linear-gradient(90deg,transparent calc(25% - .5px),rgba(169,164,154,.14) 25%,transparent calc(25% + .5px)),linear-gradient(transparent calc(22rem - .5px),rgba(169,164,154,.11) 22rem,transparent calc(22rem + .5px)); background-size:25% 100%,100% 22rem; border:1px solid var(--v-line); }
+	.vds-intro { position:relative; min-height:870px; overflow:hidden; padding:clamp(2rem,5vw,5rem); border-bottom:1px solid var(--v-line); }
+	.wordmark { color:var(--v-ink); font-family:"DM Serif Display",var(--font-body); font-size:clamp(8rem,19vw,18rem); line-height:.68; letter-spacing:-.055em; }
+	.version,.manifesto>p,.spec-heading>span,.type-system span,.type-system small,.trace-list time,.summary-spec>span,.capture-spec small { color:var(--v-muted); font-family:"IBM Plex Mono",monospace; font-size:.61rem; letter-spacing:.14em; }
+	.version { margin:2.2rem 0 0 .25rem; }
+	.owl-field { position:absolute; left:5%; bottom:3%; width:min(48%,600px); height:570px; }
+	.hero-owl { position:absolute; left:18%; bottom:3%; width:min(68%,380px); z-index:2; }
+	.orbit { position:absolute; width:1500px; height:580px; border:1px solid var(--v-orbit); border-radius:50%; transform:rotate(-9deg); }
+	.orbit-a { left:-370px; top:20px; }.orbit-b { left:-310px; top:140px; opacity:.45; }
+	.manifesto { position:absolute; right:7%; top:38%; width:min(38%,500px); padding-left:clamp(1rem,4vw,4rem); border-left:1px solid var(--v-line); }
+	.manifesto h2 { margin:1.2rem 0 2rem; color:var(--v-ink); font-family:"Cormorant Garamond",var(--font-body); font-size:clamp(3rem,5vw,5.6rem); font-style:italic; font-weight:600; line-height:.95; }
+	.manifesto-copy { max-width:34rem; color:var(--v-muted); font-family:var(--font-sans); font-size:.83rem; line-height:1.9; }
+	.spec-section,.archive-section { display:grid; grid-template-columns:3fr 9fr; gap:clamp(1.5rem,5vw,5rem); padding:clamp(3rem,7vw,7rem) clamp(2rem,5vw,5rem); border-bottom:1px solid var(--v-line); }
+	.spec-heading h3 { margin:.8rem 0; color:var(--v-ink); font-family:"DM Serif Display",var(--font-body); font-size:clamp(2.4rem,4vw,4.6rem); font-weight:400; line-height:.95; }
+	.spec-heading p,.rule { color:var(--v-muted); font-family:var(--font-sans); font-size:.72rem; line-height:1.7; }
+	.brand-content { display:grid; grid-template-columns:1fr 1.15fr; gap:clamp(2rem,5vw,5rem); }
+	.brand-asset { min-width:0; }
+	.brand-asset>div { display:grid; min-height:430px; place-items:center; overflow:hidden; border:1px solid var(--v-line); background:rgba(255,252,247,.62); }
+	.brand-asset small { display:block; margin-top:1rem; color:var(--v-muted); font-family:monospace; font-size:.58rem; letter-spacing:.1em; }
+	.brand-asset .rule { margin-top:1.3rem; max-width:62ch; }
+	.official-owl img { display:block; width:min(72%,330px); height:auto; }
+	.texture-source :global(img) { display:block; width:100%; height:430px; object-fit:contain; }
+	.foundation-content { min-width:0; }.color-system { display:grid; grid-template-columns:1fr 1fr; gap:3rem; padding-bottom:3rem; border-bottom:1px solid var(--v-line); }
+	.paper-scale,.ink-scale { display:grid; grid-template-columns:repeat(5,1fr); min-height:120px; }
+	.color-system i { border:1px solid rgba(23,21,18,.06); }.paper-scale i:nth-child(1){background:#fffcf7}.paper-scale i:nth-child(2){background:#faf7f0}.paper-scale i:nth-child(3){background:#f6f1e8}.paper-scale i:nth-child(4){background:#eee8dc}.paper-scale i:nth-child(5){background:#e2dacb}.ink-scale i:nth-child(1){background:#171512}.ink-scale i:nth-child(2){background:#3a3732}.ink-scale i:nth-child(3){background:#6d6961}.ink-scale i:nth-child(4){background:#a9a49a}.ink-scale i:nth-child(5){background:#ddd8cf}
+	.type-system div { display:grid; grid-template-columns:9rem 1fr 18rem; gap:1rem; align-items:baseline; padding:1.4rem 0; border-bottom:1px solid var(--v-line); }
+	.type-system strong { color:var(--v-ink); font-weight:400; }.type-system div:first-child strong { font-family:"DM Serif Display",var(--font-body); font-size:3.3rem; }.type-system div:nth-child(2) strong { font-family:"Cormorant Garamond",var(--font-body); font-size:2rem; font-style:italic; }.type-system div:nth-child(3) strong { font-family:var(--font-sans); font-size:.9rem; }.type-system div:last-child strong { font-family:monospace; font-size:.68rem; }
+	.platform-row { display:flex; flex-wrap:wrap; gap:.7rem; }.platform-row span { padding:.48rem .9rem; border:1px solid var(--platform); border-radius:999px; background:color-mix(in srgb,var(--platform) 8%,transparent); color:var(--v-ink); font-family:var(--font-sans); font-size:.7rem; }.platforms .rule { max-width:70ch; margin-top:2rem; }
+	.component-board { position:relative; padding-top:1rem; }.search-spec { display:grid; grid-template-columns:1fr auto; gap:1rem; align-items:center; max-width:620px; padding:.9rem 0; border-bottom:1px solid var(--v-line); font-family:var(--font-sans); font-size:.76rem; }.search-spec kbd { border:0; background:transparent; color:var(--v-muted); font:inherit; font-size:.58rem; letter-spacing:.1em; }
+	.trace-list { width:min(68%,760px); margin-top:3rem; }.trace-list div { position:relative; padding:1.2rem 7rem 1.2rem 0; border-bottom:1px solid var(--v-line); }.trace-list time { display:block; margin-bottom:.65rem; }.trace-list strong { color:var(--v-ink); font-family:"Newsreader",var(--font-body); font-size:1.35rem; font-weight:400; }.trace-list em { position:absolute; right:0; top:50%; padding:.3rem .65rem; border:1px solid #c9977d; border-radius:999px; font-family:var(--font-sans); font-size:.6rem; font-style:normal; }
+	.summary-spec { width:min(62%,680px); margin:-3rem 0 0 auto; padding:2rem 0 2rem 2rem; border-left:2px solid var(--v-orbit); background:linear-gradient(90deg,rgba(255,252,247,.95),rgba(255,252,247,.45)); }.summary-spec h4 { margin:1rem 0; color:var(--v-ink); font-family:"DM Serif Display",var(--font-body); font-size:2rem; font-weight:400; }.summary-spec p,.summary-spec li { font-family:"Newsreader",var(--font-body); font-size:.9rem; line-height:1.65; }.summary-spec ol { padding-left:1.25rem; }
+	.capture-spec { display:flex; gap:1rem; align-items:center; width:min(380px,100%); margin:3rem 0 0; padding:1rem 0; border-top:1px solid var(--v-line); border-bottom:2px solid #8061b2; }.capture-spec strong,.capture-spec small { display:block; }.capture-spec strong { color:var(--v-ink); font-family:var(--font-sans); font-size:.75rem; }.capture-spec small { margin-top:.3rem; }
+	.state-matrix { border-top:1px solid var(--v-line); }.state-matrix div { display:flex; flex-wrap:wrap; gap:.6rem; padding:1rem 0; border-bottom:1px solid var(--v-line); }.state-matrix b { width:7rem; color:var(--v-ink); font-family:monospace; font-size:.63rem; }.state-matrix span { color:var(--v-muted); font-family:var(--font-sans); font-size:.65rem; }.state-matrix span+span::before { content:"·"; margin-right:.6rem; color:var(--v-orbit); }
+	.archive-grid { display:grid; grid-template-columns:repeat(12,1fr); gap:var(--space-xl) var(--space-m); align-items:start; }.archive-grid figure { grid-column:span 6; margin:0; }.archive-grid figure:nth-child(3n+1){grid-column:span 7}.archive-grid figure:nth-child(3n+2){grid-column:span 5;margin-top:var(--space-xl)}.archive-grid figure div { overflow:hidden; background:var(--v-paper-2); }.archive-grid :global(img){display:block;width:100%;height:auto;filter:saturate(.86);transition:transform .45s ease,filter .45s ease}.archive-grid figure:hover :global(img){transform:scale(1.012);filter:saturate(1)}.archive-grid figcaption { display:flex; justify-content:space-between; gap:1rem; margin-top:.6rem; color:var(--v-muted); font-size:.7rem; }.archive-grid figcaption span { font-family:monospace; font-size:.55rem; letter-spacing:.1em; }
+	@media(max-width:800px){.vds-intro{min-height:920px}.wordmark{font-size:34vw}.owl-field{left:-12%;bottom:2%;width:90%;height:510px}.hero-owl{left:20%;width:60%}.manifesto{top:29%;right:5%;width:55%}.manifesto h2{font-size:2.9rem}.spec-section,.archive-section{grid-template-columns:1fr}.brand-content,.color-system{grid-template-columns:1fr}.type-system div{grid-template-columns:1fr}.trace-list,.summary-spec{width:100%;margin-top:2rem}.archive-grid{grid-template-columns:1fr}.archive-grid figure:nth-child(n){grid-column:1;margin-top:0}.brand-asset{max-width:620px}}
+</style>

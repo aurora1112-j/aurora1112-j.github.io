@@ -1,0 +1,187 @@
+---
+import Footer from "../components/layouts/Footer.astro";
+import Navbar from "../components/layouts/navbar/Navbar.astro";
+import { SEO } from "astro-seo";
+import { ClientRouter } from "astro:transitions";
+import { SITE } from "../data/site";
+import "../global.css";
+
+export interface Props {
+	title?: string;
+	titleEn?: string;
+	desc?: string;
+	descEn?: string;
+	type?: string;
+	coverImage?: string;
+	canonicalURL?: string;
+}
+
+const {
+	title,
+	titleEn,
+	desc,
+	descEn,
+	type,
+	coverImage,
+	canonicalURL: overrideCanonicalURL,
+} = Astro.props;
+
+const DEFAULT_DESCRIPTION =
+	"Chenxi Huang 的个人知识花园，记录 AI Agent、人机协作与知识管理的研究和实践。";
+const DEFAULT_DESCRIPTION_EN =
+	"Chenxi Huang's personal knowledge garden about AI agents, human–AI collaboration, and knowledge systems.";
+
+const pageTitle = title || SITE.brand;
+const pageTitleEn = titleEn || title || SITE.brand;
+const pageDescription = desc || DEFAULT_DESCRIPTION;
+const pageDescriptionEn = descEn || desc || DEFAULT_DESCRIPTION_EN;
+
+const canonicalURL = overrideCanonicalURL || new URL(Astro.url.pathname, Astro.site).toString();
+
+// Generate OG image URL based on canonical path so all versions share the same image
+const canonicalPathname = new URL(canonicalURL).pathname;
+const contentId = canonicalPathname.replace(/^\/?|\/?$/g, "");
+
+// Use localhost URL in development, production URL otherwise
+const baseUrl = import.meta.env.DEV ? Astro.url.origin : Astro.site;
+
+// Construct OG image URL - now just using the content ID directly
+const ogImageURL = type ? new URL(`/og/${contentId}.png`, baseUrl) : new URL(`/og.png`, baseUrl);
+
+// Only add search params for non-content pages (like the homepage)
+if (!type) {
+	if (pageTitle) ogImageURL.searchParams.set("title", pageTitle);
+	if (pageDescription) ogImageURL.searchParams.set("description", pageDescription);
+	if (coverImage) ogImageURL.searchParams.set("coverImage", coverImage);
+}
+
+---
+
+<!doctype html>
+<html
+	lang="zh-CN"
+	data-lang="zh"
+	data-title-zh={pageTitle}
+	data-title-en={pageTitleEn}
+	data-description-zh={pageDescription}
+	data-description-en={pageDescriptionEn}
+>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="color-scheme" content="light dark" />
+		<script is:inline>
+			(() => {
+				const saved = localStorage.getItem("botanical-language");
+				const language = saved === "en" ? "en" : "zh";
+				document.documentElement.dataset.lang = language;
+				document.documentElement.lang = language === "zh" ? "zh-CN" : "en";
+			})();
+		</script>
+		<link rel="icon" type="image/svg+xml" href="/images/favicon/favicon.svg" />
+		<link rel="manifest" href="/manifest.json" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,600&display=swap"
+		/>
+		<link
+			rel="alternate"
+			type="application/rss+xml"
+			title="Botanical Systems RSS Feed"
+			href="/rss.xml"
+		/>
+		<link rel="me" href={SITE.githubUrl} />
+		<link rel="me" href={SITE.xUrl} />
+		<link rel="canonical" href={canonicalURL} />
+		<ClientRouter />
+		<SEO
+			title={pageTitle}
+			description={pageDescription}
+			canonical={canonicalURL}
+			openGraph={{
+				basic: {
+					type: "website",
+					url: canonicalURL,
+					title: pageTitle,
+					image: ogImageURL.toString(),
+				},
+				optional: {
+					locale: "zh_CN",
+					description: pageDescription,
+				},
+				image: {
+					alt: `${pageTitle} — ${SITE.brand}`,
+					width: 1200,
+					height: 630,
+				},
+			}}
+			twitter={{
+				creator: SITE.xHandle,
+				card: "summary_large_image",
+				image: ogImageURL.toString(),
+				imageAlt: `${pageTitle} — ${SITE.brand}`,
+			}}
+		/>
+	</head>
+	<body>
+		<Navbar />
+		<main>
+			<slot />
+		</main>
+		<Footer />
+		<style is:global>
+			[data-lang-content] {
+				display: none !important;
+			}
+
+			html[data-lang="zh"] [data-lang-content="zh"],
+			html[data-lang="en"] [data-lang-content="en"] {
+				display: revert !important;
+			}
+
+			/* Improve Page speed */
+			/* https://css-tricks.com/almanac/properties/c/content-visibility/ */
+			img {
+				content-visibility: auto;
+			}
+		</style>
+		<script is:inline>
+			(() => {
+				function applyLanguage(nextLanguage, persist = true) {
+					const language = nextLanguage === "en" ? "en" : "zh";
+					const root = document.documentElement;
+					root.dataset.lang = language;
+					root.lang = language === "zh" ? "zh-CN" : "en";
+					if (persist) localStorage.setItem("botanical-language", language);
+
+					document.querySelectorAll("[data-copy-zh][data-copy-en]").forEach((element) => {
+						element.textContent = element.dataset[language === "zh" ? "copyZh" : "copyEn"] || "";
+					});
+
+					const title = language === "zh" ? root.dataset.titleZh : root.dataset.titleEn;
+					const description =
+						language === "zh" ? root.dataset.descriptionZh : root.dataset.descriptionEn;
+					if (title) document.title = title;
+					document.querySelectorAll('meta[name="description"], meta[property="og:description"], meta[name="twitter:description"]').forEach((meta) => {
+						if (description) meta.setAttribute("content", description);
+					});
+					document.querySelectorAll('meta[property="og:title"], meta[name="twitter:title"]').forEach((meta) => {
+						if (title) meta.setAttribute("content", title);
+					});
+					document.dispatchEvent(new CustomEvent("botanical:language-change", { detail: { language } }));
+				}
+
+				window.setBotanicalLanguage = applyLanguage;
+				const refresh = () => {
+					const saved = localStorage.getItem("botanical-language");
+					applyLanguage(saved === "en" ? "en" : "zh", false);
+				};
+				if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", refresh, { once: true });
+				else refresh();
+				document.addEventListener("astro:page-load", refresh);
+			})();
+		</script>
+	</body>
+</html>
