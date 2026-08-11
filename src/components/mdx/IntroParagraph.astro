@@ -1,0 +1,42 @@
+<p class="opening-paragraph">
+	<slot />
+</p>
+
+<style>
+	.opening-paragraph {
+		text-indent: 0;
+		white-space: normal;
+	}
+
+	.opening-paragraph::first-letter {
+		float: left;
+		font-size: 5.2rem;
+		line-height: 2.5rem;
+		font-weight: bold;
+		margin: 1.15rem var(--space-2xs) 0 0;
+		padding: 0;
+	}
+
+	@media (max-width: 768px) {
+		.opening-paragraph::first-letter {
+			font-size: 4.6rem;
+			line-height: 2rem;
+			margin: 1.15rem var(--space-3xs) 0 0;
+		}
+	}
+</style>
+<script>
+	function tidyOpeningCopy(element: HTMLElement) {
+		const textNodes: Text[] = [];
+		const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+		while (walker.nextNode()) textNodes.push(walker.currentNode as Text);
+		textNodes.forEach((node, index) => {
+			const normalized = (node.textContent ?? "").replace(/\s+/g, " ");
+			node.textContent = index === 0 ? normalized.trimStart() : normalized;
+		});
+	}
+
+	document
+		.querySelectorAll<HTMLElement>(".opening-paragraph")
+		.forEach(tidyOpeningCopy);
+</script>

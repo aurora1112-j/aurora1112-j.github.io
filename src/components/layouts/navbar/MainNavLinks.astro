@@ -1,0 +1,19 @@
+---
+import UnderlineHoverLink from "../../mdx/UnderlineHoverLink.astro";
+import LocalizedText from "../../i18n/LocalizedText.astro";
+---
+
+<div class="main" role="navigation" aria-label="Main">
+	<UnderlineHoverLink href="/garden"><LocalizedText zh="花园" en="Garden" /></UnderlineHoverLink>
+	<UnderlineHoverLink href="/concepts"><LocalizedText zh="概念" en="Concepts" /></UnderlineHoverLink>
+	<UnderlineHoverLink href="/projects"><LocalizedText zh="作品" en="Works" /></UnderlineHoverLink>
+	<UnderlineHoverLink href="/photography"><LocalizedText zh="摄影" en="Photography" /></UnderlineHoverLink>
+	<UnderlineHoverLink href="/now"><LocalizedText zh="此刻" en="Now" /></UnderlineHoverLink>
+	<UnderlineHoverLink href="/about"><LocalizedText zh="关于" en="About" /></UnderlineHoverLink>
+</div>
+
+<style>
+	.main { display: flex; align-items: center; gap: clamp(.75rem, 1.8vw, 1.8rem); flex-shrink: 0; }
+	@media screen and (max-width: 780px) { .main { gap: var(--space-2xs); } }
+	@media screen and (max-width: 550px) { .main { display: none; } }
+</style>

@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "podcastName": "占位对话",
+    "podcastNameEn": "Placeholder Conversation",
+    "episodeName": "设计懂得边界的 Agent",
+    "episodeNameEn": "Designing Agents That Know Their Boundaries",
+    "updated": "2026-08-05",
+    "url": "https://example.com/podcasts/agent-boundaries",
+    "coverImage": "../images/placeholders/agent-branching.svg",
+    "topics": ["AI Agents", "Human–AI Collaboration"],
+    "growthStage": "seedling"
+  },
+  {
+    "id": 2,
+    "podcastName": "占位对话",
+    "podcastNameEn": "Placeholder Conversation",
+    "episodeName": "属于人和 AI 的知识花园",
+    "episodeNameEn": "A Knowledge Garden for Humans and AI",
+    "updated": "2026-08-01",
+    "url": "https://example.com/podcasts/knowledge-garden",
+    "coverImage": "../images/placeholders/knowledge-roots.svg",
+    "topics": ["Knowledge Management", "Digital Gardening"],
+    "growthStage": "seedling"
+  },
+  {
+    "id": 3,
+    "podcastName": "占位对话",
+    "podcastNameEn": "Placeholder Conversation",
+    "episodeName": "让 AI 的来源链可见",
+    "episodeNameEn": "Making AI Provenance Visible",
+    "updated": "2026-07-26",
+    "url": "https://example.com/podcasts/visible-provenance",
+    "coverImage": "../images/placeholders/ai-canopy.svg",
+    "topics": ["Artificial Intelligence", "Trust"],
+    "growthStage": "seedling"
+  }
+]

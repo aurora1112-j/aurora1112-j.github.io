@@ -1,0 +1,31 @@
+---
+title: "Context Engineering 不只是写 Prompt"
+titleEn: "Context Engineering Is More Than Prompt Writing"
+description: "占位笔记：上下文设计包含目标、状态、工具、记忆与结果约束。"
+descriptionEn: "A working note on goals, state, tools, memory, and output constraints as parts of context design."
+startDate: "2026-08-01"
+updated: "2026-08-05"
+type: "note"
+topics: ["AI Agents", "Context Engineering", "Product Design"]
+aliases: ["上下文工程"]
+growthStage: "budding"
+---
+
+import LanguageBlock from "../../components/i18n/LanguageBlock.astro";
+
+<LanguageBlock lang="zh">
+
+Prompt 是一次请求的表面，上下文则是 Agent 做判断时能看到的世界。
+
+可以暂时把上下文分成五层：任务目标、当前状态、可用工具、相关记忆和输出约束。真正的设计问题不是“塞入越多信息越好”，而是让每一层都能被选择、更新和追溯。
+
+下一步：画出一个任务在五层上下文之间流动的示意图。
+</LanguageBlock>
+
+<LanguageBlock lang="en">
+A prompt is the surface of one request. Context is the world an agent can see while making decisions.
+
+For now, I divide context into five layers: goals, current state, available tools, relevant memory, and output constraints. The design problem is not how much information we can stuff in, but how each layer can be selected, updated, and traced.
+
+Next: diagram how a task moves through these five layers.
+</LanguageBlock>

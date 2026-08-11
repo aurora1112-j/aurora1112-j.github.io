@@ -1,0 +1,122 @@
+[
+  {
+    "ids": [
+      "Agent 记忆"
+    ],
+    "titleEn": "Agent Memory",
+    "slug": "agent-memory",
+    "growthStage": "budding",
+    "description": "Agent 记忆不是一块无限扩张的数据库，而是一套决定什么值得保留、何时取回、怎样遗忘的机制。",
+    "descriptionEn": "Agent memory is not an infinitely growing database, but a mechanism for deciding what to retain, retrieve, and forget.",
+    "outboundLinks": [],
+    "inboundLinks": []
+  },
+  {
+    "ids": [
+      "上下文工程"
+    ],
+    "titleEn": "Context Engineering",
+    "slug": "context-engineering",
+    "growthStage": "evergreen",
+    "description": "为模型组织当下所需的指令、工具、历史、状态和证据，使它在正确边界内完成任务。",
+    "descriptionEn": "Organising the instructions, tools, history, state, and evidence a model needs to act within the right boundaries.",
+    "outboundLinks": [],
+    "inboundLinks": []
+  },
+  {
+    "ids": [
+      "渐进式自主权"
+    ],
+    "titleEn": "Progressive Autonomy",
+    "slug": "progressive-autonomy",
+    "growthStage": "budding",
+    "description": "让 Agent 的行动权限随风险、信任与可逆性逐步增长，而不是在全自动和全手动之间二选一。",
+    "descriptionEn": "Letting agent authority grow with risk, trust, and reversibility instead of choosing between fully automatic and fully manual.",
+    "outboundLinks": [],
+    "inboundLinks": []
+  },
+  {
+    "ids": [
+      "Botanical Systems"
+    ],
+    "titleEn": "Botanical Systems",
+    "slug": "botanical-systems",
+    "growthStage": "budding",
+    "description": "一个把个人网站、知识图谱与可追溯设计系统结合起来的持续实验。",
+    "descriptionEn": "An ongoing experiment combining a personal site, a knowledge graph, and a traceable design system.",
+    "outboundLinks": [],
+    "inboundLinks": []
+  },
+  {
+    "ids": [
+      "KnoTree 知识树"
+    ],
+    "titleEn": "KnoTree",
+    "slug": "knotree",
+    "growthStage": "seedling",
+    "description": "一个把主题探索变成可生长、可修剪知识树的 AI 工具，让研究过程像植物一样展开。",
+    "descriptionEn": "An AI knowledge-exploration tool that turns a topic into a tree users can grow, prune, and curate.",
+    "outboundLinks": [],
+    "inboundLinks": []
+  },
+  {
+    "ids": [
+      "Vesti 设计系统"
+    ],
+    "titleEn": "Vesti Design System",
+    "slug": "vesti-design-system",
+    "growthStage": "evergreen",
+    "description": "以仓库中的正式猫头鹰图标与海报里的 8 字记忆回环为核心，把本地优先的 AI 记忆产品、印刷物与知识空间连接成一套可追溯系统。",
+    "descriptionEn": "A traceable system led by the repository's official owl and the poster's figure-eight memory loop, connecting a local-first AI memory product, its print artifacts, and its knowledge space.",
+    "outboundLinks": [],
+    "inboundLinks": []
+  },
+  {
+    "ids": [
+      "心迹 Vesti"
+    ],
+    "titleEn": "Vesti",
+    "slug": "vesti",
+    "growthStage": "budding",
+    "description": "一个本地优先的 AI 对话记忆层，自动捕获、组织和检索散落在不同模型里的工作脉络。",
+    "descriptionEn": "A local-first memory layer that captures, organises, and retrieves AI conversations across models.",
+    "outboundLinks": [],
+    "inboundLinks": []
+  },
+  {
+    "ids": [
+      "视觉文章插画 Skill"
+    ],
+    "titleEn": "Visual Essay Illustrator Skill",
+    "slug": "visual-essay-illustrator-skill",
+    "growthStage": "budding",
+    "description": "一个把抽象观点转译成原创手绘解释图的 Codex Skill，根据传播问题选择构图，而不是套用固定模板。",
+    "descriptionEn": "A Codex skill that translates abstract ideas into original hand-drawn explainers, adapting composition to the communication problem.",
+    "outboundLinks": [],
+    "inboundLinks": []
+  },
+  {
+    "ids": [
+      "香港，一日"
+    ],
+    "titleEn": "Hong Kong, One Day",
+    "slug": "hong-kong",
+    "growthStage": "evergreen",
+    "description": "从接近正午到傍晚的一次步行：建筑缝隙、树荫、交通与城市表面的短暂秩序。",
+    "descriptionEn": "A walk from late morning into evening, tracing gaps, shade, traffic, and temporary order across the city.",
+    "outboundLinks": [],
+    "inboundLinks": []
+  },
+  {
+    "ids": [
+      "树的方言"
+    ],
+    "titleEn": "Trees as Dialects",
+    "slug": "trees",
+    "growthStage": "evergreen",
+    "description": "跨越一年记录的树：枝条、树皮与树冠在海风、冬季和内陆柔光中呈现不同的生长语言。",
+    "descriptionEn": "A year of tree studies in which branches, bark, and canopy speak differently through salt air, winter, and softer inland light.",
+    "outboundLinks": [],
+    "inboundLinks": []
+  }
+]

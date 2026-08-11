@@ -1,0 +1,38 @@
+---
+title: "渐进式自主权"
+titleEn: "Progressive Autonomy"
+description: "让 Agent 随着风险、可逆性和用户信任逐步获得行动空间。"
+descriptionEn: "Give an agent room to act gradually, according to risk, reversibility, and earned trust."
+updated: "2026-08-05"
+startDate: "2026-07-25"
+type: "pattern"
+topics: ["AI Agents", "Interaction Design", "Trust"]
+growthStage: "budding"
+---
+
+import LanguageBlock from "../../components/i18n/LanguageBlock.astro";
+
+<LanguageBlock lang="zh">
+
+## 情境
+
+完全自动会让人失去控制，每一步确认又会让 Agent 退化成笨重的表单。
+
+## 模式
+
+按照动作的可逆性与影响范围分层授权：低风险动作直接执行并留下记录；中风险动作先展示计划；高风险或不可逆动作必须明确确认。
+
+授权可以被用户调整，也应该在失败、环境变化或连续不确定时自动收紧。
+</LanguageBlock>
+
+<LanguageBlock lang="en">
+## Context
+
+Full automation removes control, while asking for confirmation at every step turns an agent into a cumbersome form.
+
+## Pattern
+
+Layer authorization by reversibility and impact. Execute low-risk actions and leave a record; show a plan before medium-risk actions; require explicit approval for high-risk or irreversible actions.
+
+People can tune the boundary, and the system should narrow it automatically after failure, environmental change, or sustained uncertainty.
+</LanguageBlock>

@@ -1,0 +1,65 @@
+---
+title: "上下文工程"
+titleEn: "Context Engineering"
+description: "为模型组织当下所需的指令、工具、历史、状态和证据，使它在正确边界内完成任务。"
+descriptionEn: "Organising the instructions, tools, history, state, and evidence a model needs to act within the right boundaries."
+startDate: "2026-07-22"
+updated: "2026-08-04"
+type: "concept"
+topics: ["Context Engineering", "AI Agents", "Information Architecture"]
+growthStage: "evergreen"
+toc: true
+connections:
+  - slug: "progressive-autonomy"
+    relationship: "enables"
+    labelZh: "上下文工程为渐进式自主权提供信息基础"
+    labelEn: "Context engineering provides the information foundation for progressive autonomy"
+  - slug: "agent-memory"
+    relationship: "supports"
+    labelZh: "上下文工程决定了 Agent 记忆的取回策略与时机"
+    labelEn: "Context engineering determines memory retrieval strategies and timing"
+---
+
+import LanguageBlock from "../../components/i18n/LanguageBlock.astro";
+
+<LanguageBlock lang="zh">
+
+<IntroParagraph>上下文工程关注的不是一句“完美提示词”，而是模型在某一刻能够看到的整个工作环境。</IntroParagraph>
+
+## 组成
+
+上下文通常由目标、约束、工具说明、实时状态、历史记忆、检索证据与输出契约共同构成。
+
+## 与提示词工程的区别
+
+提示词工程主要优化表达；上下文工程还要决定信息的来源、顺序、时效、权限和预算。
+
+## 一个判断标准
+
+好的上下文不是最多，而是让模型能够解释“我为什么知道、我可以做什么、我还缺什么”。
+
+## 工作环境也在变成界面
+
+当对话、工具调用和结果预览汇入同一个 Agent 工作台，上下文工程就不再只是后台的信息组织，也开始决定用户如何在一个界面里调用原本分散的应用能力。参见碎片：[Agent 工作台正在吞并应用边界](/agent-workspace-is-swallowing-apps)。
+</LanguageBlock>
+
+<LanguageBlock lang="en">
+
+<IntroParagraph>Context engineering is not about one perfect prompt. It concerns the full working environment visible to a model at a particular moment.</IntroParagraph>
+
+## Components
+
+Context commonly combines goals, constraints, tool descriptions, live state, history, retrieved evidence, and an output contract.
+
+## Beyond prompt engineering
+
+Prompt engineering optimises expression. Context engineering also governs provenance, ordering, freshness, permission, and budget.
+
+## A useful test
+
+Good context is not maximal. It enables a model to explain what it knows, what it may do, and what remains missing.
+
+## The working environment is becoming the interface
+
+When conversation, tool calls, and result previews converge in one agent workspace, context engineering is no longer only backstage information organisation. It also shapes how people invoke capabilities that once lived in separate apps. See the fragment: [The Agent Workspace Is Swallowing App Boundaries](/agent-workspace-is-swallowing-apps).
+</LanguageBlock>

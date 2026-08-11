@@ -1,0 +1,71 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import Title2 from "../components/mdx/typography/Title2.astro";
+import TitleWithCount from "../components/layouts/TitleWithCount.astro";
+import GardenFiltersAndHits from "../components/search/GardenFiltersAndHits.astro";
+import PageWrapper from "../components/layouts/PageWrapper.astro";
+import { extractPreview } from "../utils/extractPreview";
+import LocalizedText from "../components/i18n/LocalizedText.astro";
+import GardenLegend from "../components/garden/GardenLegend.astro";
+
+// The Garden combines public content types; growth stage remains an independent axis.
+const concepts = await getCollection("concepts", ({ data }) => !data.draft);
+const projects = await getCollection("projects", ({ data }) => !data.draft);
+const photography = await getCollection("photography", ({ data }) => !data.draft);
+const nowPosts = await getCollection("now", ({ data }) => !data.draft);
+const smidgeons = await getCollection("smidgeons", ({ data }) => !data.draft);
+
+// Pre-process Now posts to extract body content for preview
+const processedNowPosts = await Promise.all(
+	nowPosts.map(async (post) => {
+		try {
+			// Use the post.body property directly, which contains the raw markdown
+			const preview = extractPreview(post.body || "");
+			return { ...post, preview };
+		} catch (error) {
+			console.warn(`Failed to extract preview for Now post ${post.id}:`, error);
+			return { ...post, preview: "" };
+		}
+	}),
+);
+
+// Pre-process Smidgeons to extract preview content
+const processedSmidgeons = await Promise.all(
+	smidgeons.map(async (post) => {
+		try {
+			// For all smidgeons, extract preview from body content
+			const preview = extractPreview(post.body || "");
+			return { ...post, preview };
+		} catch (error) {
+			console.warn(`Failed to extract preview for Smidgeon ${post.id}:`, error);
+			return { ...post, preview: "" };
+		}
+	}),
+);
+
+// Combine all content into one array
+const allPosts = [
+	...concepts,
+	...projects,
+	...photography,
+	...processedNowPosts,
+	...processedSmidgeons,
+];
+---
+
+<Layout title="Chenxi Huang 的知识花园" titleEn="Chenxi Huang's Knowledge Garden">
+	<PageWrapper>
+		<header style="margin-bottom: var(--space-xl);">
+			<TitleWithCount posts={allPosts}><LocalizedText zh="知识花园" en="The Garden" /></TitleWithCount>
+			<Title2>
+				<LocalizedText
+					zh="概念、作品、摄影与仍在发芽的碎片共存于同一片知识空间，各自保留来源、关系和成熟度。"
+					en="Concepts, works, photography, and half-grown fragments share one knowledge space while keeping their provenance, relationships, and maturity visible."
+				/>
+			</Title2>
+		</header>
+		<GardenLegend />
+		<GardenFiltersAndHits allPostData={allPosts} />
+	</PageWrapper>
+</Layout>

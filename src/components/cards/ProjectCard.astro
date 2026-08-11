@@ -1,0 +1,40 @@
+---
+import { Image } from "astro:assets";
+import BotanicalSymbol from "../icons/BotanicalSymbol.astro";
+import LocalizedText from "../i18n/LocalizedText.astro";
+
+const { slug, cover, title, titleEn, description, descriptionEn, projectKind = "product", roleZh, roleEn } = Astro.props;
+const kindLabels = {
+	product: { zh: "产品", en: "Product" },
+	"open-source": { zh: "开源", en: "Open source" },
+	experiment: { zh: "实验", en: "Experiment" },
+	"design-system": { zh: "设计系统", en: "Design system" },
+};
+const kind = kindLabels[projectKind as keyof typeof kindLabels] || kindLabels.product;
+---
+
+<a class="project-card" href={`/${slug}`}>
+	<div class="cover">
+		<Image class={slug === "vesti" ? "poster-crop" : undefined} src={cover} alt={title} width={700} height={460} loading="lazy" />
+		<span class="project-symbol"><BotanicalSymbol name="canopy" size={38} /></span>
+	</div>
+	<div class="project-copy">
+		<p class="type"><LocalizedText zh={kind.zh} en={kind.en} />{roleZh && <> · <LocalizedText zh={roleZh} en={roleEn || roleZh} /></>}</p>
+		<h3><LocalizedText zh={title} en={titleEn || title} /></h3>
+		<p><LocalizedText zh={description} en={descriptionEn || description} /></p>
+	</div>
+</a>
+
+<style>
+	.project-card { display: block; color: var(--color-gray-800); }
+	.cover { position: relative; overflow: hidden; aspect-ratio: 1.42; background: var(--color-light-cream); }
+	.cover :global(img) { width: 100%; height: 100%; object-fit: cover; filter: saturate(.82); transition: transform .45s ease, filter .45s ease; }
+	.cover :global(img.poster-crop) { object-position: center top; }
+	.project-symbol { position: absolute; right: var(--space-xs); bottom: var(--space-xs); display: grid; place-items: center; color: var(--color-sea-blue); mix-blend-mode: multiply; }
+	.project-copy { padding: var(--space-xs) 0 var(--space-s); }
+	.type { margin: 0 0 var(--space-2xs); color: var(--color-gray-500); font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: .08em; text-transform: uppercase; }
+	h3 { margin: 0; font-family: var(--font-serif); font-size: var(--font-size-md); font-weight: 400; line-height: var(--leading-tight); }
+	.project-copy > p:last-child { margin: var(--space-2xs) 0 0; color: var(--color-gray-600); font-size: var(--font-size-sm); line-height: var(--leading-loose); }
+	.project-card:hover .cover :global(img) { transform: scale(1.025); filter: saturate(1); }
+	.project-card:hover h3 { color: var(--color-crimson); }
+</style>

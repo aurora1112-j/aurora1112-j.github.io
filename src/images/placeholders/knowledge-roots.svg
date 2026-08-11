@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Knowledge roots placeholder</title>
+  <desc id="desc">A central seed connected to layered roots and small knowledge nodes.</desc>
+  <rect width="1200" height="760" fill="#edf0df"/>
+  <path d="M600 112v190M600 290c-110 62-188 142-250 264M600 290c112 67 192 151 248 274M584 356c-106 23-189 73-252 149M618 380c104 28 186 82 244 164M555 430c-49 79-70 147-72 205M653 445c43 76 61 139 56 191" fill="none" stroke="#395b47" stroke-width="14" stroke-linecap="round"/>
+  <ellipse cx="600" cy="155" rx="62" ry="92" fill="#d18a62"/>
+  <g fill="#557b69"><circle cx="330" cy="505" r="27"/><circle cx="350" cy="554" r="22"/><circle cx="848" cy="564" r="29"/><circle cx="862" cy="544" r="20"/><circle cx="483" cy="635" r="25"/><circle cx="709" cy="636" r="25"/></g>
+</svg>

@@ -1,43 +1,25 @@
-# Astro Starter Kit: Minimal
+# Botanical Systems — Chenxi Huang
 
-```sh
-npm create astro@latest -- --template minimal
+A bilingual personal knowledge garden for AI, agents, product design, and knowledge management.
+
+## Local development
+
+```bash
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Build the static site with:
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+npm run build:local
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Content model
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+The garden includes essays, notes, patterns, talks, fragments, now updates, podcasts, and reading placeholders. Every authored content entry carries separate Chinese and English titles and descriptions; page-level language state is controlled by the top-right switch and saved locally.
 
-Any static assets, like images, can be placed in the `public/` directory.
+The botanical vocabulary is structural: roots represent provenance, buds uncertainty, branches alternatives and relationships, rings revision history, grafts cross-disciplinary transfer, and canopy public work.
 
-## 🧞 Commands
+## Attribution
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+The initial visual and interaction study used Maggie Appleton's open-source V3 personal site as a reference. Identity, content, bilingual behaviour, and the Botanical Systems model are being rewritten for Chenxi Huang. Review the original repository license and replace remaining reference assets before a public launch.

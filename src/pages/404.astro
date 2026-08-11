@@ -1,0 +1,41 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageWrapper from "../components/layouts/PageWrapper.astro";
+import LocalizedText from "../components/i18n/LocalizedText.astro";
+---
+
+<Layout title="页面未找到｜Botanical Systems" titleEn="Page not found | Botanical Systems">
+	<PageWrapper class="not-found">
+		<p class="eyebrow">404 · LOST IN THE GARDEN</p>
+		<h1><LocalizedText zh="这条小径还没有长出来。" en="This path has not grown yet." /></h1>
+		<p><LocalizedText zh="你可以回到花园，继续浏览已经生长出来的内容。" en="Return to the Garden and keep exploring what has already grown." /></p>
+		<a href="/garden"><LocalizedText zh="返回花园" en="Back to the Garden" /> →</a>
+	</PageWrapper>
+</Layout>
+
+<style>
+	:global(.not-found) {
+		min-height: 58vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+		max-width: 900px;
+	}
+	.eyebrow {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-xs);
+		letter-spacing: .12em;
+		color: var(--color-accent-text);
+	}
+	h1 {
+		max-width: 720px;
+		margin: var(--space-xs) 0;
+		font-family: var(--font-serif);
+		font-size: clamp(2.4rem, 6vw, 5rem);
+		font-weight: 300;
+		line-height: 1;
+	}
+	p { max-width: 620px; color: var(--color-gray-600); }
+	a { margin-top: var(--space-s); color: var(--color-crimson); }
+</style>

@@ -1,0 +1,118 @@
+---
+title: "心迹 Vesti"
+titleEn: "Vesti"
+description: "一个本地优先的 AI 对话记忆层，自动捕获、组织和检索散落在不同模型里的工作脉络。"
+descriptionEn: "A local-first memory layer that captures, organises, and retrieves AI conversations across models."
+startDate: "2026-02-11"
+updated: "2026-03-26"
+type: "project"
+projectKind: "product"
+cover: "../../images/projects/vesti-design-system/poster-light.png"
+topics: ["Knowledge Management", "Artificial Intelligence", "Human–AI Collaboration"]
+growthStage: "budding"
+roleZh: "产品设计与全栈开发"
+roleEn: "Product design & full-stack engineering"
+featured: true
+url: "https://vesti.rth3.xyz/"
+github: "https://github.com/aurora1112-j/vesti"
+toc: true
+---
+
+import LanguageBlock from "../../components/i18n/LanguageBlock.astro";
+import VestiProductShowcase from "../../components/projects/VestiProductShowcase.astro";
+
+<LanguageBlock lang="zh">
+
+<IntroParagraph>Vesti 希望让人与 AI 一起完成的工作在标签页关闭后仍然存在：提示词、走过的弯路、引用、判断与决定，都能重新被找到。</IntroParagraph>
+
+## 问题：对话会消失，思考不应该
+
+重要的 AI 对话通常散落在 ChatGPT、Claude、Gemini 等不同平台里。平台保存了消息，却没有形成属于用户的连续记忆；当工具、账号或工作流改变时，过去的判断也很容易随之失去。
+
+Vesti 把这个问题定义为一个“记忆层”问题，而不只是聊天记录导出问题。它尽量不改变用户原本的工具与标签页，只在浏览器中增加一个可搜索、可迁移的个人档案。
+
+## 产品模型
+
+Vesti 不是一块不断增加功能的仪表盘，而是两种彼此连接的工作空间：
+
+- **浏览器扩展**：Threads、Insights、Data 与 Settings 靠近对话发生的地方，负责捕获、快速回看和系统控制
+- **知识工作台**：Library、Explore 与 Network 负责阅读原始线程、形成笔记、追问档案并观察关系随时间出现
+
+两种空间共享来源、线程与状态模型，但承担不同的信息密度。Reader 始终属于线程的下钻，而不是另一个顶层目的地。
+
+## 设计原则
+
+### 不制造第二个工作流
+
+记忆层应当贴近内容产生的地方。侧栏与覆盖层保持克制，让正在进行的聊天仍然是主界面。
+
+### 本地优先是一种产品立场
+
+默认把档案和索引保留在浏览器附近，减少对另一个云端账户的依赖。可迁移、可删除与可逆，不是设置页里的附加选项，而是信任模型的一部分。
+
+### AI 增强判断，而不是替代判断
+
+自动整理的价值在于帮助用户回到自己的材料、比较过去的思路并发现联系，而不是制造一个看似确定的总结终点。
+</LanguageBlock>
+
+<VestiProductShowcase />
+
+<LanguageBlock lang="zh">
+
+## 我负责的部分
+
+产品定义、信息架构、交互与视觉设计，以及浏览器扩展和主要产品界面的全栈实现。案例覆盖从产品叙事、捕获流程与档案检索，到本地存储、演示页面和公共发布材料。
+
+## 当前形态
+
+Vesti 已形成浏览器扩展、对话档案、搜索与探索界面，以及一套跨界面和印刷媒介的视觉系统。下一阶段仍需要继续验证长期使用中的召回质量、跨设备迁移与不同平台结构变化带来的捕获稳定性。
+
+[访问 Vesti](https://vesti.rth3.xyz/) · [查看公开仓库](https://github.com/aurora1112-j/vesti) · [查看项目主仓库](https://github.com/abraxas914/VESTI)
+</LanguageBlock>
+
+<LanguageBlock lang="en">
+
+<IntroParagraph>Vesti keeps the work people do with AI alive after a tab closes: prompts, dead ends, references, judgements, and decisions remain available for retrieval.</IntroParagraph>
+
+## Problem: conversations disappear, thought should not
+
+Important AI conversations are scattered across ChatGPT, Claude, Gemini, and other platforms. Platforms retain messages, but rarely create a continuous memory owned by the user. When tools, accounts, or workflows change, past judgement is easily lost with them.
+
+Vesti frames this as a memory-layer problem rather than a transcript-export problem. It preserves the user's existing tools and tabs, adding a searchable and portable personal archive inside the browser.
+
+## Product model
+
+Vesti is organised as two connected working spaces rather than a dashboard that accumulates features:
+
+- **Browser extension**: Threads, Insights, Data, and Settings stay close to where conversations happen, handling capture, quick return, and system control
+- **Knowledge workspace**: Library, Explore, and Network support source reading, note-making, archive questions, and relationships unfolding over time
+
+The two spaces share provenance, thread, and state models while carrying different densities. Reader remains a drill-down from a thread rather than another top-level destination.
+
+## Design principles
+
+### Do not create a second workflow
+
+Memory should remain close to where it is made. Restrained side panels and overlays preserve the active conversation as the primary interface.
+
+### Local-first is a product position
+
+Keeping archives and indexes near the browser reduces dependence on yet another cloud account. Portability, deletion, and reversibility are part of the trust model rather than optional settings.
+
+### AI augments judgement
+
+Automatic organisation should help people return to their own material, compare earlier thinking, and notice relationships—not manufacture a falsely definitive endpoint.
+</LanguageBlock>
+
+<LanguageBlock lang="en">
+
+## My role
+
+Product definition, information architecture, interaction and visual design, plus full-stack implementation of the browser extension and core product surfaces. The work spans capture, archive retrieval, local storage, public narrative, and launch materials.
+
+## Current form
+
+Vesti now includes a browser extension, conversation archive, search and exploration surfaces, and a visual system shared across interface and print. The next questions concern long-term retrieval quality, cross-device portability, and capture resilience as source platforms change.
+
+[Visit Vesti](https://vesti.rth3.xyz/) · [View the public repository](https://github.com/aurora1112-j/vesti) · [View the main project repository](https://github.com/abraxas914/VESTI)
+</LanguageBlock>

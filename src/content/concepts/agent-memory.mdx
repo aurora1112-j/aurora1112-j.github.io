@@ -1,0 +1,71 @@
+---
+title: "Agent 记忆"
+titleEn: "Agent Memory"
+description: "Agent 记忆不是一块无限扩张的数据库，而是一套决定什么值得保留、何时取回、怎样遗忘的机制。"
+descriptionEn: "Agent memory is not an infinitely growing database, but a mechanism for deciding what to retain, retrieve, and forget."
+startDate: "2026-07-20"
+updated: "2026-08-06"
+type: "concept"
+topics: ["AI Agents", "Memory", "Knowledge Management"]
+growthStage: "budding"
+toc: true
+connections:
+  - slug: "context-engineering"
+    relationship: "depends-on"
+    labelZh: "Agent 记忆依赖上下文工程来决定写入与取回策略"
+    labelEn: "Agent memory depends on context engineering for write and retrieval policies"
+  - slug: "progressive-autonomy"
+    relationship: "shapes"
+    labelZh: "记忆质量直接影响自主权边界的设定"
+    labelEn: "Memory quality directly shapes where autonomy boundaries are drawn"
+---
+
+import LanguageBlock from "../../components/i18n/LanguageBlock.astro";
+
+<LanguageBlock lang="zh">
+
+<IntroParagraph>Agent 记忆是智能系统跨越单次会话保持连续性的能力，但“记住更多”并不等于“理解得更好”。</IntroParagraph>
+
+## 一句话定义
+
+一套对经验进行选择、压缩、索引、取回与淘汰的机制。
+
+## 关键区分
+
+- 工作记忆：当前任务中暂时可见的信息
+- 情景记忆：发生过的交互与行动
+- 语义记忆：被提炼为稳定知识的事实和关系
+- 程序记忆：完成一类任务的方法
+
+## 边界
+
+聊天记录不是记忆本身。只有当系统能够判断何时写入、为何取回，以及何时失效，记录才转化为记忆机制。
+
+## 仍在生长
+
+后续将补充记忆污染、用户纠错权与可撤销遗忘的设计模式。
+</LanguageBlock>
+
+<LanguageBlock lang="en">
+
+<IntroParagraph>Agent memory gives an intelligent system continuity across sessions, but remembering more is not the same as understanding better.</IntroParagraph>
+
+## One-sentence definition
+
+A mechanism for selecting, compressing, indexing, retrieving, and retiring experience.
+
+## Key distinctions
+
+- Working memory: information temporarily visible during a task
+- Episodic memory: past interactions and actions
+- Semantic memory: facts and relationships distilled into stable knowledge
+- Procedural memory: methods for completing recurring tasks
+
+## Boundary
+
+A transcript is not memory by itself. Records become a memory mechanism only when the system can decide when to write, why to retrieve, and when something expires.
+
+## Still growing
+
+Future revisions will cover memory contamination, correction rights, and reversible forgetting.
+</LanguageBlock>

@@ -1,0 +1,40 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Title2 from "../../components/mdx/typography/Title2.astro";
+import TitleWithCount from "../../components/layouts/TitleWithCount.astro";
+import PageWrapper from "../../components/layouts/PageWrapper.astro";
+import GardenHits from "../../components/search/GardenHits.astro";
+import { getAllTopics, getPostsForTopic } from "../../utils/getTopics";
+import { Icon } from "astro-icon/components";
+import LocalizedText from "../../components/i18n/LocalizedText.astro";
+import { topicZh } from "../../data/site";
+
+export async function getStaticPaths() {
+	const topics = await getAllTopics();
+	return topics.map((topic) => ({ params: { topic: topic.slug }, props: { topicName: topic.name } }));
+}
+
+const { topic } = Astro.params;
+const { topicName } = Astro.props;
+const posts = await getPostsForTopic(topic);
+---
+
+<Layout title={`${topicZh(topicName)}｜Chenxi Huang`} titleEn={`${topicName} by Chenxi Huang`}>
+	<PageWrapper>
+		<header style="margin-bottom: var(--space-xl);">
+			<TitleWithCount posts={posts}>
+				<div class="back-link" slot="header-right">
+					<a href="/garden"><Icon name="heroicons:arrow-left" size={16} /><LocalizedText as="span" zh="返回花园" en="Back to Garden" /></a>
+				</div>
+				<LocalizedText zh={topicZh(topicName)} en={topicName} />
+			</TitleWithCount>
+			<Title2><LocalizedText zh={`与${topicZh(topicName)}相关的概念、作品、摄影与碎片。`} en={`Concepts, works, photography, and fragments related to ${topicName}.`} /></Title2>
+		</header>
+		<GardenHits allPostData={posts} />
+	</PageWrapper>
+</Layout>
+
+<style>
+	.back-link a { display: inline-flex; align-items: center; gap: .3rem; color: var(--color-gray-600); font-family: var(--font-sans); font-size: var(--font-size-xs); text-transform: uppercase; letter-spacing: .05em; }
+	.back-link a:hover { color: var(--color-sea-blue); }
+</style>

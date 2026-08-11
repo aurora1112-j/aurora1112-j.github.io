@@ -1,0 +1,46 @@
+---
+import Tooltip from "../mdx/Tooltip.astro";
+import LocalizedText from "../i18n/LocalizedText.astro";
+
+interface Props {
+	stage: "evergreen" | "budding" | "seedling";
+}
+
+const { stage } = Astro.props;
+
+const stageCopy = {
+	evergreen: { zh: "常青", en: "Evergreen", tipZh: "投入较多时间、经过多次修订，整体已经稳定，但仍可能继续修剪。", tipEn: "An idea refined over time and now largely stable, while still open to occasional trimming." },
+	budding: { zh: "萌芽", en: "Budding", tipZh: "已经经过一些推敲，正在形成结构，但仍需要验证与修订。", tipEn: "An idea with some structure that still needs validation and revision." },
+	seedling: { zh: "幼苗", en: "Seedling", tipZh: "刚刚开始、仍然粗糙，需要更多时间和证据继续生长。", tipEn: "A rough new idea that needs more time and evidence to grow." },
+};
+---
+
+<Tooltip maxWidth={300}>
+	<button type="button" class="growth-stage"><LocalizedText zh={stageCopy[stage].zh} en={stageCopy[stage].en} /></button>
+	<p slot="content"><LocalizedText zh={stageCopy[stage].tipZh} en={stageCopy[stage].tipEn} /></p>
+</Tooltip>
+
+<style>
+	.growth-stage {
+		display: inline-flex;
+		align-items: center;
+		appearance: none;
+		border: 0;
+		background: transparent;
+		cursor: pointer;
+		font-family: var(--font-sans);
+		font-size: var(--font-size-xs);
+		color: var(--color-gray-800);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		font-weight: bold;
+		margin: 0;
+		padding: 0;
+	}
+
+	.growth-stage:focus-visible {
+		outline: 2px solid var(--color-medium-sea-blue);
+		outline-offset: 3px;
+		border-radius: 2px;
+	}
+</style>

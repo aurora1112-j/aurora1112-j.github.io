@@ -1,0 +1,59 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+	album: "hong-kong" | "trees";
+	label: string;
+}
+
+const { album, label } = Astro.props;
+const modules = import.meta.glob<{ default: ImageMetadata }>(
+	"/src/images/photography/**/*.{jpg,jpeg,png}",
+	{ eager: true },
+);
+const images = Object.entries(modules)
+	.filter(([path]) => path.includes(`/photography/${album}/`))
+	.sort(([left], [right]) => left.localeCompare(right, undefined, { numeric: true }));
+---
+
+<section class="photo-sequence" aria-label={`${label} photo sequence`}>
+	{images.map(([, module], index) => (
+		<figure>
+			<Image
+				src={module.default}
+				alt={`${label} ${String(index + 1).padStart(2, "0")}`}
+				widths={[520, 860, 1240, 1680]}
+				sizes="(max-width: 720px) 92vw, (max-width: 1100px) 68vw, 820px"
+				quality={82}
+				loading={index < 2 ? "eager" : "lazy"}
+			/>
+			<figcaption>{label.toUpperCase()} · {String(index + 1).padStart(2, "0")}</figcaption>
+		</figure>
+	))}
+</section>
+
+<style>
+	.photo-sequence {
+		grid-column: 1 / 4 !important;
+		display: grid;
+		grid-template-columns: repeat(12, minmax(0, 1fr));
+		gap: clamp(2.5rem, 7vw, 8rem) clamp(1rem, 3vw, 3rem);
+		width: min(1320px, calc(100vw - clamp(2rem, 8vw, 8rem)));
+		margin: var(--space-xl) 50% var(--space-3xl);
+		transform: translateX(-50%);
+		align-items: start;
+	}
+	figure { margin: 0; }
+	figure:nth-child(4n + 1) { grid-column: 1 / span 7; }
+	figure:nth-child(4n + 2) { grid-column: 9 / span 4; margin-top: clamp(3rem, 9vw, 8rem); }
+	figure:nth-child(4n + 3) { grid-column: 2 / span 4; margin-top: clamp(1rem, 4vw, 4rem); }
+	figure:nth-child(4n + 4) { grid-column: 7 / span 6; margin-top: clamp(4rem, 11vw, 10rem); }
+	figure :global(img) { display: block; width: 100%; height: auto; border-radius: 2px; box-shadow: 0 18px 48px rgba(34, 41, 34, .08); }
+	figcaption { margin-top: .5rem; color: var(--color-gray-500); font-family: var(--font-sans); font-size: .68rem; letter-spacing: .13em; }
+	@media (max-width: 720px) {
+		.photo-sequence { grid-template-columns: 1fr; width: calc(100vw - 2rem); gap: 3rem; }
+		figure:nth-child(n) { grid-column: 1; width: 100%; margin-top: 0; }
+		figure:nth-child(3n + 2) { width: 82%; margin-left: auto; }
+	}
+</style>

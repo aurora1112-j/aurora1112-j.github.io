@@ -1,0 +1,32 @@
+---
+import BotanicalSymbol from "../icons/BotanicalSymbol.astro";
+import GrowthIcon from "../layouts/GrowthIcon.astro";
+import LocalizedText from "../i18n/LocalizedText.astro";
+
+const { slug, title, titleEn, description, descriptionEn, growthStage, topics = [] } = Astro.props;
+---
+
+<a class="concept-card" href={`/${slug}`}>
+	<div class="concept-mark"><BotanicalSymbol name="branch" size={34} /></div>
+	<div class="concept-copy">
+		<p class="type"><LocalizedText zh="概念" en="Concept" /></p>
+		<h3><LocalizedText zh={title} en={titleEn || title} /></h3>
+		<p class="definition"><LocalizedText zh={description} en={descriptionEn || description} /></p>
+		<div class="meta">
+			{growthStage && <GrowthIcon size="14" growthStage={growthStage} />}
+			<span>{topics.slice(0, 2).join(" · ")}</span>
+		</div>
+	</div>
+</a>
+
+<style>
+	.concept-card { display: grid; grid-template-columns: 42px minmax(0, 1fr); gap: var(--space-xs); padding: var(--space-s) 0 var(--space-m); border-top: 1px solid var(--color-sea-blue); color: var(--color-gray-800); transition: transform .3s ease; }
+	.concept-mark { color: var(--color-sea-blue); transform: rotate(-4deg); transition: transform .3s ease; }
+	.type { margin: 0 0 var(--space-2xs); color: var(--color-gray-500); font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: .1em; text-transform: uppercase; }
+	h3 { margin: 0; font-family: var(--font-serif); font-size: var(--font-size-md); font-weight: 400; line-height: var(--leading-tight); }
+	.definition { margin: var(--space-2xs) 0 0; color: var(--color-gray-600); font-size: var(--font-size-sm); line-height: var(--leading-loose); }
+	.meta { display: flex; align-items: center; gap: var(--space-2xs); margin-top: var(--space-xs); color: var(--color-gray-500); font-family: var(--font-sans); font-size: var(--font-size-xs); }
+	.concept-card:hover { transform: translateY(-4px); }
+	.concept-card:hover .concept-mark { transform: rotate(3deg) translateY(-2px); }
+	.concept-card:hover h3 { color: var(--color-crimson); }
+</style>

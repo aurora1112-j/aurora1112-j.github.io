@@ -1,0 +1,24 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+	growthStage: "seedling" | "budding" | "evergreen";
+	size?: string;
+}
+
+const { growthStage, size = "22" } = Astro.props;
+const iconForStage = {
+	seedling: "seedling",
+	budding: "budding",
+	evergreen: "evergreen",
+} as const;
+const iconName = iconForStage[growthStage];
+---
+
+<span class="growth-mark" data-stage={growthStage}>
+	<Icon name={iconName} width={size} height={size} />
+</span>
+
+<style>
+	.growth-mark { display: inline-flex; flex: 0 0 auto; line-height: 0; }
+</style>

@@ -1,0 +1,11 @@
+---
+interface Props {
+	lang: "zh" | "en";
+}
+
+const { lang } = Astro.props;
+---
+
+<div data-lang-content={lang} lang={lang === "zh" ? "zh-CN" : "en"}>
+	<slot />
+</div>

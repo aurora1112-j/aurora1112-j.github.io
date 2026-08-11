@@ -1,0 +1,160 @@
+<article class="reading-flow">
+	<slot />
+</article>
+
+<style>
+	.reading-flow {
+		display: grid;
+		grid-template-columns: 1fr min(72ch, 100%) 1fr;
+		counter-reset: footnote-counter;
+		font-size: var(--font-size-base);
+		overflow-wrap: anywhere;
+	}
+
+	.reading-flow > :global(*) {
+		grid-column: 2;
+	}
+
+	.reading-flow > :global(p) {
+		font-size: var(--font-size-base);
+		line-height: var(--leading-looser);
+		margin-bottom: var(--space-m);
+	}
+
+	@media (max-width: 767px) {
+		.reading-flow > :global(p) {
+			line-height: var(--leading-loose);
+		}
+	}
+
+	.reading-flow > :global(p.subtext) {
+		font-size: calc(var(--font-size-sm) * 1.1);
+		line-height: var(--leading-loose);
+	}
+
+	.reading-flow > :global(h1) {
+		font-size: var(--font-size-2xl);
+		margin: var(--space-2xl) 0 var(--space-m);
+	}
+
+	.reading-flow > :global(h2) {
+		font-size: var(--font-size-xl);
+		margin: var(--space-xl) 0 var(--space-m);
+		line-height: var(--leading-base);
+	}
+
+	.reading-flow :global(h2.micro) {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+		color: var(--color-bright-crimson);
+		margin: 0 0 var(--space-s);
+		line-height: var(--leading-base);
+		text-transform: uppercase;
+		font-weight: 700;
+		letter-spacing: 0.04rem;
+	}
+
+	.reading-flow :global(h3) {
+		font-size: calc(var(--font-size-lg) / 1.1);
+		font-weight: 300;
+		line-height: var(--leading-base);
+		margin: var(--space-m) 0 var(--space-s);
+	}
+
+	.reading-flow :global(h4) {
+		font-size: var(--font-size-base);
+		font-weight: 700;
+		margin: var(--space-s) 0 var(--space-xs);
+	}
+
+	/* Remove top margin when headings are directly adjacent to each other within prose */
+	.reading-flow :global(h1 + h2),
+	.reading-flow :global(h2 + h3),
+	.reading-flow :global(h3 + h4),
+	.reading-flow :global(h4 + h5),
+	.reading-flow :global(h5 + h6) {
+		margin-top: 0;
+	}
+
+	.reading-flow :global(ul),
+	.reading-flow :global(ol) {
+		padding: 0;
+		margin-top: 0;
+	}
+
+	.reading-flow :global(ul) {
+		list-style: none;
+	}
+
+	.reading-flow :global(ul > li) {
+		margin-bottom: var(--space-xs);
+		line-height: var(--leading-loose);
+		margin-left: 2.5rem;
+	}
+
+	.reading-flow :global(ul > li::before) {
+		content: "";
+		display: inline-block;
+		width: 24px;
+		clear: both;
+		height: 24px;
+		margin-right: -1.5rem;
+		background-image: url("/images/leaf-icon.svg");
+		background-size: contain;
+		background-repeat: no-repeat;
+		position: relative;
+		top: 4px;
+		right: 2.5rem;
+	}
+
+	.reading-flow :global(ol > li) {
+		margin-bottom: var(--space-xs);
+		line-height: var(--leading-looser);
+		margin-left: 2.5rem;
+	}
+
+	.reading-flow :global(hr) {
+		margin: var(--space-xl) auto var(--space-2xl);
+		height: 3px;
+		background-color: var(--color-salmon);
+		border: none;
+		width: 20%;
+	}
+
+	.reading-flow :global(blockquote) {
+		text-align: center;
+		padding: var(--space-m) 0 var(--space-xl);
+	}
+
+	.reading-flow :global(blockquote > p) {
+		text-align: center;
+		max-width: 30ch;
+		margin: var(--space-m) auto;
+		font-size: var(--font-size-lg);
+		line-height: var(--leading-base);
+		display: inline-block;
+	}
+
+	.reading-flow :global(blockquote::before),
+	.reading-flow :global(blockquote::after) {
+		content: "";
+		display: block;
+		margin: 0 auto;
+		width: 3rem;
+		border-top: 2px solid rgba(0, 0, 0, 0.1);
+	}
+
+	@media screen and (max-width: 767px) {
+		.reading-flow :global(h1) {
+			margin: var(--space-xl) 0 var(--space-m);
+		}
+
+		.reading-flow :global(h2) {
+			margin: var(--space-l) 0 var(--space-s);
+		}
+
+		.reading-flow :global(hr) {
+			margin: var(--space-l) auto;
+		}
+	}
+</style>

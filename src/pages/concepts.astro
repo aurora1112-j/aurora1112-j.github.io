@@ -1,0 +1,41 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import PageWrapper from "../components/layouts/PageWrapper.astro";
+import ConceptCard from "../components/cards/ConceptCard.astro";
+import LocalizedText from "../components/i18n/LocalizedText.astro";
+import { extractBaseSlug } from "../utils/versionUtils";
+
+const concepts = (await getCollection("concepts", ({ data }) => !data.draft)).sort(
+	(a, b) => b.data.updated.getTime() - a.data.updated.getTime(),
+);
+---
+
+<Layout title="概念图谱｜Chenxi Huang" titleEn="Concept Atlas | Chenxi Huang">
+	<PageWrapper>
+		<header class="collection-header">
+			<p class="eyebrow"><LocalizedText zh={`${concepts.length} 个概念标本`} en={`${concepts.length} concept specimens`} /></p>
+			<h1><LocalizedText zh="概念图谱" en="Concept Atlas" /></h1>
+			<p><LocalizedText zh="对 AI、Agent 与知识系统中的硬概念进行定义、辨析和连接。它们不是文章，而是可以持续修订的知识节点。" en="Definitions, distinctions, and connections for difficult ideas in AI, agents, and knowledge systems. These are revisable knowledge nodes, not essays." /></p>
+		</header>
+		<section class="concept-field" aria-label="Concepts">
+			{concepts.map((concept) => (
+				<div class="concept-entry">
+					<ConceptCard slug={extractBaseSlug(concept.id)} title={concept.data.title} titleEn={concept.data.titleEn} description={concept.data.description} descriptionEn={concept.data.descriptionEn} growthStage={concept.data.growthStage} topics={concept.data.topics} />
+				</div>
+			))}
+		</section>
+	</PageWrapper>
+</Layout>
+
+<style>
+	.collection-header { max-width: 760px; padding: var(--space-xl) 0 var(--space-2xl); }
+	.eyebrow { color: var(--color-sea-blue); font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: .12em; text-transform: uppercase; }
+	h1 { margin: var(--space-2xs) 0 var(--space-xs); font-family: var(--font-serif); font-size: clamp(2.8rem, 6vw, 5.8rem); font-weight: 300; }
+	.collection-header > p:last-child { max-width: 650px; color: var(--color-gray-600); line-height: var(--leading-loose); }
+	.concept-field { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl) var(--space-m); margin-bottom: var(--space-3xl); }
+	.concept-entry:nth-child(3n + 1) { grid-column: 1 / span 4; }
+	.concept-entry:nth-child(3n + 2) { grid-column: 6 / span 3; margin-top: var(--space-xl); }
+	.concept-entry:nth-child(3n + 3) { grid-column: 10 / span 3; margin-top: calc(var(--space-xl) * -.5); }
+	@media (max-width: 760px) { .concept-field { grid-template-columns: 1fr; } .concept-entry:nth-child(n) { grid-column: 1; margin-top: 0; } }
+</style>

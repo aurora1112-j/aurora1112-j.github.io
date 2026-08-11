@@ -1,0 +1,159 @@
+---
+import { Icon } from "astro-icon/components";
+import UnderlineHoverLink from "../mdx/UnderlineHoverLink.astro";
+import LocalizedText from "../i18n/LocalizedText.astro";
+import { SITE } from "../../data/site";
+---
+
+<footer class="styled-footer" transition:persist>
+	<div class="footer-content">
+		<div class="rss-feed">
+			<LocalizedText as="h3" zh="想继续观察这座花园？" en="Want to follow the garden?" />
+			<a href="/rss.xml" class="rss-button">
+				<Icon name="heroicons:rss-20-solid" size={20} />
+				<LocalizedText zh="订阅 RSS" en="Subscribe via RSS" />
+			</a>
+			<div class="social-media-icons">
+				<a rel="me" href={SITE.githubUrl} aria-label={`GitHub ${SITE.githubHandle}`}>
+					<Icon name="github" size={32} />
+				</a>
+				<a rel="me" href={SITE.xUrl} aria-label={`X ${SITE.xHandle}`}>
+					<Icon name="twitter" size={32} />
+				</a>
+				<a href={`mailto:${SITE.email}`} aria-label={SITE.email}><Icon name="heroicons:envelope" size={30} /></a>
+			</div>
+			<span class="copyright">
+				© {new Date().getFullYear()} {SITE.name} · {SITE.brand}
+			</span>
+		</div>
+		<ul class="sitemap-list">
+			{
+				[
+					{ zh: "花园", en: "The Garden", slug: "/garden" },
+					{ zh: "概念", en: "Concepts", slug: "/concepts" },
+					{ zh: "作品", en: "Works", slug: "/projects" },
+					{ zh: "摄影", en: "Photography", slug: "/photography" },
+					{ zh: "关于", en: "About", slug: "/about" },
+					{ zh: "此刻", en: "Now", slug: "/now" },
+					{ zh: "碎片", en: "Fragments", slug: "/smidgeons" },
+					{ zh: "设计说明", en: "Colophon", slug: "/colophon" },
+					{ zh: "联系", en: "Contact", slug: "/contact" },
+				].map((link) => (
+					<li>
+						<span>
+							<UnderlineHoverLink href={link.slug}><LocalizedText zh={link.zh} en={link.en} /></UnderlineHoverLink>
+						</span>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</footer>
+
+<style>
+	.social-media-icons {
+		display: flex;
+		align-items: center;
+		margin: var(--space-m) 0 var(--space-2xs);
+		grid-gap: var(--space-xs);
+	}
+
+	.social-media-icons a {
+		color: var(--color-gray-400);
+		padding: 0;
+		margin: 0;
+		display: block;
+	}
+
+	.social-media-icons [data-icon] {
+		color: var(--color-gray-400);
+		transition: all 0.3s ease-in-out;
+	}
+
+	.social-media-icons a:hover [data-icon] {
+		color: var(--color-bright-crimson);
+	}
+
+	.rss-feed h3 {
+		font-size: var(--font-size-md);
+		font-family: var(--font-body);
+		font-weight: 300;
+		margin-bottom: var(--space-xs);
+	}
+
+	.rss-button {
+		display: inline-flex;
+		margin-left: -0.1rem;
+		align-items: center;
+		gap: var(--space-3xs);
+		padding: var(--space-3xs) 1.2rem;
+		background: none;
+		border: 1px solid var(--color-tinted-cream);
+		border-radius: 3rem;
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+		font-weight: 400;
+		color: var(--color-gray-600);
+		text-decoration: none;
+		transition: all 0.3s ease-in-out;
+	}
+
+	.rss-button:hover {
+		cursor: pointer;
+		color: var(--color-crimson);
+		border: 1px solid var(--color-crimson);
+		box-shadow: var(--box-shadow-sm);
+	}
+
+	.rss-feed .copyright {
+		font-size: var(--font-size-xs);
+		font-family: var(--font-sans);
+		font-weight: 400;
+		color: var(--color-gray-600);
+	}
+
+	.sitemap-list {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		list-style: none;
+		grid-gap: var(--space-3xs) var(--space-l);
+		padding-inline-start: 0;
+	}
+
+	.sitemap-list li span :global(.styled-link span) {
+		color: var(--color-gray-600);
+		font-size: var(--font-size-sm);
+		font-family: var(--font-sans);
+		display: block;
+	}
+
+	.footer-content {
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		max-width: 1400px;
+		margin: var(--space-m) auto;
+		padding: 0 var(--space-l);
+	}
+
+	@media (max-width: 768px) {
+		.footer-content {
+			margin: var(--space-m) auto;
+			padding: 0 var(--space-m);
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.footer-content {
+			margin: var(--space-xs) auto;
+			padding: 0 var(--space-xs);
+			grid-template-columns: 1fr;
+		}
+	}
+
+	.styled-footer {
+		padding: var(--space-xl) 0;
+		border-top: 1px solid var(--color-gray-300);
+		z-index: -1;
+	}
+</style>

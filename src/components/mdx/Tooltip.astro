@@ -1,0 +1,75 @@
+---
+interface Props {
+	maxWidth?: string | number;
+}
+
+const { maxWidth = 400 } = Astro.props;
+---
+
+<span class="garden-tooltip" data-tooltip-width={maxWidth}>
+	<slot />
+	<template class="garden-tooltip-content">
+		<slot name="content" />
+	</template>
+</span>
+
+<style is:global>
+	.tippy-box[data-theme~="custom"] {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+		line-height: var(--leading-snug);
+		word-break: break-word;
+		padding: var(--space-3xs);
+		margin-bottom: var(--space-3xs);
+		background-color: var(--color-white);
+		color: var(--color-gray-800);
+		box-shadow: var(--box-shadow-lg);
+	}
+
+	.tippy-box[data-theme~="custom"] * {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+		line-height: var(--leading-snug);
+		color: var(--color-gray-800);
+	}
+
+	.tippy-box[data-theme~="custom"] p {
+		margin: 0;
+	}
+
+	.tippy-box[data-theme~="custom"] .tippy-arrow {
+		color: var(--color-white);
+	}
+</style>
+
+<script>
+	import tippy, { type Props } from "tippy.js";
+	import "tippy.js/dist/tippy.css";
+	import "tippy.js/animations/shift-away.css";
+
+	function attachTooltip(element: Element) {
+		(element as any)._tippy?.destroy();
+		const template = element.querySelector(".garden-tooltip-content") as HTMLTemplateElement;
+		if (!template) return;
+		tippy(element, {
+			content: template.content.cloneNode(true),
+			maxWidth: Number(element.getAttribute("data-tooltip-width") || 320),
+			duration: [240, 160],
+			arrow: true,
+			interactive: true,
+			animation: "shift-away",
+			allowHTML: true,
+			theme: "custom",
+		} as Partial<Props>);
+	}
+
+	function initializeTooltips() {
+		document.querySelectorAll(".garden-tooltip").forEach(attachTooltip);
+	}
+
+	// Initialize on first load
+	initializeTooltips();
+
+	// Re-initialize after view transitions
+	document.addEventListener("astro:page-load", initializeTooltips);
+</script>

@@ -1,0 +1,24 @@
+---
+const { size = 20, class: className, ...attrs } = Astro.props;
+---
+
+<svg
+	class={className}
+	width={size}
+	height={size}
+	fill="none"
+	xmlns="http://www.w3.org/2000/svg"
+	viewBox="0 0 64 64"
+	aria-hidden="true"
+	{...attrs}
+>
+	<path d="M31 31C17 31 8 22 7 8c14 1 23 10 24 23Z" stroke="currentColor" stroke-width="2" />
+	<path d="M33 31C34 17 43 8 57 7c-1 14-10 23-24 24Z" stroke="currentColor" stroke-width="2" />
+	<path d="M31 33C17 34 8 43 7 57c14-1 23-10 24-24Z" stroke="currentColor" stroke-width="2" />
+	<path d="M33 33c14 1 23 10 24 24-14-1-23-10-24-24Z" stroke="currentColor" stroke-width="2" />
+	<circle cx="32" cy="32" r="2.5" fill="currentColor" />
+</svg>
+
+<style>
+	svg { color: var(--color-sea-blue); }
+</style>

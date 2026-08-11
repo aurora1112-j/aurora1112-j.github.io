@@ -1,0 +1,62 @@
+<button
+	type="button"
+	class="language-toggle"
+	id="language-toggle"
+	aria-label="Switch language"
+	title="Switch language"
+>
+	<span class="toggle-mark" aria-hidden="true">文</span>
+	<span data-lang-content="zh">EN</span>
+	<span data-lang-content="en">中文</span>
+</button>
+
+<style>
+	.language-toggle {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+		margin-left: var(--space-s);
+		padding: 0.35rem 0.65rem;
+		border: 1px solid color-mix(in srgb, var(--color-gray-500) 35%, transparent);
+		border-radius: 999px;
+		background: transparent;
+		color: var(--color-gray-700);
+		font-family: var(--font-sans);
+		font-size: var(--font-size-xs);
+		cursor: pointer;
+		transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
+	}
+
+	.language-toggle:hover {
+		color: var(--color-crimson);
+		border-color: var(--color-crimson);
+		background: var(--color-light-cream);
+	}
+
+	.toggle-mark {
+		font-family: var(--font-body);
+		color: var(--color-sea-blue);
+	}
+
+	@media (max-width: 550px) {
+		.language-toggle {
+			margin-left: var(--space-2xs);
+			min-height: 2.75rem;
+		}
+	}
+</style>
+
+<script>
+	function initializeLanguageToggle() {
+		const button = document.getElementById("language-toggle") as HTMLButtonElement | null;
+		if (!button || button.dataset.ready === "true") return;
+		button.dataset.ready = "true";
+		button.addEventListener("click", () => {
+			const current = document.documentElement.dataset.lang === "en" ? "en" : "zh";
+			window.setBotanicalLanguage?.(current === "zh" ? "en" : "zh");
+		});
+	}
+
+	initializeLanguageToggle();
+	document.addEventListener("astro:page-load", initializeLanguageToggle);
+</script>

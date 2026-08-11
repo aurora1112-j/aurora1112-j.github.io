@@ -1,0 +1,48 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageWrapper from "../components/layouts/PageWrapper.astro";
+import LocalizedText from "../components/i18n/LocalizedText.astro";
+import BotanicalSymbol from "../components/icons/BotanicalSymbol.astro";
+import { SITE } from "../data/site";
+
+const contacts = [
+	{ labelZh: "邮箱", labelEn: "Email", value: SITE.email, href: `mailto:${SITE.email}` },
+	{ labelZh: "微信", labelEn: "WeChat", value: SITE.wechat },
+	{ labelZh: "X", labelEn: "X", value: SITE.xHandle, href: SITE.xUrl },
+	{ labelZh: "GitHub", labelEn: "GitHub", value: SITE.githubHandle, href: SITE.githubUrl },
+];
+---
+
+<Layout title="联系 Chenxi Huang" titleEn="Contact Chenxi Huang">
+	<PageWrapper>
+		<header class="contact-header">
+			<div class="symbol"><BotanicalSymbol name="branch" size={104} /></div>
+			<p class="eyebrow"><LocalizedText zh="联系" en="CONTACT" /></p>
+			<h1><LocalizedText zh="让新的想法从这里分枝。" en="Let a new idea branch from here." /></h1>
+			<p><LocalizedText zh="欢迎交流 AI 产品、Agent 体验、知识管理和设计系统，也欢迎分享正在生长的问题。" en="I welcome conversations about AI products, agent experiences, knowledge management, design systems, and questions still taking shape." /></p>
+		</header>
+		<div class="contact-list">
+			{contacts.map((contact) => contact.href ? (
+				<a href={contact.href} target={contact.href.startsWith("http") ? "_blank" : undefined} rel={contact.href.startsWith("http") ? "noopener noreferrer" : undefined}>
+					<span><LocalizedText zh={contact.labelZh} en={contact.labelEn} /></span><strong>{contact.value}</strong><b>↗</b>
+				</a>
+			) : (
+				<div><span><LocalizedText zh={contact.labelZh} en={contact.labelEn} /></span><strong>{contact.value}</strong></div>
+			))}
+		</div>
+	</PageWrapper>
+</Layout>
+
+<style>
+	.contact-header { position: relative; max-width: 850px; padding: var(--space-2xl) 0 var(--space-xl); }
+	.symbol { position: absolute; right: -6%; top: var(--space-xl); color: var(--color-sea-blue); opacity: .55; transform: rotate(7deg); }
+	.eyebrow { color: var(--color-sea-blue); font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: .14em; }
+	h1 { position: relative; max-width: 680px; margin: var(--space-xs) 0 var(--space-m); font-family: var(--font-serif); font-size: clamp(2.4rem, 5vw, 4.8rem); font-weight: 300; line-height: .94; letter-spacing: -.03em; }
+	.contact-header > p:last-child { max-width: 620px; color: var(--color-gray-600); font-size: var(--font-size-md); line-height: var(--leading-loose); }
+	.contact-list { max-width: 900px; margin-bottom: var(--space-2xl); border-top: 1px solid var(--color-gray-300); }
+	.contact-list a, .contact-list > div { display: grid; grid-template-columns: 120px 1fr auto; gap: var(--space-s); padding: var(--space-m) 0; border-bottom: 1px solid var(--color-gray-300); align-items: baseline; transition: .25s ease; }
+	.contact-list span { color: var(--color-gray-500); font-family: var(--font-sans); font-size: var(--font-size-xs); text-transform: uppercase; letter-spacing: .08em; }
+	.contact-list strong { font-family: var(--font-serif); font-size: clamp(1.2rem, 3vw, 2rem); font-weight: 400; overflow-wrap: anywhere; }
+	.contact-list a:hover { padding-left: var(--space-xs); color: var(--color-crimson); }
+	@media (max-width: 600px) { .symbol { right: 0; opacity: .25; } .contact-list a, .contact-list > div { grid-template-columns: 1fr auto; } .contact-list strong { grid-column: 1 / -1; } }
+</style>
