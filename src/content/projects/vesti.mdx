@@ -4,17 +4,17 @@ titleEn: "Vesti"
 description: "一个本地优先的 AI 对话记忆层，自动捕获、组织和检索散落在不同模型里的工作脉络。"
 descriptionEn: "A local-first memory layer that captures, organises, and retrieves AI conversations across models."
 startDate: "2026-02-11"
-updated: "2026-03-26"
+updated: "2026-08-31"
 type: "project"
 projectKind: "product"
 cover: "../../images/projects/vesti-design-system/poster-light.png"
 topics: ["Knowledge Management", "Artificial Intelligence", "Human–AI Collaboration"]
 growthStage: "budding"
-roleZh: "产品设计与全栈开发"
-roleEn: "Product design & full-stack engineering"
+roleZh: "联合创始人 · 产品与交互设计主导 · 核心实现"
+roleEn: "Co-founder · Product and interaction lead · Core implementation"
 featured: true
 url: "https://vesti.rth3.xyz/"
-github: "https://github.com/aurora1112-j/vesti"
+github: "https://github.com/abraxas914/VESTI"
 toc: true
 ---
 
@@ -61,13 +61,26 @@ Vesti 不是一块不断增加功能的仪表盘，而是两种彼此连接的�
 
 ## 我负责的部分
 
-产品定义、信息架构、交互与视觉设计，以及浏览器扩展和主要产品界面的全栈实现。案例覆盖从产品叙事、捕获流程与档案检索，到本地存储、演示页面和公共发布材料。
+**联合创始人｜产品与交互设计主导｜核心前端与数据链路实现**
+
+作为联合创始人，我主导产品定义、信息架构、交互与视觉设计，并实现核心前端与数据链路。公开 GitHub 证据包括 13 个由我的账号发起的 PR，其中 8 个已合并；部分早期提交使用未关联账号的本地作者身份，因此这里以可核验的 PR 为归属口径，而不使用总代码行数。
+
+- **产品与数据底座**：[PR #13](https://github.com/abraxas914/VESTI/pull/13) 对齐 Dashboard、标签、本地存储与扩展数据流
+- **Library 与导出**：[PR #52](https://github.com/abraxas914/VESTI/pull/52)、[PR #74](https://github.com/abraxas914/VESTI/pull/74)、[PR #87](https://github.com/abraxas914/VESTI/pull/87)、[PR #91](https://github.com/abraxas914/VESTI/pull/91) 覆盖标注、分屏随记、滚动稳定性与 Markdown/Obsidian 笔记工作区
+- **时间网络**：[PR #53](https://github.com/abraxas914/VESTI/pull/53) 重构带时间语义的知识网络与回放
+- **视觉与导航**：[PR #39](https://github.com/abraxas914/VESTI/pull/39)、[PR #75](https://github.com/abraxas914/VESTI/pull/75) 更新品牌资产与工作台导航
 
 ## 当前形态
 
-Vesti 已形成浏览器扩展、对话档案、搜索与探索界面，以及一套跨界面和印刷媒介的视觉系统。下一阶段仍需要继续验证长期使用中的召回质量、跨设备迁移与不同平台结构变化带来的捕获稳定性。
+Vesti 已形成浏览器扩展、对话档案、搜索与探索界面，以及一套跨界面和印刷媒介的视觉系统。Canonical 仓库由团队持续维护；我的展示仓库保留阶段性公开快照，不作为最新代码来源。
 
-[访问 Vesti](https://vesti.rth3.xyz/) · [查看公开仓库](https://github.com/aurora1112-j/vesti) · [查看项目主仓库](https://github.com/abraxas914/VESTI)
+## 评测与已知边界
+
+当前公开 Prompt Eval baseline 是 **10 个 deterministic mock cases**（7 个 conversation、3 个 weekly），用于检查结构化输出与必需字段，不是线上模型质量基准。Nightly live workflow 因缺少模型密钥而实际跳过，因此目前不公开宣称任务成功率、线上延迟或成本指标。
+
+产品仍需继续验证长期使用中的召回质量、跨设备迁移、不同平台 DOM 变化带来的捕获稳定性，以及真实模型下的 Bad Case、Fallback、P50/P95 延迟与单任务成本。
+
+[访问 Vesti](https://vesti.rth3.xyz/) · [Canonical 仓库](https://github.com/abraxas914/VESTI) · [个人展示快照](https://github.com/aurora1112-j/vesti)
 </LanguageBlock>
 
 <LanguageBlock lang="en">
@@ -108,11 +121,24 @@ Automatic organisation should help people return to their own material, compare 
 
 ## My role
 
-Product definition, information architecture, interaction and visual design, plus full-stack implementation of the browser extension and core product surfaces. The work spans capture, archive retrieval, local storage, public narrative, and launch materials.
+**Co-founder | Product and interaction design lead | Core frontend and data-flow implementation**
+
+As a co-founder, I led product definition, information architecture, interaction, and visual design, and implemented core frontend and data flows. My public GitHub evidence includes 13 PRs opened from my account, eight merged. Some early commits used an unlinked local author identity, so this case uses reviewable PRs rather than aggregate lines of code as the attribution boundary.
+
+- **Product and data foundation**: [PR #13](https://github.com/abraxas914/VESTI/pull/13) aligned the dashboard, tagging, local storage, and extension data flow
+- **Library and export**: [PR #52](https://github.com/abraxas914/VESTI/pull/52), [PR #74](https://github.com/abraxas914/VESTI/pull/74), [PR #87](https://github.com/abraxas914/VESTI/pull/87), and [PR #91](https://github.com/abraxas914/VESTI/pull/91) covered annotations, split notes, scroll stability, and the Markdown/Obsidian note workspace
+- **Temporal network**: [PR #53](https://github.com/abraxas914/VESTI/pull/53) rebuilt the knowledge network around time semantics and playback
+- **Visual system and navigation**: [PR #39](https://github.com/abraxas914/VESTI/pull/39) and [PR #75](https://github.com/abraxas914/VESTI/pull/75) updated brand assets and workspace navigation
 
 ## Current form
 
-Vesti now includes a browser extension, conversation archive, search and exploration surfaces, and a visual system shared across interface and print. The next questions concern long-term retrieval quality, cross-device portability, and capture resilience as source platforms change.
+Vesti now includes a browser extension, conversation archive, search and exploration surfaces, and a visual system shared across interface and print. The canonical repository continues to be maintained by the team; my repository is a public snapshot rather than the latest source.
 
-[Visit Vesti](https://vesti.rth3.xyz/) · [View the public repository](https://github.com/aurora1112-j/vesti) · [View the main project repository](https://github.com/abraxas914/VESTI)
+## Evaluation and known boundaries
+
+The public Prompt Eval baseline currently contains **10 deterministic mock cases**—seven conversation cases and three weekly cases. It checks structured-output contracts and required fields; it is not a live model-quality benchmark. The nightly live workflow is skipped without model credentials, so this case does not claim task success, production latency, or cost metrics.
+
+The next verification work concerns long-term retrieval quality, cross-device portability, parser resilience as source platforms change, and live-model measurements for bad cases, fallback, P50/P95 latency, and per-task cost.
+
+[Visit Vesti](https://vesti.rth3.xyz/) · [Canonical repository](https://github.com/abraxas914/VESTI) · [My public snapshot](https://github.com/aurora1112-j/vesti)
 </LanguageBlock>
