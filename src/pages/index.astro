@@ -43,7 +43,8 @@ const photography = (await getCollection("photography", ({ data }) => !data.draf
 				<h1><LocalizedText zh="我理解复杂概念，也把它们做成可以使用的系统。" en="I understand difficult ideas and turn them into systems people can use." /></h1>
 				<p class="intro"><LocalizedText zh="我在南京大学学习，持续探索 AI、Agent、产品与知识管理。这里同时保存概念解释、项目、开源实践和摄影观察，也保留它们尚未完成的生长过程。" en="I study at Nanjing University and explore AI, agents, products, and knowledge systems. This space holds concept explanations, projects, open work, and photographic observations—including their unfinished growth." /></p>
 				<nav class="hero-links" aria-label="Primary calls to action">
-					<a href="/projects"><LocalizedText zh="查看作品" en="View works" /><Icon name="heroicons:arrow-right" size={18} /></a>
+					<a href={SITE.portfolioPath}><LocalizedText zh="AI PM 求职档案" en="AI PM portfolio" /><Icon name="heroicons:arrow-right" size={18} /></a>
+					<a href="/projects"><LocalizedText zh="查看作品" en="View works" /></a>
 					<a href="/garden"><LocalizedText zh="进入花园" en="Enter the Garden" /></a>
 					<a href="/about"><LocalizedText zh="认识我" en="About me" /></a>
 				</nav>

@@ -11,6 +11,8 @@ export const SITE = {
 	xHandle: "@Aurora736951",
 	githubUrl: "https://github.com/aurora1112-j",
 	githubHandle: "aurora1112-j",
+	portfolioPath: "/hire",
+	publicResumePath: "/resume/chenxi-huang-ai-product-manager-2027-public.pdf",
 	avatar: "/images/profile/chenxi-huang-github.jpg",
 	siteUrl: "https://aurora1112-j.github.io",
 } as const;

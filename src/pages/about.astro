@@ -45,7 +45,10 @@ import { SITE } from "../data/site";
 					<div><dt><LocalizedText zh="学校" en="School" /></dt><dd><LocalizedText zh={SITE.schoolZh} en={SITE.schoolEn} /></dd></div>
 					<div><dt><LocalizedText zh="关注" en="Focus" /></dt><dd><LocalizedText zh="AI、Agent、知识管理" en="AI, agents, knowledge management" /></dd></div>
 				</dl>
-				<a href="/contact" class="contact-link"><LocalizedText zh="联系我" en="Contact me" /> →</a>
+				<div class="about-actions">
+					<a href={SITE.portfolioPath} class="contact-link"><LocalizedText zh="查看 AI PM 求职档案" en="View AI PM portfolio" /> →</a>
+					<a href="/contact" class="contact-link secondary"><LocalizedText zh="联系我" en="Contact me" /> →</a>
+				</div>
 			</aside>
 		</div>
 		<div id="botanical-systems" class="system-philosophy">
@@ -73,6 +76,8 @@ import { SITE } from "../data/site";
 	dt { font-family: var(--font-sans); font-size: var(--font-size-xs); color: var(--color-gray-500); text-transform: uppercase; letter-spacing: .08em; }
 	dd { margin: .25rem 0 0; }
 	.contact-link { display: inline-block; margin-top: var(--space-xs); color: var(--color-crimson); }
+	.about-actions { display: grid; justify-items: start; }
+	.contact-link.secondary { color: var(--color-gray-600); }
 	.system-philosophy { scroll-margin-top: 6rem; }
 	@media (max-width: 700px) { .about-hero { align-items: start; } .about-hero img { width: 110px; } .about-grid { grid-template-columns: 1fr; } aside { margin-top: 0; } }
 </style>
