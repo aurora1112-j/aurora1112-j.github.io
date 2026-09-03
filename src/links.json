@@ -118,6 +118,19 @@
   },
   {
     "ids": [
+      "When the Reader Is a Machine",
+      "搜索与浏览：PC、移动与 Agent 三个时代"
+    ],
+    "titleEn": "When the Reader Is a Machine",
+    "slug": "when-the-reader-is-a-machine",
+    "growthStage": "budding",
+    "description": "Search grew up with the browser, fractured across mobile apps, and is now being rebuilt as a tool for agents. The difficult part is no longer finding a page. It is returning evidence a model can safely use.",
+    "descriptionEn": "Search grew up with the browser, fractured across mobile apps, and is now being rebuilt as a tool for agents. The difficult part is no longer finding a page. It is returning evidence a model can safely use.",
+    "outboundLinks": [],
+    "inboundLinks": []
+  },
+  {
+    "ids": [
       "Botanical Systems"
     ],
     "titleEn": "Botanical Systems",

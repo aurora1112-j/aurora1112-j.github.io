@@ -1,0 +1,160 @@
+---
+title: "When the Reader Is a Machine"
+titleEn: "When the Reader Is a Machine"
+description: "Search grew up with the browser, fractured across mobile apps, and is now being rebuilt as a tool for agents. The difficult part is no longer finding a page. It is returning evidence a model can safely use."
+descriptionEn: "Search grew up with the browser, fractured across mobile apps, and is now being rebuilt as a tool for agents. The difficult part is no longer finding a page. It is returning evidence a model can safely use."
+updated: "2026-09-03T17:44:00+08:00"
+startDate: "2026-09-03T17:44:00+08:00"
+type: "essay"
+cover: "../../images/placeholders/agent-branching.svg"
+topics: ["Artificial Intelligence", "Agents", "Information Architecture", "Context Engineering"]
+growthStage: "budding"
+featured: true
+toc: true
+aliases: ["搜索与浏览：PC、移动与 Agent 三个时代"]
+---
+
+<IntroParagraph>Search has changed each time the identity of the reader changed. On the desktop Web, it helped a person find a page. On mobile, it had to compete with apps and recommendation feeds. In an agent system, the result may never be shown to a person at all.</IntroParagraph>
+
+## The desktop Web: search and browsing grew up together
+
+The ancestor of Web search arrived before the Web. Archie, built at McGill University in 1990, indexed file listings from public FTP servers. There were no pages to rank and no hyperlinks to follow. Search meant finding a filename in a distributed catalogue.
+
+Then Tim Berners-Lee put the first Web server and browser to work at CERN. By 1991, the software was public. The useful property of the Web was also its first navigation problem: anyone could publish a page, but there was no complete map of what existed.
+
+People navigated with two kinds of product. Browsers such as Mosaic and Netscape made documents visible and clickable. Directories made the growing collection legible. Jerry Yang and David Filo's 1994 “Guide to the World Wide Web”, which became Yahoo, was a human-edited hierarchy of sites. Someone had looked at the Web, decided what was worth keeping, and placed each link on a branch of a tree.
+
+That model worked while the Web was still small enough to curate. It failed by succeeding. More pages arrived than an editorial team could review.
+
+### Crawlers replaced the directory
+
+AltaVista, launched by Digital Equipment Corporation in 1995, made full-text Web search feel immediate. It crawled page content rather than keeping only titles or hand-written descriptions. A query could now reach words buried inside a page.
+
+The weakness was relevance. Ranking based heavily on terms and their placement gave publishers a simple attack surface: repeat the right words often enough. Early search quality and early SEO manipulation grew up together.
+
+Google changed the unit of evidence. Larry Page and Sergey Brin treated a hyperlink as a form of citation. A page linked by other important pages gained importance of its own. PageRank did not make manipulation disappear, but the relationship graph was harder to fake at scale than a block of repeated keywords, at least for a while.
+
+The deeper idea was that meaning did not live only inside a document. It also lived in the way documents referred to one another.
+
+### The browser and the search box became one surface
+
+In the Netscape years, a browser took you onto the Web and a portal told you where to go. As browsers became infrastructure, search engines took over the job of orientation. The address bar still accepted a destination, but most journeys began with a query.
+
+Chrome made that arrangement literal in 2008. Its Omnibox accepted both URLs and searches. From a user's point of view, “go to” and “find” became the same gesture.
+
+Search advertising completed the loop. The query box became one of the Web's most reliable cash machines, and the revenue funded products that people came to expect for free. Search was simultaneously a navigation system, an advertising market, and the front door to the open Web.
+
+China followed a compressed version of the same path. Baidu began operating in 2000 and listed on Nasdaq in 2005. Google redirected mainland users from Google.cn to its Hong Kong service in 2010. After that, the mainland PC search market became much less contested.
+
+## Mobile broke the front door
+
+The iPhone arrived in 2007 and the App Store followed in 2008. This was the first serious challenge to the browser-search pair.
+
+On a PC, the browser was the dominant doorway and the search box sat close to the entrance. On a phone, the first layer was a grid of apps. Many information needs moved into private indexes. Flights began in Ctrip. Products began in Taobao. Restaurants began in Dianping. Google still organised the open Web, but more of daily life took place one layer below it.
+
+Search fractured into dozens of vertical products. Each one knew more about its own objects, but none offered a map of the whole environment.
+
+### From links to answers
+
+Google's Knowledge Graph, launched in 2012, was a response to more than screen size. It moved entities and relationships closer to the centre of search. A query for a person, place, or film could produce facts directly instead of asking the user to open several links and assemble an answer.
+
+This mattered on a phone. Small screens punish long result lists. Voice interfaces punish them even more. A spoken answer cannot hand someone ten blue links and call the job finished.
+
+Mobile-first indexing followed more slowly than the phrase suggests. Google began the shift in 2016, started migrating suitable sites in 2018, and declared the move complete in 2023. The mobile version of a page had become the version Google primarily crawled for indexing. Desktop was no longer the default representation of the Web.
+
+### Natural language and recommendation changed demand
+
+Siri arrived with the iPhone 4S in 2011 and let people ask for information in ordinary sentences. Google Now and Google Assistant continued the pattern. Users stopped pretending to be database operators. “What is good to eat nearby?” replaced carefully arranged keyword strings.
+
+People never became better at writing queries. Search systems became better at handling the way people already spoke.
+
+Recommendation changed the other side of the interaction. Toutiao, Douyin, and TikTok demonstrated how much information demand is vague or latent. When the user cannot name what they want, a feed can let content find them. For discovery, recommendation often beat the empty search box.
+
+The business of being found moved with it. SEO belonged to the open Web. ASO emerged around app stores. Feed ranking created a new discipline of thumbnails, watch time, completion rates, and content operations. The underlying job stayed the same while the host kept changing.
+
+## Agent systems turn search into infrastructure
+
+A model cannot treat its parameters as a live database. Prices, schedules, product releases, regulations, and public events change after training. Some change during a single working session. An agent needs an external path back to the current world.
+
+Search therefore moves down the stack. It may still be a product people visit, but inside an agent loop it is also a tool call between two reasoning steps.
+
+That sounds like a small interface change. In practice, it changes the reader. Search engines have spent decades optimising results for people, while an agent has a different failure mode.
+
+A person can scan a result page, distrust a suspicious domain, notice that a number is from last year, and reformulate the query. A model receives a payload. If that payload enters the context without enough structure or provenance, the mistake appears later as confident reasoning.
+
+## What an agent needs from search
+
+### Query work cannot be assumed
+
+Human queries are often incomplete, conversational, or referential. Someone asks for “that AI agent with a soul” because they remember an impression, not a product name.
+
+A consumer search engine usually rewrites, expands, corrects, and classifies that input before retrieval. A bare search API may receive the original string exactly as written. If the retrieval layer does not interpret it, the agent has to notice the poor results and try again inside its reasoning loop.
+
+That retry is not free. It adds latency, another model call, and another chance to drift away from the user's intent. Query interpretation has to live somewhere explicit, either inside the search service or inside an observable agent loop.
+
+### A visual card stops short of a data contract
+
+Exchange rates, stock prices, weather, and schedules already appear as structured cards in consumer search. For a person, a glance may be enough. An agent needs the fields behind the card: value, unit, timestamp, market or location, and source.
+
+Five links to currency websites are technically relevant. They also hand extraction back to the agent. It must open a page, locate the number, resolve the units, check the date, and decide whether the source is acceptable. Each step consumes context and creates another place for parsing to fail.
+
+Machine-readable search should return an object that can enter context with less repair work.
+
+### Freshness and authority need to travel with the result
+
+People bring quiet scepticism to a result page. We recognise a stale headline or a low-quality publisher, even if we cannot explain the judgment formally. Models are less dependable here. A precise but outdated number can dominate the context simply because it looks answer-shaped.
+
+Freshness filters, timestamps, domain controls, and source metadata are therefore part of retrieval quality. Removing an obsolete market quote before it reaches the model is cheaper than asking the model to reason its way out of a contradiction later.
+
+This becomes especially important when search output triggers action. A stale travel rule produces a bad answer. A stale financial or operational rule can produce a bad transaction.
+
+## Thin wrappers and thicker retrieval systems
+
+Search APIs now sit on a spectrum. The labels “thin” and “thick” are useful product shorthand, not formal categories.
+
+At the thin end, services such as SerpAPI and Serper expose familiar search-engine result pages as JSON. They preserve much of the source engine's ranking and specialised result types. This is useful when fidelity to Google results matters or when a team wants a predictable baseline.
+
+The trade-off is that the consumer result page remains the underlying product. Parsing has moved from HTML into JSON, but the output may still be organised around what a person would click.
+
+Thicker systems do more work before returning a result. Tavily can adjust search depth, return extracted content, apply date and domain filters, and optionally generate an answer. Exa built its own search engine for AI applications and supports neural retrieval, highlights, and large result sets. Brave operates an independent Web index and now separates its general Web Search endpoint from an LLM Context endpoint designed for machine consumption.
+
+These systems are revisiting problems that AltaVista and Google confronted in the 1990s: crawling, indexing, ranking, and resisting manipulation. The reader has changed, so the objective function has changed too. Click-through rate matters less than whether the returned material is useful inside a model's limited context.
+
+Most agent products will not need one provider for every query. A thin SERP wrapper can be a good fallback for broad coverage. A richer retrieval API can handle tasks where extracted content, semantic matching, or tight freshness controls justify the additional processing. Vertical APIs remain better for objects such as flights, products, and financial data when a reliable structured source exists.
+
+The sensible architecture is often mixed. The important part is knowing which layer performed query interpretation, which index supplied the result, and what transformations happened before the model saw it.
+
+## The bottleneck moved downstream
+
+Search calls are often cheap compared with a long model turn. That does not make search quality unimportant. It changes where the cost appears.
+
+A weak result expands the reasoning loop. The agent opens more pages, extracts more text, carries more tokens, and spends more time deciding what to trust. A compact result with usable fields and clear provenance can remove several of those steps.
+
+The useful unit of cost is the full price of reaching a defensible answer or action.
+
+| Era | Primary reader | Unit returned | Main product problem |
+|---|---|---|---|
+| Desktop Web | Person at a browser | Ranked page or link | Help someone navigate a growing Web |
+| Mobile | Person on a small, app-centred device | Answer, card, vertical result, or recommendation | Reduce interaction and fit the right context |
+| Agent | Model inside a tool loop | Evidence, fields, content, and provenance | Make retrieved information safe and economical to use in reasoning |
+
+Yahoo's directory organised sites for people to browse. Google used the link graph to order pages. The Knowledge Graph brought entities and facts closer to the surface. Agent search has to organise evidence for a reader that may immediately turn it into another tool call.
+
+That is the uncomfortable part. A human can work around a weak result. An agent may convert it into the next action before anyone sees the search page.
+
+## References
+
+- [McGill University: early Internet tools and Archie](https://ich.music.mcgill.ca/classes/mumt621_25/IntroToInternet.pdf)
+- [CERN: A short history of the Web](https://home.cern/science/computing/the-birth-of-the-web/short-history-web/)
+- [Yahoo SEC filing: Jerry and Dave's Guide to the World Wide Web](https://www.sec.gov/Archives/edgar/data/1011006/000119312517065791/d293630d10k.htm)
+- [Brin and Page: The Anatomy of a Large-Scale Hypertextual Web Search Engine](https://research.google/pubs/the-anatomy-of-a-large-scale-hypertextual-web-search-engine/)
+- [Google: Introducing the Knowledge Graph](https://blog.google/products-and-platforms/products/search/introducing-knowledge-graph-things-not/)
+- [Google Search Central: Mobile-first indexing has landed](https://developers.google.com/search/blog/2023/10/mobile-first-is-here)
+- [Apple: iPhone 4S introduces Siri](https://www.apple.com/newsroom/2011/10/04Apple-Launches-iPhone-4S-iOS-5-iCloud/)
+- [Baidu: History and corporate structure](https://ir.baidu.com/static-files/0ca31a49-d760-4df2-a346-65e2056d14e8)
+- [Google: A new approach to China](https://publicpolicy.googleblog.com/2010/03/new-approach-to-china-update.html)
+- [SerpAPI: Google Search API](https://serpapi.com/search-api)
+- [Serper: Google Search API](https://serper.dev/)
+- [Tavily: Search API](https://docs.tavily.com/documentation/api-reference/endpoint/search)
+- [Exa: Search documentation](https://exa.ai/docs/reference/faqs)
+- [Brave: Search API](https://api-dashboard.search.brave.com/app/documentation/web-search/get-started)
