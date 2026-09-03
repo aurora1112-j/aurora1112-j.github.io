@@ -53,6 +53,7 @@
   --font-serif: "Newsreader", Georgia, serif;
   --font-body: "Newsreader", Georgia, serif;
   --font-sans: "Lato", sans-serif;
+  --font-article-body: "Source Sans 3", "PingFang SC", "Microsoft YaHei", sans-serif;
 
   /* Leading */
   --leading-tighter: 110%;
