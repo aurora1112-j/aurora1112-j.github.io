@@ -39,8 +39,8 @@
         "titleEn": "From Tool to Collaborator: Designing Agent Boundaries",
         "slug": "agent-collaboration-boundaries",
         "growthStage": "budding",
-        "description": "占位长文：讨论 Agent 何时应该自主行动，何时必须把判断交还给人。",
-        "descriptionEn": "A working essay on when an agent should act autonomously and when judgment must return to people."
+        "description": "讨论 Agent 何时应该自主行动，何时必须把判断交还给人。",
+        "descriptionEn": "When an agent should act autonomously, and when judgment must return to people."
       }
     ]
   },
@@ -51,8 +51,8 @@
     "titleEn": "From Tool to Collaborator: Designing Agent Boundaries",
     "slug": "agent-collaboration-boundaries",
     "growthStage": "budding",
-    "description": "占位长文：讨论 Agent 何时应该自主行动，何时必须把判断交还给人。",
-    "descriptionEn": "A working essay on when an agent should act autonomously and when judgment must return to people.",
+    "description": "讨论 Agent 何时应该自主行动，何时必须把判断交还给人。",
+    "descriptionEn": "When an agent should act autonomously, and when judgment must return to people.",
     "outboundLinks": [
       {
         "matchedId": "渐进式自主权",
@@ -86,8 +86,8 @@
     "titleEn": "Growing a Personal Knowledge Garden with AI",
     "slug": "personal-knowledge-garden",
     "growthStage": "budding",
-    "description": "占位长文：把知识管理从收集资料，转向持续建立联系、来源与修订历史。",
-    "descriptionEn": "A working essay about shifting knowledge management from collecting material to cultivating links, provenance, and revision history.",
+    "description": "把知识管理从收集资料，转向持续建立联系、来源与修订历史。",
+    "descriptionEn": "Shifting knowledge management from collecting material to cultivating links, provenance, and revision history.",
     "outboundLinks": [],
     "inboundLinks": []
   },
@@ -98,8 +98,8 @@
     "titleEn": "What Trustworthy AI Systems Need to Show",
     "slug": "trustworthy-ai-systems",
     "growthStage": "seedling",
-    "description": "占位长文：从来源、置信度、可撤销性和责任归属理解 AI 透明度。",
-    "descriptionEn": "A working essay on AI transparency through provenance, confidence, reversibility, and responsibility.",
+    "description": "从来源、置信度、可撤销性和责任归属理解 AI 透明度。",
+    "descriptionEn": "AI transparency through provenance, confidence, reversibility, and responsibility.",
     "outboundLinks": [],
     "inboundLinks": []
   },
