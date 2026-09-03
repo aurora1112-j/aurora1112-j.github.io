@@ -33,6 +33,87 @@
     "description": "让 Agent 的行动权限随风险、信任与可逆性逐步增长，而不是在全自动和全手动之间二选一。",
     "descriptionEn": "Letting agent authority grow with risk, trust, and reversibility instead of choosing between fully automatic and fully manual.",
     "outboundLinks": [],
+    "inboundLinks": [
+      {
+        "title": "从工具到协作者：Agent 的设计边界",
+        "titleEn": "From Tool to Collaborator: Designing Agent Boundaries",
+        "slug": "agent-collaboration-boundaries",
+        "growthStage": "budding",
+        "description": "占位长文：讨论 Agent 何时应该自主行动，何时必须把判断交还给人。",
+        "descriptionEn": "A working essay on when an agent should act autonomously and when judgment must return to people."
+      }
+    ]
+  },
+  {
+    "ids": [
+      "从工具到协作者：Agent 的设计边界"
+    ],
+    "titleEn": "From Tool to Collaborator: Designing Agent Boundaries",
+    "slug": "agent-collaboration-boundaries",
+    "growthStage": "budding",
+    "description": "占位长文：讨论 Agent 何时应该自主行动，何时必须把判断交还给人。",
+    "descriptionEn": "A working essay on when an agent should act autonomously and when judgment must return to people.",
+    "outboundLinks": [
+      {
+        "matchedId": "渐进式自主权",
+        "title": "渐进式自主权",
+        "titleEn": "Progressive Autonomy",
+        "slug": "progressive-autonomy",
+        "growthStage": "budding",
+        "description": "让 Agent 的行动权限随风险、信任与可逆性逐步增长，而不是在全自动和全手动之间二选一。",
+        "descriptionEn": "Letting agent authority grow with risk, trust, and reversibility instead of choosing between fully automatic and fully manual."
+      }
+    ],
+    "inboundLinks": []
+  },
+  {
+    "ids": [
+      "From Saving Conversations to Learning from Experience",
+      "从保存对话到积累经验：我对 Agent Memory 的一点思考"
+    ],
+    "titleEn": "From Saving Conversations to Learning from Experience",
+    "slug": "from-saving-conversations-to-learning-from-experience",
+    "growthStage": "budding",
+    "description": "Agent memory should do more than preserve history. It should let past decisions, mistakes, and working habits improve the next action.",
+    "descriptionEn": "Agent memory should do more than preserve history. It should let past decisions, mistakes, and working habits improve the next action.",
+    "outboundLinks": [],
+    "inboundLinks": []
+  },
+  {
+    "ids": [
+      "让个人知识花园与 AI 一起生长"
+    ],
+    "titleEn": "Growing a Personal Knowledge Garden with AI",
+    "slug": "personal-knowledge-garden",
+    "growthStage": "budding",
+    "description": "占位长文：把知识管理从收集资料，转向持续建立联系、来源与修订历史。",
+    "descriptionEn": "A working essay about shifting knowledge management from collecting material to cultivating links, provenance, and revision history.",
+    "outboundLinks": [],
+    "inboundLinks": []
+  },
+  {
+    "ids": [
+      "可信 AI 系统需要展示什么"
+    ],
+    "titleEn": "What Trustworthy AI Systems Need to Show",
+    "slug": "trustworthy-ai-systems",
+    "growthStage": "seedling",
+    "description": "占位长文：从来源、置信度、可撤销性和责任归属理解 AI 透明度。",
+    "descriptionEn": "A working essay on AI transparency through provenance, confidence, reversibility, and responsibility.",
+    "outboundLinks": [],
+    "inboundLinks": []
+  },
+  {
+    "ids": [
+      "When Is a GUI Agent Worth Trusting?",
+      "GUI Agent：真正的机会不在“会点击”，而在“敢托付”"
+    ],
+    "titleEn": "When Is a GUI Agent Worth Trusting?",
+    "slug": "when-is-a-gui-agent-worth-trusting",
+    "growthStage": "budding",
+    "description": "Operating an interface is only the start. The real test is whether a GUI agent can verify outcomes, recover from failure, and return risky judgment to a person.",
+    "descriptionEn": "Operating an interface is only the start. The real test is whether a GUI agent can verify outcomes, recover from failure, and return risky judgment to a person.",
+    "outboundLinks": [],
     "inboundLinks": []
   },
   {
