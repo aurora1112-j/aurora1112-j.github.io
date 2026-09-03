@@ -4,7 +4,7 @@ titleEn: "Vesti"
 description: "一个本地优先的 AI 对话记忆层，自动捕获、组织和检索散落在不同模型里的工作脉络。"
 descriptionEn: "A local-first memory layer that captures, organises, and retrieves AI conversations across models."
 startDate: "2026-02-11"
-updated: "2026-03-26"
+updated: "2026-09-03"
 type: "project"
 projectKind: "product"
 cover: "../../images/projects/vesti-design-system/poster-light.png"
@@ -33,12 +33,15 @@ Vesti 把这个问题定义为一个“记忆层”问题，而不只是聊天�
 
 ## 产品模型
 
-Vesti 不是一块不断增加功能的仪表盘，而是两种彼此连接的工作空间：
+Vesti 是两种彼此连接的工作空间：
 
 - **浏览器扩展**：Threads、Insights、Data 与 Settings 靠近对话发生的地方，负责捕获、快速回看和系统控制
 - **知识工作台**：Library、Explore 与 Network 负责阅读原始线程、形成笔记、追问档案并观察关系随时间出现
 
-两种空间共享来源、线程与状态模型，但承担不同的信息密度。Reader 始终属于线程的下钻，而不是另一个顶层目的地。
+两种空间共享来源、线程与状态模型，但承担不同的信息密度。
+
+Vesti 既是for human的，也是Agent-native的，希望它是你与Agent共同的知识库。
+
 
 ## 设计原则
 
@@ -48,11 +51,15 @@ Vesti 不是一块不断增加功能的仪表盘，而是两种彼此连接的�
 
 ### 本地优先是一种产品立场
 
-默认把档案和索引保留在浏览器附近，减少对另一个云端账户的依赖。可迁移、可删除与可逆，不是设置页里的附加选项，而是信任模型的一部分。
+默认把档案和索引保留在浏览器附近，减少对另一个云端账户的依赖。
+
+你的知识资产属于你，Vesti不做又一个平台。
 
 ### AI 增强判断，而不是替代判断
 
 自动整理的价值在于帮助用户回到自己的材料、比较过去的思路并发现联系，而不是制造一个看似确定的总结终点。
+
+我们深知AI总结的高效，也警惕它的局限，因为无论这些summary多么事无巨细，它们也只是二手语料，真正宝贵的与激发思考的正在与你回溯的轨迹。
 </LanguageBlock>
 
 <VestiProductShowcase />
@@ -63,11 +70,14 @@ Vesti 不是一块不断增加功能的仪表盘，而是两种彼此连接的�
 
 产品定义、信息架构、交互与视觉设计，以及浏览器扩展和主要产品界面的全栈实现。案例覆盖从产品叙事、捕获流程与档案检索，到本地存储、演示页面和公共发布材料。
 
-## 当前形态
+## 当前与未来形态
 
-Vesti 已形成浏览器扩展、对话档案、搜索与探索界面，以及一套跨界面和印刷媒介的视觉系统。下一阶段仍需要继续验证长期使用中的召回质量、跨设备迁移与不同平台结构变化带来的捕获稳定性。
+Vesti 已形成浏览器扩展、对话档案、搜索与探索界面，以及一套跨界面和印刷媒介的视觉系统。
 
-[访问 Vesti](https://vesti.rth3.xyz/) · [查看公开仓库](https://github.com/aurora1112-j/vesti) · [查看项目主仓库](https://github.com/abraxas914/VESTI)
+在更广的语境里，考虑现在/未来的方向，我们还将探索怎么呈现思维的发散性（思维图谱可不够），怎么管理跨 session 的对话记录（不要简单拼接），怎么让 Agent 读取知识库（存储与呈现方式/交付物是否 Agent-native），等等。
+欢迎你的反馈与共创！
+
+[Chrome 商店安装](https://chromewebstore.google.com/detail/ofbdkflponkdfpdipfikdchepngakblo?utm_source=item-share-cb) · [Vesti 产品主页](https://vesti.rth3.xyz/) · [下载 v1.2.0-rc.9 安装包](https://github.com/aurora1112-j/vesti/releases/download/v1.2.0-rc.9/Vesti_MVP_v1.2.0-rc.9.zip) · [查看公开仓库](https://github.com/aurora1112-j/vesti) · [查看上游主仓库](https://github.com/abraxas914/VESTI)
 </LanguageBlock>
 
 <LanguageBlock lang="en">
@@ -114,5 +124,5 @@ Product definition, information architecture, interaction and visual design, plu
 
 Vesti now includes a browser extension, conversation archive, search and exploration surfaces, and a visual system shared across interface and print. The next questions concern long-term retrieval quality, cross-device portability, and capture resilience as source platforms change.
 
-[Visit Vesti](https://vesti.rth3.xyz/) · [View the public repository](https://github.com/aurora1112-j/vesti) · [View the main project repository](https://github.com/abraxas914/VESTI)
+[Install from Chrome Web Store](https://chromewebstore.google.com/detail/ofbdkflponkdfpdipfikdchepngakblo?utm_source=item-share-cb) · [Visit the Vesti homepage](https://vesti.rth3.xyz/) · [Download v1.2.0-rc.9](https://github.com/aurora1112-j/vesti/releases/download/v1.2.0-rc.9/Vesti_MVP_v1.2.0-rc.9.zip) · [View the public repository](https://github.com/aurora1112-j/vesti) · [View the upstream repository](https://github.com/abraxas914/VESTI)
 </LanguageBlock>
