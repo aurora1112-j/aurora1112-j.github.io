@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
-  <title id="title">Knowledge roots placeholder</title>
+  <title id="title">Knowledge roots illustration</title>
   <desc id="desc">A central seed connected to layered roots and small knowledge nodes.</desc>
   <rect width="1200" height="760" fill="#edf0df"/>
   <path d="M600 112v190M600 290c-110 62-188 142-250 264M600 290c112 67 192 151 248 274M584 356c-106 23-189 73-252 149M618 380c104 28 186 82 244 164M555 430c-49 79-70 147-72 205M653 445c43 76 61 139 56 191" fill="none" stroke="#395b47" stroke-width="14" stroke-linecap="round"/>
