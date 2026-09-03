@@ -11,6 +11,7 @@ import GardenLegend from "../components/garden/GardenLegend.astro";
 
 // The Garden combines public content types; growth stage remains an independent axis.
 const concepts = await getCollection("concepts", ({ data }) => !data.draft);
+const essays = await getCollection("essays", ({ data }) => !data.draft);
 const projects = await getCollection("projects", ({ data }) => !data.draft);
 const photography = await getCollection("photography", ({ data }) => !data.draft);
 const nowPosts = await getCollection("now", ({ data }) => !data.draft);
@@ -47,6 +48,7 @@ const processedSmidgeons = await Promise.all(
 // Combine all content into one array
 const allPosts = [
 	...concepts,
+	...essays,
 	...projects,
 	...photography,
 	...processedNowPosts,
@@ -60,8 +62,8 @@ const allPosts = [
 			<TitleWithCount posts={allPosts}><LocalizedText zh="知识花园" en="The Garden" /></TitleWithCount>
 			<Title2>
 				<LocalizedText
-					zh="概念、作品、摄影与仍在发芽的碎片共存于同一片知识空间，各自保留来源、关系和成熟度。"
-					en="Concepts, works, photography, and half-grown fragments share one knowledge space while keeping their provenance, relationships, and maturity visible."
+					zh="概念、文章、作品、摄影与仍在发芽的碎片共存于同一片知识空间，各自保留来源、关系和成熟度。"
+					en="Concepts, essays, works, photography, and half-grown fragments share one knowledge space while keeping their provenance, relationships, and maturity visible."
 				/>
 			</Title2>
 		</header>

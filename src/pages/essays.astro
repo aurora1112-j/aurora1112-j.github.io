@@ -1,3 +1,45 @@
 ---
-return Astro.redirect("/concepts", 301);
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import PageWrapper from "../components/layouts/PageWrapper.astro";
+import EssayCard from "../components/cards/EssayCard.astro";
+import LocalizedText from "../components/i18n/LocalizedText.astro";
+import { extractBaseSlug } from "../utils/versionUtils";
+
+const essays = (await getCollection("essays", ({ data }) => !data.draft)).sort(
+	(a, b) => b.data.updated.getTime() - a.data.updated.getTime(),
+);
 ---
+
+<Layout title="文章｜Chenxi Huang" titleEn="Essays | Chenxi Huang">
+	<PageWrapper>
+		<header class="collection-header">
+			<p class="eyebrow"><LocalizedText zh={`${essays.length} 篇长文`} en={`${essays.length} essays`} /></p>
+			<h1><LocalizedText zh="文章" en="Essays" /></h1>
+			<p><LocalizedText zh="关于 AI、Agent、开源与协作方式的长篇观点。" en="Long-form arguments about AI, agents, open source, and how people collaborate." /></p>
+		</header>
+		<section class="essay-field" aria-label="Essays">
+			{essays.map((essay) => (
+				<EssayCard
+					id={essay.id}
+					slug={extractBaseSlug(essay.id)}
+					cover={essay.data.cover}
+					title={essay.data.title}
+					titleEn={essay.data.titleEn}
+					description={essay.data.description}
+					descriptionEn={essay.data.descriptionEn}
+					growthStage={essay.data.growthStage}
+					date={essay.data.updated}
+				/>
+			))}
+		</section>
+	</PageWrapper>
+</Layout>
+
+<style>
+	.collection-header { max-width: 760px; padding: var(--space-xl) 0 var(--space-2xl); }
+	.eyebrow { color: var(--color-sea-blue); font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: .12em; text-transform: uppercase; }
+	h1 { margin: var(--space-2xs) 0 var(--space-xs); font-family: var(--font-serif); font-size: clamp(2.8rem, 6vw, 5.8rem); font-weight: 300; }
+	.collection-header > p:last-child { max-width: 650px; color: var(--color-gray-600); line-height: var(--leading-loose); }
+	.essay-field { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: var(--space-m); margin-bottom: var(--space-3xl); }
+</style>

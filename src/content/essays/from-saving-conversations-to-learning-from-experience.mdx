@@ -1,0 +1,163 @@
+---
+title: "From Saving Conversations to Learning from Experience"
+titleEn: "From Saving Conversations to Learning from Experience"
+description: "Agent memory should do more than preserve history. It should let past decisions, mistakes, and working habits improve the next action."
+descriptionEn: "Agent memory should do more than preserve history. It should let past decisions, mistakes, and working habits improve the next action."
+updated: "2026-09-03"
+startDate: "2026-08-18"
+type: "essay"
+cover: "../../images/placeholders/knowledge-roots.svg"
+topics: ["Artificial Intelligence", "Agent Memory", "Knowledge Management", "Context Engineering"]
+growthStage: "budding"
+featured: true
+toc: true
+aliases: ["从保存对话到积累经验：我对 Agent Memory 的一点思考"]
+---
+
+<IntroParagraph>What would it take for an agent to understand you better with use? The answer has less to do with producing a better reply in one session and more to do with whether today’s work changes how tomorrow’s work begins.</IntroParagraph>
+
+I came to this question through a product I worked on earlier. It captured and organised conversations across AI products and across sessions. People could return to an old exchange, search it, and recover the context around a useful line.
+
+That product served human memory. A person can reopen a session, read around the part that matters, and decide how it applies now.
+
+An agent has a different problem. It does not naturally carry state from one session into the next. Its context window is limited, and more tokens cost time and money. Loading every previous conversation does not restore continuity. Before taking action, the agent still has to work out which constraints remain valid, which ideas have already failed, and which parts of an old experience belong in the current problem.
+
+Saving history means the past is available. Agent memory has to make the past useful.
+
+## An archive is not a working state
+
+Conversation capture solves a real first problem: preservation. A complete record, a readable timeline, and search across applications let someone return to what actually happened. Agents need that record too, because later summaries and extracted facts should have evidence behind them.
+
+Still, preserved information does not automatically influence future work.
+
+Imagine that an agent helped change an authorisation system yesterday. During the task it learned that the project must support an older database version. One migration approach failed. A particular entry point in the permission module was off-limits. At the end, a specific group of tests passed.
+
+Today, another permission issue arrives. The old conversation contains useful material, but the agent still has decisions to make. Does the database constraint apply here? Is the failed migration worth reconsidering under different conditions? Can the same tests verify this change?
+
+History becomes working state only after it has been selected, organised, and updated for the task in front of us.
+
+## Context, knowledge, and memory
+
+Systems do not use these words consistently. For my own thinking, I find the following rough distinction useful:
+
+| Term | The question it answers | Typical contents | Typical lifetime |
+|---|---|---|---|
+| **Context** | What does the current task need in view? | Messages, tool calls, file excerpts, search results, current plan | One session or task |
+| **Knowledge** | What can the system look up? | Project documentation, API references, business rules, code structure | Relatively stable and repeatedly searchable |
+| **Memory** | When should a past experience affect the present? | Preferences, project decisions, failure lessons, reusable working habits | Across sessions, with revision over time |
+
+Context defines the immediate reasoning space. Knowledge is the material a system can consult. Memory adds time: something happened before, it is brought back under the right conditions, and it changes a judgment or action.
+
+This also separates context management from long-term memory. Summarisation, truncation, offloading, and subtask isolation help a long-running task fit within a limited working space. Long-term memory is concerned with continuity between tasks. Information moves both ways. A current task may produce a lasting memory, and a later task may pull that memory back into context.
+
+Putting something into long-term memory does not mean keeping the full conversation in front of the model forever. The raw record can remain available as evidence. Only a small, scoped selection should enter the next round of reasoning.
+
+## Memory is an engineering loop
+
+In practice, memory is a continuous pipeline. The system captures a task trace, extracts facts and decisions, retrieves relevant items when another task begins, then uses the new outcome to amend what it believed before.
+
+Task traces are noisy. They mix user messages, model replies, search results, tool calls, logs, failed attempts, and finished artifacts. The system has to tell different kinds of information apart.
+
+“The user prefers concise answers” may be an interaction preference. “We decided last week to keep the legacy endpoint” is a time-bound project decision. “The test failed because the fixture lacked tenant context” records an event and its cause. “For this class of failure, inspect the fixture before changing service logic” is closer to reusable operating knowledge.
+
+These items should not all be flattened into the same kind of text. Raw traces help with audit and reconstruction. Facts benefit from precise retrieval. Decisions need a date, an object, and a scope. A reusable procedure should include its trigger, known dead ends, and a way to verify the result.
+
+The differences become more important as the store grows. Without them, retrieval gets noisy and correction becomes awkward.
+
+### What deserves to stay
+
+The result of one tool call may expire with the task. A correction from the user may reveal a durable preference. One failed attempt may matter, but it may also be a one-off accident.
+
+Writing too freely fills memory with debris. Writing too cautiously loses the constraints that would prevent another round of work.
+
+I prefer a layered approach. Keep raw traces cheaply when appropriate. Extract facts and project decisions in the background. Let higher-level procedures earn their status through reuse or repeated verification. This preserves the path back to evidence without turning every exchange into a permanent lesson.
+
+### How memory should be organised
+
+One experience can exist in several forms: a trace, a summary, a fact, an event, a relationship, a rule, or a procedure. Each serves a different job.
+
+The lower layers hold detail and sources. The higher layers offer compact judgments and indexes, with references back down. An agent can usually work from the dense version, then inspect the original evidence when a detail matters.
+
+Compression becomes a path that can be walked backwards. That is safer than treating summarisation as a one-way rewrite.
+
+### When to retrieve it
+
+Semantic similarity is a useful candidate generator, but it is not enough. The user, project, file, task stage, time range, source, and validity of a memory can all change whether it belongs in the current context.
+
+A lesson about database migration may apply only to one project running an old version. It should not surface in every database task because the wording happens to look similar.
+
+Broad retrieval brings in stale constraints and unrelated advice. Narrow retrieval misses the one detail that would have prevented a bad move. The system also has to respect a character and latency budget. Memory should reduce work, not recreate context overload in another form.
+
+### How to handle change and conflict
+
+Preferences change. Architectures move on. A constraint that was correct three months ago may have disappeared in the latest release.
+
+A memory store that only appends will eventually contain incompatible instructions. Blind replacement is not much better. “Use MySQL now” and “This service must use PostgreSQL” could reflect a changed decision, or two different projects.
+
+Updates need time, subject, situation, and source. An older memory can be marked as superseded without being erased. Keeping the change history helps both the system and the person understand how the current position emerged.
+
+### How memory should enter reasoning
+
+Retrieved memories come with different levels of confidence. One may be an explicit fact, another a stable preference, another a historical decision, and another a tentative lesson from a single task.
+
+The agent needs the source, date, scope, and current status alongside the content. A memory is background evidence. A new user instruction, the current file, or a live system response should outrank an old note when they conflict.
+
+No three-month-old decision should overrule what the user just said.
+
+## From facts to operating experience
+
+I see three broad levels in current memory systems.
+
+The first is context management inside one task. Summaries, task state, structured workspaces, and offloaded material keep a long run moving.
+
+The second is cross-session memory. The system extracts facts, preferences, events, and project knowledge from previous work and retrieves them later.
+
+The third is operating experience. The system learns an approach to a class of problems, including what to check first, which route failed before, and how to verify the repair.
+
+That third level interests me most because it changes the starting point of the next task.
+
+Consider a failed authorisation test. The agent reads the logs and edits the service, but the test still fails. It inspects the fixture and finds that tenant context was never initialised. Once the fixture is fixed, the test passes.
+
+A summary such as “fixed the authorisation test” preserves the outcome and loses the lesson. A more useful record might look like this:
+
+| Field | Memory |
+|---|---|
+| Applies when | A multi-tenant authorisation test fails |
+| Check first | Whether the test fixture initialises tenant context |
+| Known dead end | Changing service logic did not solve this instance |
+| Verify with | Authorisation-module and tenant-isolation tests |
+| Boundary | Relevant to missing-context failures, not all business-logic errors |
+
+The boundary matters. One lucky fix can be overgeneralised into a rule, and a method that worked in one repository can leak into another. Operating experience should remain scoped and should collect feedback each time it is used.
+
+## What “understands you better” should mean
+
+Products often promise that an agent will understand you better over time. Usually this means it has collected more preferences, habits, and personal history. Those facts can help, but understanding should show up in the agent’s behaviour.
+
+Does it know what matters in this situation? Does it recognise the way you tend to work? Can it tell when to proceed and when one question would prevent an expensive mistake?
+
+A preference for concise answers is relatively broad. Valuing backward compatibility is a decision tendency. Discussing structure before wording is a writing workflow. Rejecting one technical approach because of maintenance cost is a project decision with a history behind it.
+
+Each has a different scope. The same person may work very differently while writing, programming, researching, and handling everyday questions. An agent needs relationships between the person, project, task, and situation. Otherwise a local habit hardens into a global rule.
+
+For me, “understands you better” means improving its prediction of the next helpful action. It becomes more confident about when to act, when to ask, and what shape the result should take.
+
+This is where conversation archives and agent memory begin to look like different products. An archive values completeness, visibility, and search. The person does the interpretation. Agent memory has to call the right piece of history at the right time and let it influence what happens next.
+
+## Memory has to remain visible and editable
+
+Automatic writing creates noise. Extracted lessons can be wrong. Retrieval can crowd out the present. Compression can discard the detail that later turns out to matter.
+
+I do not think one clever storage format will remove these problems. Memory needs ongoing governance.
+
+People should be able to see what the agent remembers, where it came from, and where it applies. They should be able to correct it, update it, or remove it. Otherwise one mistaken preference can recur across many tasks while the user has no way to understand the agent’s behaviour.
+
+Traceability and correction are not administrative extras. They are part of whether a memory system deserves trust.
+
+## A modest expectation
+
+There is plenty we do not know about agent memory. We do not fully understand how human memory is formed and revised, and an agent also has to work under context, cost, and feedback constraints that are quite different from our own.
+
+My expectation is deliberately modest. An agent does not need to remember everything. It should help me explain less, repeat fewer mistakes, and start less often from zero.
+
+Memory begins to matter when past work becomes a dependable starting point for the next action.

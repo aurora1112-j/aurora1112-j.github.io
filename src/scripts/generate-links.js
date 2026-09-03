@@ -122,7 +122,7 @@ const getDataForBacklinks = (fileNames, filePath) => {
 
 const getAllPostData = () => {
   // Get all content files
-  const collectionNames = ["concepts", "projects", "photography"];
+  const collectionNames = ["concepts", "essays", "projects", "photography"];
   return collectionNames.flatMap((collectionName) => {
     const collectionPath = path.join(CONTENT_PATH, collectionName);
     return getDataForBacklinks(getFilesFromDir(collectionPath), collectionPath);

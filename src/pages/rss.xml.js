@@ -113,6 +113,7 @@ const SANITIZE_OPTIONS = {
 
 export async function GET(context) {
   const concepts = await getCollection("concepts", ({ data }) => !data.draft);
+  const essays = await getCollection("essays", ({ data }) => !data.draft);
   const projects = await getCollection("projects", ({ data }) => !data.draft);
   const photography = await getCollection("photography", ({ data }) => !data.draft);
   const smidgeons = await getCollection("smidgeons", ({ data }) => !data.draft);
@@ -127,6 +128,12 @@ export async function GET(context) {
         title: post.data.title,
         pubDate: post.data.startDate,
         description: post.data.description,
+        link: `/${extractBaseSlug(post.id)}/`,
+      })),
+      ...essays.map((post) => ({
+        title: post.data.titleEn || post.data.title,
+        pubDate: post.data.startDate,
+        description: post.data.descriptionEn || post.data.description,
         link: `/${extractBaseSlug(post.id)}/`,
       })),
       ...projects.map((post) => ({
