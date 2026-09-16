@@ -1,0 +1,83 @@
+---
+title: "我用 Browser-Use Agent 的 7 个真实场景"
+titleEn: "7 Real Ways I Use Browser-Use Agents"
+description: "从填表单、刷社媒到调研、批量下载和端到端验收——七个亲手用过、确实提效的浏览器智能体场景。"
+descriptionEn: "Filling forms, browsing socials, research, bulk downloads, and E2E acceptance — seven browser-use-agent workflows I actually rely on."
+startDate: "2026-09-16"
+updated: "2026-09-16"
+type: "note"
+topics: ["AI Agents", "Browser Use", "Product Design"]
+growthStage: "evergreen"
+toc: true
+aliases: ["浏览器智能体", "BUA", "Browser Use Agent"]
+---
+
+import LanguageBlock from "../../components/i18n/LanguageBlock.astro";
+
+<LanguageBlock lang="zh">
+
+最近在做 Agent 内置浏览器的插件，以及 BUA（Browser Use Agent）的本地 + 云端执行链路。Codex 这块做得比较成熟（Chrome 插件 + 桌面端内置浏览器）。整体用起来比只会 bash 的 Agent 能干更多事，又比更通用的 computer use 稳得多（CUA 也挺好玩，之后单独写一篇）。
+
+分享几个我觉得顺手、确实能提效的 case：
+
+## 1. 填各种表单
+
+各种报名表、申请表、反馈评估这类老式系统表单。把简历 + 个人信息丢给它（语音转文字口喷更快），让它填；提交前它还会找你确认，基本没啥要改的说个 OK 就搞定。亲测签证申请和预推免报名系统都好使。
+
+## 2. 浏览 / 发布小红书笔记（及其他社媒）
+
+很多经验、新闻、水下消息，训练语料里大概率没有，普通联网搜索也远不如 xhs、即刻、豆瓣、公众号、X 这些平台信息密集，而这些平台又都有严格的反爬机制。有眼有手的 BUA 就能替你刷帖子。不信它的品味？让它看你收藏 / 点赞的帖子，或装别人分享的 skills。
+
+## 3. 各种调研
+
+很多调研类 skill 都在证据链、信息密度、整合能力或数据库上下功夫，文献搜索可能还行，但对做产品来说不够——产品又不只是文档。让 BUA 看图说话、截图给你、读网页源码，遇到古早网站也不怕；PDF 只能预览不能下载时，它也能截图 OCR。
+
+## 4. 批量下载 / 需要手动点很多次按钮
+
+有些网站没有"全部下载"，只能一个个点按钮，容易点重复也容易腱鞘炎。一句话交给 BUA，又快又准，还附赠下载后的文件管理。
+
+## 5. E2E 验收
+
+比较考验模型能力和使用技巧 / PRD 规范（还费 token）。改完代码让 Agent 走一遍预期用户链路，完成 UI 和端到端验收，省得每改一点就检查有没有回归和 bug。
+
+## 6. 录制你的操作 skill
+
+感觉不太实用——我本来就没啥重复性操作流程，大部分场景不录 Agent 也知道怎么操作，大不了中途纠正一下。
+
+## 7. 上班摸鱼，假装在用 Codex 开发
+
+</LanguageBlock>
+
+<LanguageBlock lang="en">
+
+Lately I've been building an in-Agent browser plugin and a BUA (Browser-Use Agent) pipeline, with both local and cloud execution paths. Codex is the most mature player here — it ships a Chrome extension plus a native desktop-embedded browser. Overall it does a lot more than a bash-only agent, and it's far more stable than generic computer-use (CUA is fun too — a separate post later).
+
+A few cases I actually rely on:
+
+## 1. Filling out forms
+
+All those annoying legacy-system forms — applications, registrations, feedback, evaluations. Dump in your resume and personal info (dictating is faster than typing), let it fill everything, and it asks before submitting. Barely anything to fix. Proven on visa applications and grad-school pre-application systems.
+
+## 2. Browsing / posting on XHS and other socials
+
+A lot of experience, news, and "underwater" intel isn't in the training corpus, and plain web search is nowhere near as dense as XHS, Jike, Douban, WeChat, X — which all aggressively block scraping. An eyes-and-hands BUA does the scrolling for you. Don't trust its taste? Point it at your saved/liked posts, or let it install skills others have shared.
+
+## 3. Research
+
+Most research skills optimize evidence chains, information density, synthesis, or databases — fine for literature search, but not enough for product work, because products aren't just documents. A BUA can read screens, screenshot for you, parse page source, and even OCR preview-only PDFs. Janky old websites can't stop it.
+
+## 4. Bulk downloads & repetitive clicking
+
+Some sites have no "download all" — just clicking one button at a time, easy to get duplicates, easy to get RSI. One sentence hands it to a BUA: fast, accurate, with file management thrown in.
+
+## 5. E2E acceptance
+
+This one taxes the model and needs good prompting / PRD discipline (and tokens). After a code change, have the agent walk the expected user path — UI and end-to-end verification — so you stop re-checking regressions after every tiny edit.
+
+## 6. Recording your ops into a skill
+
+Honestly not that useful for me — I don't have repetitive workflows, and most scenarios don't need recording; the agent already knows what to do, and you can correct it mid-way.
+
+## 7. Slacking off at work, pretending you're coding in Codex.
+
+</LanguageBlock>

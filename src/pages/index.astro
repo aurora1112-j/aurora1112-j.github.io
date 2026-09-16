@@ -8,10 +8,14 @@ import HomeGrowthTrail from "../components/garden/HomeGrowthTrail.astro";
 import ConceptCard from "../components/cards/ConceptCard.astro";
 import ProjectCard from "../components/cards/ProjectCard.astro";
 import PhotoAlbumCard from "../components/cards/PhotoAlbumCard.astro";
+import EssayCard from "../components/cards/EssayCard.astro";
 import { SITE } from "../data/site";
 import { extractBaseSlug } from "../utils/versionUtils";
 
 const concepts = (await getCollection("concepts", ({ data }) => !data.draft)).sort(
+	(a, b) => b.data.updated.getTime() - a.data.updated.getTime(),
+);
+const featuredEssays = (await getCollection("essays", ({ data }) => !data.draft && data.featured === true)).sort(
 	(a, b) => b.data.updated.getTime() - a.data.updated.getTime(),
 );
 const projects = (await getCollection("projects", ({ data }) => !data.draft)).sort(
@@ -71,6 +75,31 @@ const photography = (await getCollection("photography", ({ data }) => !data.draf
 			</div>
 		</section>
 
+		{featuredEssays[0] && (
+			<section class="featured-essay" aria-labelledby="featured-essay-title">
+				<div class="section-heading">
+					<div>
+						<p class="kicker"><LocalizedText zh="精选文章" en="FEATURED ESSAY" /></p>
+						<h2 id="featured-essay-title"><LocalizedText zh="最近的长篇思考" en="A recent long-form argument" /></h2>
+					</div>
+					<a href="/essays"><LocalizedText zh="查看全部文章" en="View all essays" /> →</a>
+				</div>
+				<div class="featured-essay-card">
+					<EssayCard
+						id={featuredEssays[0].id}
+						slug={extractBaseSlug(featuredEssays[0].id)}
+						cover={featuredEssays[0].data.cover}
+						title={featuredEssays[0].data.title}
+						titleEn={featuredEssays[0].data.titleEn}
+						description={featuredEssays[0].data.description}
+						descriptionEn={featuredEssays[0].data.descriptionEn}
+						growthStage={featuredEssays[0].data.growthStage}
+						date={featuredEssays[0].data.updated}
+					/>
+				</div>
+			</section>
+		)}
+
 		<section class="ideas" aria-labelledby="ideas-title">
 			<div class="section-heading">
 				<div>
@@ -104,6 +133,8 @@ const photography = (await getCollection("photography", ({ data }) => !data.draf
 	.hero-links a:first-child { color: var(--color-crimson); border-color: currentColor; }
 	.hero-links a:hover { color: var(--color-sea-blue); transform: translateY(-2px); }
 	.recent { margin: var(--space-s) 0 var(--space-l); }
+	.featured-essay { margin: var(--space-xl) 0 var(--space-l); }
+	.featured-essay-card { width: min(100%, 540px); }
 	.section-heading { display: flex; justify-content: space-between; align-items: end; gap: var(--space-s); margin-bottom: var(--space-m); }
 	.section-heading h2 { margin: .35rem 0 0; font-family: var(--font-serif); font-size: clamp(1.8rem, 4vw, 3.2rem); font-weight: 300; }
 	.section-heading > a { font-family: var(--font-sans); font-size: var(--font-size-sm); color: var(--color-crimson); white-space: nowrap; }

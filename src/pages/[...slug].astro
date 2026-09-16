@@ -16,8 +16,8 @@ import InternalTooltipLink from "../components/mdx/InternalTooltipLink.astro";
 import IntroParagraph from "../components/mdx/IntroParagraph.astro";
 import BasicImage from "../components/mdx/BasicImage.astro";
 
-type ContentType = "concept" | "project" | "photography" | "smidgeon";
-type Collections = "concepts" | "projects" | "photography" | "smidgeons";
+type ContentType = "concept" | "project" | "photography" | "essay" | "smidgeon";
+type Collections = "concepts" | "projects" | "photography" | "essays" | "smidgeons";
 
 // Add type definitions for different frontmatter types
 type BaseFrontmatter = {
@@ -40,6 +40,7 @@ export async function getStaticPaths() {
 	const concepts = await getCollection("concepts");
 	const projects = await getCollection("projects");
 	const photography = await getCollection("photography");
+	const essays = await getCollection("essays");
 	const smidgeons = await getCollection("smidgeons");
 
 	const conceptPaths = generateVersionedPaths(concepts).map(({ slug, entry }) => ({
@@ -54,11 +55,16 @@ export async function getStaticPaths() {
 		params: { slug },
 		props: { entry, type: "photography" } as const,
 	}));
+	const essayPaths = generateVersionedPaths(essays).map(({ slug, entry }) => ({
+		params: { slug },
+		props: { entry, type: "essay" } as const,
+	}));
 
 	return [
 		...conceptPaths,
 		...projectPaths,
 		...photographyPaths,
+		...essayPaths,
 		// Smidgeons don't support versioning, so keep the original mapping
 		...smidgeons.map((entry) => ({
 			params: { slug: entry.id },
@@ -104,7 +110,7 @@ const frontmatter = entry.data;
 			</ProseWrapper>
 		</SmidgeonLayout>
 	) : (
-		<PostLayout frontmatter={frontmatter} headings={headings} entry={entry as CollectionEntry<"concepts"> | CollectionEntry<"projects"> | CollectionEntry<"photography">}>
+		<PostLayout frontmatter={frontmatter} headings={headings} entry={entry as CollectionEntry<"concepts"> | CollectionEntry<"projects"> | CollectionEntry<"photography"> | CollectionEntry<"essays">}>
 			{headings.length > 0 && hasTOC(frontmatter) && frontmatter.toc ? (
 				<div class="post-body-layout">
 					<aside class="post-body-toc" aria-label="Table of contents">

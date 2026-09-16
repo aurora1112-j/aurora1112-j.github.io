@@ -5,16 +5,17 @@ import { slugifyTopic } from "./slugifyTopic";
  * Fetch all content entries that can carry topics, excluding drafts where applicable.
  */
 async function fetchAllContent() {
-  const [concepts, projects, photography, now, smidgeons] =
+  const [concepts, essays, projects, photography, now, smidgeons] =
     await Promise.all([
       getCollection("concepts", ({ data }) => !data.draft),
+      getCollection("essays", ({ data }) => !data.draft),
       getCollection("projects", ({ data }) => !data.draft),
       getCollection("photography", ({ data }) => !data.draft),
       getCollection("now"),
       getCollection("smidgeons", ({ data }) => !data.draft),
     ]);
 
-  return [...concepts, ...projects, ...photography, ...now, ...smidgeons];
+  return [...concepts, ...essays, ...projects, ...photography, ...now, ...smidgeons];
 }
 
 /**

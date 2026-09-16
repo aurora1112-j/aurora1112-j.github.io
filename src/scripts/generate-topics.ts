@@ -7,6 +7,7 @@ async function generateTopics() {
   // Get all MDX files from content directories
   const contentDirs = [
     "src/content/concepts",
+    "src/content/essays",
     "src/content/projects",
     "src/content/photography",
     "src/content/smidgeons",

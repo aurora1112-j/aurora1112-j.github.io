@@ -7,8 +7,9 @@ import type { ReactNode } from "react";
 import { extractBaseSlug, getLatestVersion, getAllVersionsForPost } from "../../utils/versionUtils";
 
 export async function getStaticPaths() {
-  const [concepts, projects, photography, smidgeons, nowPages] = await Promise.all([
+  const [concepts, essays, projects, photography, smidgeons, nowPages] = await Promise.all([
     getCollection("concepts"),
+    getCollection("essays"),
     getCollection("projects"),
     getCollection("photography"),
     getCollection("smidgeons"),
@@ -52,6 +53,7 @@ export async function getStaticPaths() {
 
   // Add paths for each content type
   addContentPaths(concepts, "concept");
+  addContentPaths(essays, "essay");
   addContentPaths(projects, "project");
   addContentPaths(photography, "photography");
   addContentPaths(smidgeons, "smidgeon");
@@ -136,7 +138,7 @@ export const GET: APIRoute = async function get({ props, request }) {
   let imageWidth = 400;
   let imageHeight = 400;
 
-  if ((props.type === "project" || props.type === "photography") && "cover" in entry.data && entry.data.cover?.src) {
+  if ((props.type === "essay" || props.type === "project" || props.type === "photography") && "cover" in entry.data && entry.data.cover?.src) {
     try {
       const { base64, width, height } = await getImageData(entry.data.cover.src);
 
