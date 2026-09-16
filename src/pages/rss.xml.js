@@ -131,9 +131,9 @@ export async function GET(context) {
         link: `/${extractBaseSlug(post.id)}/`,
       })),
       ...essays.map((post) => ({
-        title: post.data.title,
+        title: post.data.titleEn || post.data.title,
         pubDate: post.data.startDate,
-        description: post.data.description,
+        description: post.data.descriptionEn || post.data.description,
         link: `/${extractBaseSlug(post.id)}/`,
       })),
       ...projects.map((post) => ({

@@ -171,7 +171,7 @@ const updatedISO =
 	</header>
 
 
-	<article class="styled-main">
+	<article class="styled-main" data-content-type={frontmatter.type}>
 		<slot />
 	</article>
 
@@ -280,6 +280,11 @@ const updatedISO =
 		padding: var(--space-l) 0 var(--space-2xl);
 		background: linear-gradient(var(--color-cream) 0, var(--color-white) 110px);
 		width: 100%;
+	}
+
+	.styled-main[data-content-type="essay"] {
+		--font-body: var(--font-article-body);
+		font-family: var(--font-body);
 	}
 
 	@media (max-width: 864px) {

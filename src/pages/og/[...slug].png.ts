@@ -116,7 +116,7 @@ export const GET: APIRoute = async function get({ props, request }) {
   }
 
   // Adjust font size based on title length
-  if (props.type === "project" || props.type === "photography") {
+  if (props.type === "essay" || props.type === "project" || props.type === "photography") {
     if (displayTitle.length > 40) {
       titleFontSize = "68px";
     } else if (displayTitle.length < 32) {
@@ -172,7 +172,7 @@ export const GET: APIRoute = async function get({ props, request }) {
       margin: "0",
     },
     description: {
-      fontSize: type === "project" || type === "photography" ? "30px" : "36px",
+      fontSize: type === "essay" || type === "project" || type === "photography" ? "30px" : "36px",
       fontFamily: "Lato",
       fontWeight: "normal",
       width: "100%",
@@ -222,7 +222,7 @@ export const GET: APIRoute = async function get({ props, request }) {
           props: {
             style: {
               display: "flex",
-              padding: type === "project" || type === "photography" ? "56px 48px" : "80px 64px",
+              padding: type === "essay" || type === "project" || type === "photography" ? "56px 48px" : "80px 64px",
             },
             children: [
               {

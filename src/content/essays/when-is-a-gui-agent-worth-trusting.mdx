@@ -1,0 +1,140 @@
+---
+title: "When Is a GUI Agent Worth Trusting?"
+titleEn: "When Is a GUI Agent Worth Trusting?"
+description: "Operating an interface is only the start. The real test is whether a GUI agent can verify outcomes, recover from failure, and return risky judgment to a person."
+descriptionEn: "Operating an interface is only the start. The real test is whether a GUI agent can verify outcomes, recover from failure, and return risky judgment to a person."
+updated: "2026-09-03"
+startDate: "2026-08-19"
+type: "essay"
+cover: "../../images/placeholders/ai-canopy.svg"
+topics: ["Artificial Intelligence", "Agents", "Trust", "Product Design"]
+growthStage: "budding"
+featured: true
+toc: true
+aliases: ["GUI Agent：真正的机会不在“会点击”，而在“敢托付”"]
+---
+
+<IntroParagraph>A GUI agent can open a page, find a button, fill out a form, and move between apps. That makes for a good demo. The harder question is whether I would leave it alone with work that matters.</IntroParagraph>
+
+## Clicking is only the visible part
+
+Most software asks people to translate an intention into a sequence of interface operations. We open the right app, find the right screen, enter the right fields, move information between systems, and check that the result stuck.
+
+A GUI agent changes that division of labour. I can state the outcome I want, then let the system observe the environment and decide what to do next.
+
+Take a request such as: “Organise these customer records and add the qualified leads to our CRM.” The work includes reading messy source material, applying criteria, crossing an application boundary, entering data, and checking the final records. Mouse movement is the thinnest layer of the job.
+
+This is where many demos quietly stop. Starting from a natural-language request is useful, but it is an entry point. The product earns its place when it can keep going through a changed layout, a permission prompt, a missing field, or a record that does not fit the expected pattern.
+
+## The GUI is a compatibility layer
+
+The early appeal of GUI agents is obvious: every piece of software does not need to expose an API first. If a person can operate an old internal tool with a mouse and keyboard, an agent has a route in.
+
+That route is broad, but fragile. A user interface exposes appearance and interaction state, not the full business meaning underneath. A button can move, a page can load late, a modal can cover the target, or an account can trigger a security check. More importantly, seeing a click happen tells us very little about whether the intended business result now exists.
+
+I expect useful systems to mix several execution paths:
+
+| Path | What it is good at | Where it breaks down |
+|---|---|---|
+| GUI control | Reaching legacy, closed, or long-tail software | Sensitive to layout and state changes; harder to verify |
+| API calls | Structured execution with clear inputs and outputs | Depends on the provider exposing and maintaining an interface |
+| MCP and agent protocols | Connecting tools and context; coordinating specialised agents | Still needs identity, permissions, trust, and ecosystem support |
+| Human review | Keeping consequential judgment and responsibility with a person | Adds delay and becomes expensive if required at every step |
+
+These approaches sit at different layers. An API exposes a software capability. MCP helps an AI application discover and connect to tools, resources, and context. Agent-to-agent protocols deal with capability discovery and task exchange between agents. A GUI can sit beside all of them as a fallback when no structured route exists.
+
+For payments, deletion, publication, or other consequential actions, the system should know where execution ends and human authority begins.
+
+## Reliability is a chain, not a score
+
+The engineering problem has already moved beyond “Where should the cursor go?” After the action, what changed? Was the record saved? Did the page accept the input? If nothing happened, should the agent retry, take another route, undo its last step, or ask for help?
+
+Visual grounding, planning, memory, reflection, world models, and learning from failed trajectories sound like separate research topics. In a product, they meet in the same place: reducing the chance of a failed task and containing the damage when failure happens.
+
+Task completion rate is a start, but I would also want to know:
+
+- how many steps and model calls a completed task takes;
+- whether the agent can tell when an action had no effect;
+- whether it repeats the same mistake;
+- whether it can return the environment to a safe state;
+- how often a person has to step in, and for how long;
+- whether high-risk actions are stopped before execution;
+- whether the run can be audited and replayed.
+
+The economics also need a less flattering equation than “hours saved”:
+
+> Agent ROI = labour saved − model and infrastructure cost − review cost − expected loss from failure
+
+The last two terms are easy to hide in a demo. They are often the terms that decide whether a team will deploy the product.
+
+An agent with an imperfect completion rate can still be valuable when mistakes are cheap and outputs are easy to sample. Another agent may perform better on average and still be a poor choice if its rare failures can send the wrong payment, expose private data, or publish something that cannot be taken back.
+
+## Error cost sets the order of adoption
+
+GUI agents will probably spread through specific jobs before they become general digital workers. Repetition matters, but so do verifiability and reversibility.
+
+The following is a product heuristic, not a market forecast:
+
+| Task | Repetition | Cost of error | Sensible starting point |
+|---|---|---|---|
+| Collecting information from websites | High | Low | Automatic execution with sampling |
+| Form entry, software testing, support-console work | High | Medium | Automation inside a defined scope |
+| Publishing content, expense claims, finance data entry | Medium to high | High | Rule checks followed by human review |
+| Payments, transfers, deletion, high-impact decisions | Variable | Very high | Explicit authorisation or assistance only |
+
+The useful question is not how many apps an agent can operate. I care more about how much of one real workflow can be handed over safely, and which decisions still belong to a person.
+
+## Where durable value can accumulate
+
+If foundation models make screen understanding and action generation widely available, owning a model that can click will not be much of a moat. I would look for value in five places.
+
+1. **Model performance.** Lower latency, lower cost, better state understanding, and fewer errors still matter. Average capability will also be copied quickly.
+2. **Runtime and safety infrastructure.** Browser or desktop environments, account isolation, permissions, logs, recovery, human takeover, and model routing determine whether the agent can enter a real workplace.
+3. **Task data and feedback.** A screenshot paired with a coordinate is thin data. The useful record connects the goal, interface state, action, outcome, failure point, and recovery path.
+4. **Vertical workflows.** Finance, customer support, commerce, testing, and IT operations each come with business rules, accumulated exceptions, acceptance criteria, and existing systems.
+5. **Distribution and identity.** Browsers, operating systems, office suites, CRMs, ERPs, and cloud platforms already hold users, permissions, data, and context. That gives them a natural advantage in bringing agents into everyday work.
+
+A company can span several of these layers. It still needs a precise answer when asked what customers cannot easily replace: the model, the runtime, the task data, the domain rules, or the point of entry.
+
+## Questions I would ask before trusting the product
+
+When a product claims it can operate any software, I want to ask:
+
+1. Which repeated job does it complete, and for whom?
+2. How does it verify the business outcome rather than the interface action?
+3. Can it detect, recover from, and explain failure?
+4. Which actions run automatically, and which require explanation or approval?
+5. How do GUI control, APIs, MCP, agent collaboration, and human takeover divide the work?
+6. Does the company have trajectories from real workflows, including the unsuccessful ones?
+7. Does review cost erase the savings from automation?
+8. When the next foundation model gets better, why will the customer still need this product?
+9. Does the company own a demo doorway, or an enduring relationship with tasks, identities, permissions, and distribution?
+
+A benchmark can establish that a capability exists. It cannot show that an enterprise will connect the system to production. A demo can prove that one route worked once. It says little about permission failures, incomplete records, timeouts, conflicting results, or the cleanup after a broken run.
+
+Those dull edge cases are the product.
+
+## The case against standalone GUI agents
+
+There is a reasonable counterargument. Software providers may expose more structured interfaces, while model platforms absorb computer use into their core products. The space for an independent GUI-agent company could shrink.
+
+I think that pressure is real. It is also why the GUI itself cannot be the whole defence.
+
+The digital world will not become API-complete on the same afternoon. Legacy systems, internal tools, closed applications, and long-tail services will remain. Even when an API exists, a cross-system task still needs identity, permissions, state, verification, and an accountable handoff.
+
+GUI control is likely to survive as one layer in a mixed execution system: the compatibility path and, sometimes, the last resort.
+
+## The next test
+
+The first era of GUI agents proved that models could look at a computer and operate it. The next era has to prove that they can complete longer jobs at a tolerable cost and risk.
+
+That will depend less on the number of apps in a demo reel and more on how the product handles tasks, permissions, verification, and takeover. Users should be able to see what the system did, why it chose that route, where it might be wrong, and when the decision returned to them.
+
+I do not want a pair of hands that can click. I want an execution system I can understand, constrain, and eventually trust.
+
+## References
+
+- [OpenAI: Computer use](https://developers.openai.com/api/docs/guides/tools-computer-use)
+- [Anthropic: Computer use tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool)
+- [Model Context Protocol: Introduction](https://modelcontextprotocol.io/docs/getting-started/intro)
+- [A2A Protocol: Documentation](https://a2a-protocol.org/latest/)

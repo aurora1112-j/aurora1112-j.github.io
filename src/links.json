@@ -39,8 +39,8 @@
         "titleEn": "From Tool to Collaborator: Designing Agent Boundaries",
         "slug": "agent-collaboration-boundaries",
         "growthStage": "budding",
-        "description": "占位长文：讨论 Agent 何时应该自主行动，何时必须把判断交还给人。",
-        "descriptionEn": "A working essay on when an agent should act autonomously and when judgment must return to people."
+        "description": "讨论 Agent 何时应该自主行动，何时必须把判断交还给人。",
+        "descriptionEn": "When an agent should act autonomously, and when judgment must return to people."
       }
     ]
   },
@@ -51,8 +51,8 @@
     "titleEn": "From Tool to Collaborator: Designing Agent Boundaries",
     "slug": "agent-collaboration-boundaries",
     "growthStage": "budding",
-    "description": "占位长文：讨论 Agent 何时应该自主行动，何时必须把判断交还给人。",
-    "descriptionEn": "A working essay on when an agent should act autonomously and when judgment must return to people.",
+    "description": "讨论 Agent 何时应该自主行动，何时必须把判断交还给人。",
+    "descriptionEn": "When an agent should act autonomously, and when judgment must return to people.",
     "outboundLinks": [
       {
         "matchedId": "渐进式自主权",
@@ -80,13 +80,41 @@
   },
   {
     "ids": [
+      "我用 Browser-Use Agent 的 7 个真实场景",
+      "浏览器智能体",
+      "BUA",
+      "Browser Use Agent"
+    ],
+    "titleEn": "7 Real Ways I Use Browser-Use Agents",
+    "slug": "browser-use-agent-usecases",
+    "growthStage": "evergreen",
+    "description": "从填表单、刷社媒到调研、批量下载和端到端验收——七个亲手用过、确实提效的浏览器智能体场景。",
+    "descriptionEn": "Filling forms, browsing socials, research, bulk downloads, and E2E acceptance — seven browser-use-agent workflows I actually rely on.",
+    "outboundLinks": [],
+    "inboundLinks": []
+  },
+  {
+    "ids": [
+      "From Saving Conversations to Learning from Experience",
+      "从保存对话到积累经验：我对 Agent Memory 的一点思考"
+    ],
+    "titleEn": "From Saving Conversations to Learning from Experience",
+    "slug": "from-saving-conversations-to-learning-from-experience",
+    "growthStage": "budding",
+    "description": "Agent memory should do more than preserve history. It should let past decisions, mistakes, and working habits improve the next action.",
+    "descriptionEn": "Agent memory should do more than preserve history. It should let past decisions, mistakes, and working habits improve the next action.",
+    "outboundLinks": [],
+    "inboundLinks": []
+  },
+  {
+    "ids": [
       "让个人知识花园与 AI 一起生长"
     ],
     "titleEn": "Growing a Personal Knowledge Garden with AI",
     "slug": "personal-knowledge-garden",
     "growthStage": "budding",
-    "description": "占位长文：把知识管理从收集资料，转向持续建立联系、来源与修订历史。",
-    "descriptionEn": "A working essay about shifting knowledge management from collecting material to cultivating links, provenance, and revision history.",
+    "description": "把知识管理从收集资料，转向持续建立联系、来源与修订历史。",
+    "descriptionEn": "Shifting knowledge management from collecting material to cultivating links, provenance, and revision history.",
     "outboundLinks": [],
     "inboundLinks": []
   },
@@ -97,8 +125,34 @@
     "titleEn": "What Trustworthy AI Systems Need to Show",
     "slug": "trustworthy-ai-systems",
     "growthStage": "seedling",
-    "description": "占位长文：从来源、置信度、可撤销性和责任归属理解 AI 透明度。",
-    "descriptionEn": "A working essay on AI transparency through provenance, confidence, reversibility, and responsibility.",
+    "description": "从来源、置信度、可撤销性和责任归属理解 AI 透明度。",
+    "descriptionEn": "AI transparency through provenance, confidence, reversibility, and responsibility.",
+    "outboundLinks": [],
+    "inboundLinks": []
+  },
+  {
+    "ids": [
+      "When Is a GUI Agent Worth Trusting?",
+      "GUI Agent：真正的机会不在“会点击”，而在“敢托付”"
+    ],
+    "titleEn": "When Is a GUI Agent Worth Trusting?",
+    "slug": "when-is-a-gui-agent-worth-trusting",
+    "growthStage": "budding",
+    "description": "Operating an interface is only the start. The real test is whether a GUI agent can verify outcomes, recover from failure, and return risky judgment to a person.",
+    "descriptionEn": "Operating an interface is only the start. The real test is whether a GUI agent can verify outcomes, recover from failure, and return risky judgment to a person.",
+    "outboundLinks": [],
+    "inboundLinks": []
+  },
+  {
+    "ids": [
+      "When the Reader Is a Machine",
+      "搜索与浏览：PC、移动与 Agent 三个时代"
+    ],
+    "titleEn": "When the Reader Is a Machine",
+    "slug": "when-the-reader-is-a-machine",
+    "growthStage": "budding",
+    "description": "Search grew up with the browser, fractured across mobile apps, and is now being rebuilt as a tool for agents. The difficult part is no longer finding a page. It is returning evidence a model can safely use.",
+    "descriptionEn": "Search grew up with the browser, fractured across mobile apps, and is now being rebuilt as a tool for agents. The difficult part is no longer finding a page. It is returning evidence a model can safely use.",
     "outboundLinks": [],
     "inboundLinks": []
   },

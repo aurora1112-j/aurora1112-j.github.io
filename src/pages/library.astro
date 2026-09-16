@@ -7,7 +7,9 @@ import TitleWithCount from "../components/layouts/TitleWithCount.astro";
 import { getCollection } from "astro:content";
 import LocalizedText from "../components/i18n/LocalizedText.astro";
 
-const books = await getCollection("books");
+const books = (await getCollection("books")).filter(
+	(book) => !book.data.link.includes("example.com"),
+);
 ---
 
 <Layout title="Chenxi Huang 的书架" titleEn="Chenxi Huang's Library">
