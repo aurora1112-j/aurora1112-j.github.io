@@ -1,0 +1,280 @@
+---
+title: "The Bazaar Was a Cathedral All Along"
+titleEn: "The Bazaar Was a Cathedral All Along"
+description: "A rereading of Raymond's 'The Cathedral and the Bazaar' in the age of open weights and code agents."
+descriptionEn: "A rereading of Raymond's 'The Cathedral and the Bazaar' in the age of open weights and code agents."
+updated: "2026-08-25"
+startDate: "2026-08-25"
+type: "essay"
+cover: "../../images/placeholders/knowledge-roots.svg"
+topics: ["Open Source", "AI Agents", "Human–AI Collaboration"]
+growthStage: "budding"
+featured: true
+toc: true
+---
+
+import LanguageBlock from "../../components/i18n/LanguageBlock.astro";
+
+<LanguageBlock lang="zh">
+
+<IntroParagraph>Open source was never a free market. It was a cathedral with a side door — and in the age of open weights and code agents, that door is closing again.</IntroParagraph>
+
+Open source has been unusually loud this month.
+
+OpenAI open-sourced Codex Harness. A week earlier, DeepSeek Harness blew past 100,000 GitHub stars. And once again, people reached for that tired old line: open source is a bazaar. Given enough eyeballs, all bugs are shallow.
+
+I reread "The Cathedral and the Bazaar" too. Eric S. Raymond wrote it in 1997 — almost thirty years ago now. It has defined how we imagine open source ever since.
+
+But this time, I read something different.
+
+Raymond was trying to prove that innovation doesn't have to be designed by an organization — that it can emerge from the local contributions of a crowd. So I went looking, carefully, through his essay. And what I found were the counterexamples: the very details he uses to prove the bazaar works are the details that prove the bazaar isn't real.
+
+## That bazaar had walls
+
+Look at how he describes the Linux world.
+
+The project has a small core. A solo developer is common; one to three people is typical. Outside the core, hundreds of beta testers and contributors.
+
+A bazaar cannot give birth to a project from nothing. A community can test, debug, and improve — but it can't conjure a project into existence for you. Someone has to make a "plausible promise" first.
+
+The project leader needs an eye for recognizing good design. And he needs people skills — the ability to make people want to come close, to feel their time is well spent.
+
+Even the version numbering was Linus's call: let users choose between the stable tree and the risky edge.
+
+Do you see it. All of it is governance.
+
+Not a free market. Not spontaneous order. It's a structure: one benevolent dictator, one thin core, and a few hundred outer contributors. And that dictator monopolizes the one thing that matters most — the merge.
+
+The merge is an act of sovereignty.
+
+Raymond badly wanted to tell a story about innovation emerging from chaos. But what he ended up describing is a rather carefully built structure of power. There has always been a guard at the gate of the bazaar.
+
+## The real constitution is the fork
+
+So why didn't Linux fall apart?
+
+Not because it was free. Because it had a real exit: the fork. Anyone can take the code and walk. The cost of leaving is nearly zero — which is why the dictator dares not abuse his power.
+
+That's Hirschman's exit and voice, not Hayek's price mechanism. What keeps the sovereign honest isn't market competition. It's the fact that I can leave whenever I want.
+
+And Raymond, to his credit, admitted it. Within two years of "The Cathedral and the Bazaar," he wrote "The Magic Cauldron" and "Homesteading the Noosphere." There, he describes open source as a gift culture — with territorial norms, taboos (forking was, for a long time, considered rude), and a reputation economy.
+
+That's not a free market. That's a community with a hidden rulebook.
+
+Elinor Ostrom spent her career studying common-pool resources, and she reached the same conclusion: a commons that works is never "free." It has boundaries, monitoring, and punishment. Without them, a commons collapses.
+
+So where did "free-market spontaneous order" come from?
+
+It was rhetoric, chosen in the late nineties to sell open source to the enterprise. When Netscape open-sourced its code, it cited Raymond's essay directly. If you're going to convince a board to give away its crown jewels, you need a flattering story: this isn't losing control — this is the market winning.
+
+Decades later, Bill Gurley compared China's open-source ecosystem to "a farmer's market sharing best practices." Same move. Take behavior with strategic and capital intent, and redescribe it as spontaneous.
+
+## Three ledgers
+
+Once I saw that, I wanted the more specific question: why does the bazaar work in software, and almost nowhere else?
+
+I compress the differences into three variables: the cost of copying, the cost of iterating, the cost of verifying. Plus one structural question: are contributions complements, or substitutes?
+
+Software: all three costs are zero.
+
+Copying is free. Iteration ships daily. And verification is cheaper than production — code is hard to write, easy to test. Code also composes: your patch and my patch merge into one thing, and value stacks.
+
+This is where the bazaar's true nature hides. Linus corrected me once; he said the hard part is *finding* the problem. The person who understands and fixes a bug is rarely the person who first spotted it. That's an admission: the bazaar is parallel search. And parallel search only pays when verification is far cheaper than generation.
+
+Content: two of the costs invert.
+
+Copying and iterating are just as cheap for content. But verification turns upside down — whether an argument holds is itself the thing under dispute. And content can't merge: two people's essays don't fuse into a better essay. Contributions are substitutes, not complements.
+
+Worse is attention, which is zero-sum. Code is positive-sum: my contribution raises the value of yours. Attention is zero-sum: my post and your post fight over the same scarce eyeballs.
+
+So the same reputation incentive grows collaboration in software and grows flame wars in content. It was never about people's character. It's structural.
+
+Wikipedia is the one content bazaar that succeeded at scale. It did it with a clever institutional trick: replace "is this true?" — unverifiable — with "does a source say this?" — verifiable. *Verifiability, not truth.* It fabricated a test suite out of thin air. The price: it has the most elaborate bureaucracy of any open project ever.
+
+Hardware: atoms can't fork.
+
+A tape-out costs tens of millions and months of cycle time. "Release early, release often" is physically impossible. So open-source hardware can only migrate upward, to the interface layer: RISC-V opens the instruction set — information — while TSMC and ASML remain the purest cathedrals of all. Arduino and RepRap succeeded because they're tolerant, low-precision, and cheap to iterate — they landed on the software side, not the hardware side.
+
+## The truth about free
+
+The deeper you go, the clearer Raymond's miss becomes. Not on the technology. On the value capture.
+
+The best modern framework for open source is Joel Spolsky's: *commoditize your complement.* When Meta open-sources Llama, when DeepSeek open-sources its models, that isn't gift culture. It's using free to pierce your rival's margins. Open source is a market-structure weapon, not a substitute for the market.
+
+So the commons became free infrastructure for the cloud providers. And then came the license retreat, the wave after 2018: Redis to SSPL, Elastic to SSPL, HashiCorp to BSL. "Open source" quietly became "visible, but no longer free to use."
+
+Then, in 2024, the xz-utils backdoor nailed "enough eyeballs" to the wall.
+
+One of the most critical compression libraries in the world was, in reality, maintained by one exhausted person. An attacker social-engineered his way in as a co-maintainer, planted a backdoor, and nearly shipped it in every major distro. Linus's Law has a hidden assumption: that attention flows where it matters. But attention flows where things are *visible* — and it follows a power law. The roots of the dependency graph stay dark.
+
+## Weights are not code
+
+And then AI arrives, and rewrites all of it.
+
+First, a category error.
+
+The most beautiful mechanism in "The Cathedral and the Bazaar" is the shared mental model — testers looking in, developers looking out, meeting on the source code. But a model's weights are a binary blob you can't diff. You can't build a shared model on them; you can inspect them, but you can't modify them at the root. And the fork cost of weights is the compute it takes to retrain.
+
+So "open weights" is structurally closer to hardware than software. It opens the interface, not the implementation, and certainly not the decision-making. Yet we keep describing it in the old language of software.
+
+Second, agents invert the bazaar's economics.
+
+The bazaar worked because writing was expensive and reading was cheap. But OpenAI's experiment — three engineers plus Codex, a million lines, 1,500 PRs, not one line typed by a human — means generation is becoming cheaper than verification.
+
+Flip that ratio, and the bottleneck lands entirely on review. Every project becomes a review bottleneck. The rational response is to tighten the merge, to tier contributor trust. In other words, slide back toward the cathedral.
+
+DeepSeek Harness hits 100k stars, while its issue tracker is probably drowning in low-quality AI-generated PRs. Those are two faces of the same phenomenon.
+
+And one more thing — the one I care about most.
+
+Open-source contribution is unpaid labor. It's a subsidy to the commons, paid by people who have slack. So "spontaneous order" always carried a filter: who has free time, who has compute, who has English, who can afford to work without being paid. In the AI era, that filter only gets finer, because the entry ticket to frontier collaboration now includes compute and API budgets.
+
+Here's what I want to say: the AI divide isn't only on the consumption side — who can afford to use it. It's also on the contribution side — who gets to enter the bazaar that decides where the technology goes.
+
+Nobody writes about that side.
+
+## Three keys
+
+Let me land it.
+
+Open source is not the opposite of the market, and not the opposite of the corporation. It's a governance technology for coordinating around a shared object.
+
+Every industry ends up with the amount of governance its physical conditions demand. Software's physics allows thin governance. Content's physics forces platform adjudication. Hardware's physics hands governance back to capital and the state.
+
+So the real tension was never "open versus closed." It's which layer gets opened — the interface, the implementation, or the decision. Those are three different things. And most open-source arguments are arguments because we keep conflating them.
+
+The question isn't whether to open the door. It's which keys you're willing to hand over.
+
+</LanguageBlock>
+
+<LanguageBlock lang="en">
+
+<IntroParagraph>Open source was never a free market. It was a cathedral with a side door — and in the age of open weights and code agents, that door is closing again.</IntroParagraph>
+
+Open source has been unusually loud this month.
+
+OpenAI open-sourced Codex Harness. A week earlier, DeepSeek Harness blew past 100,000 GitHub stars. And once again, people reached for that tired old line: open source is a bazaar. Given enough eyeballs, all bugs are shallow.
+
+I reread "The Cathedral and the Bazaar" too. Eric S. Raymond wrote it in 1997 — almost thirty years ago now. It has defined how we imagine open source ever since.
+
+But this time, I read something different.
+
+Raymond was trying to prove that innovation doesn't have to be designed by an organization — that it can emerge from the local contributions of a crowd. So I went looking, carefully, through his essay. And what I found were the counterexamples: the very details he uses to prove the bazaar works are the details that prove the bazaar isn't real.
+
+## That bazaar had walls
+
+Look at how he describes the Linux world.
+
+The project has a small core. A solo developer is common; one to three people is typical. Outside the core, hundreds of beta testers and contributors.
+
+A bazaar cannot give birth to a project from nothing. A community can test, debug, and improve — but it can't conjure a project into existence for you. Someone has to make a "plausible promise" first.
+
+The project leader needs an eye for recognizing good design. And he needs people skills — the ability to make people want to come close, to feel their time is well spent.
+
+Even the version numbering was Linus's call: let users choose between the stable tree and the risky edge.
+
+Do you see it. All of it is governance.
+
+Not a free market. Not spontaneous order. It's a structure: one benevolent dictator, one thin core, and a few hundred outer contributors. And that dictator monopolizes the one thing that matters most — the merge.
+
+The merge is an act of sovereignty.
+
+Raymond badly wanted to tell a story about innovation emerging from chaos. But what he ended up describing is a rather carefully built structure of power. There has always been a guard at the gate of the bazaar.
+
+## The real constitution is the fork
+
+So why didn't Linux fall apart?
+
+Not because it was free. Because it had a real exit: the fork. Anyone can take the code and walk. The cost of leaving is nearly zero — which is why the dictator dares not abuse his power.
+
+That's Hirschman's exit and voice, not Hayek's price mechanism. What keeps the sovereign honest isn't market competition. It's the fact that I can leave whenever I want.
+
+And Raymond, to his credit, admitted it. Within two years of "The Cathedral and the Bazaar," he wrote "The Magic Cauldron" and "Homesteading the Noosphere." There, he describes open source as a gift culture — with territorial norms, taboos (forking was, for a long time, considered rude), and a reputation economy.
+
+That's not a free market. That's a community with a hidden rulebook.
+
+Elinor Ostrom spent her career studying common-pool resources, and she reached the same conclusion: a commons that works is never "free." It has boundaries, monitoring, and punishment. Without them, a commons collapses.
+
+So where did "free-market spontaneous order" come from?
+
+It was rhetoric, chosen in the late nineties to sell open source to the enterprise. When Netscape open-sourced its code, it cited Raymond's essay directly. If you're going to convince a board to give away its crown jewels, you need a flattering story: this isn't losing control — this is the market winning.
+
+Decades later, Bill Gurley compared China's open-source ecosystem to "a farmer's market sharing best practices." Same move. Take behavior with strategic and capital intent, and redescribe it as spontaneous.
+
+## Three ledgers
+
+Once I saw that, I wanted the more specific question: why does the bazaar work in software, and almost nowhere else?
+
+I compress the differences into three variables: the cost of copying, the cost of iterating, the cost of verifying. Plus one structural question: are contributions complements, or substitutes?
+
+Software: all three costs are zero.
+
+Copying is free. Iteration ships daily. And verification is cheaper than production — code is hard to write, easy to test. Code also composes: your patch and my patch merge into one thing, and value stacks.
+
+This is where the bazaar's true nature hides. Linus corrected me once; he said the hard part is *finding* the problem. The person who understands and fixes a bug is rarely the person who first spotted it. That's an admission: the bazaar is parallel search. And parallel search only pays when verification is far cheaper than generation.
+
+Content: two of the costs invert.
+
+Copying and iterating are just as cheap for content. But verification turns upside down — whether an argument holds is itself the thing under dispute. And content can't merge: two people's essays don't fuse into a better essay. Contributions are substitutes, not complements.
+
+Worse is attention, which is zero-sum. Code is positive-sum: my contribution raises the value of yours. Attention is zero-sum: my post and your post fight over the same scarce eyeballs.
+
+So the same reputation incentive grows collaboration in software and grows flame wars in content. It was never about people's character. It's structural.
+
+Wikipedia is the one content bazaar that succeeded at scale. It did it with a clever institutional trick: replace "is this true?" — unverifiable — with "does a source say this?" — verifiable. *Verifiability, not truth.* It fabricated a test suite out of thin air. The price: it has the most elaborate bureaucracy of any open project ever.
+
+Hardware: atoms can't fork.
+
+A tape-out costs tens of millions and months of cycle time. "Release early, release often" is physically impossible. So open-source hardware can only migrate upward, to the interface layer: RISC-V opens the instruction set — information — while TSMC and ASML remain the purest cathedrals of all. Arduino and RepRap succeeded because they're tolerant, low-precision, and cheap to iterate — they landed on the software side, not the hardware side.
+
+## The truth about free
+
+The deeper you go, the clearer Raymond's miss becomes. Not on the technology. On the value capture.
+
+The best modern framework for open source is Joel Spolsky's: *commoditize your complement.* When Meta open-sources Llama, when DeepSeek open-sources its models, that isn't gift culture. It's using free to pierce your rival's margins. Open source is a market-structure weapon, not a substitute for the market.
+
+So the commons became free infrastructure for the cloud providers. And then came the license retreat, the wave after 2018: Redis to SSPL, Elastic to SSPL, HashiCorp to BSL. "Open source" quietly became "visible, but no longer free to use."
+
+Then, in 2024, the xz-utils backdoor nailed "enough eyeballs" to the wall.
+
+One of the most critical compression libraries in the world was, in reality, maintained by one exhausted person. An attacker social-engineered his way in as a co-maintainer, planted a backdoor, and nearly shipped it in every major distro. Linus's Law has a hidden assumption: that attention flows where it matters. But attention flows where things are *visible* — and it follows a power law. The roots of the dependency graph stay dark.
+
+## Weights are not code
+
+And then AI arrives, and rewrites all of it.
+
+First, a category error.
+
+The most beautiful mechanism in "The Cathedral and the Bazaar" is the shared mental model — testers looking in, developers looking out, meeting on the source code. But a model's weights are a binary blob you can't diff. You can't build a shared model on them; you can inspect them, but you can't modify them at the root. And the fork cost of weights is the compute it takes to retrain.
+
+So "open weights" is structurally closer to hardware than software. It opens the interface, not the implementation, and certainly not the decision-making. Yet we keep describing it in the old language of software.
+
+Second, agents invert the bazaar's economics.
+
+The bazaar worked because writing was expensive and reading was cheap. But OpenAI's experiment — three engineers plus Codex, a million lines, 1,500 PRs, not one line typed by a human — means generation is becoming cheaper than verification.
+
+Flip that ratio, and the bottleneck lands entirely on review. Every project becomes a review bottleneck. The rational response is to tighten the merge, to tier contributor trust. In other words, slide back toward the cathedral.
+
+DeepSeek Harness hits 100k stars, while its issue tracker is probably drowning in low-quality AI-generated PRs. Those are two faces of the same phenomenon.
+
+And one more thing — the one I care about most.
+
+Open-source contribution is unpaid labor. It's a subsidy to the commons, paid by people who have slack. So "spontaneous order" always carried a filter: who has free time, who has compute, who has English, who can afford to work without being paid. In the AI era, that filter only gets finer, because the entry ticket to frontier collaboration now includes compute and API budgets.
+
+Here's what I want to say: the AI divide isn't only on the consumption side — who can afford to use it. It's also on the contribution side — who gets to enter the bazaar that decides where the technology goes.
+
+Nobody writes about that side.
+
+## Three keys
+
+Let me land it.
+
+Open source is not the opposite of the market, and not the opposite of the corporation. It's a governance technology for coordinating around a shared object.
+
+Every industry ends up with the amount of governance its physical conditions demand. Software's physics allows thin governance. Content's physics forces platform adjudication. Hardware's physics hands governance back to capital and the state.
+
+So the real tension was never "open versus closed." It's which layer gets opened — the interface, the implementation, or the decision. Those are three different things. And most open-source arguments are arguments because we keep conflating them.
+
+The question isn't whether to open the door. It's which keys you're willing to hand over.
+
+</LanguageBlock>

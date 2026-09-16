@@ -68,6 +68,33 @@
   },
   {
     "ids": [
+      "The Bazaar Was a Cathedral All Along"
+    ],
+    "titleEn": "The Bazaar Was a Cathedral All Along",
+    "slug": "bazaar-was-a-cathedral",
+    "growthStage": "budding",
+    "description": "A rereading of Raymond's 'The Cathedral and the Bazaar' in the age of open weights and code agents.",
+    "descriptionEn": "A rereading of Raymond's 'The Cathedral and the Bazaar' in the age of open weights and code agents.",
+    "outboundLinks": [],
+    "inboundLinks": []
+  },
+  {
+    "ids": [
+      "我用 Browser-Use Agent 的 7 个真实场景",
+      "浏览器智能体",
+      "BUA",
+      "Browser Use Agent"
+    ],
+    "titleEn": "7 Real Ways I Use Browser-Use Agents",
+    "slug": "browser-use-agent-usecases",
+    "growthStage": "evergreen",
+    "description": "从填表单、刷社媒到调研、批量下载和端到端验收——七个亲手用过、确实提效的浏览器智能体场景。",
+    "descriptionEn": "Filling forms, browsing socials, research, bulk downloads, and E2E acceptance — seven browser-use-agent workflows I actually rely on.",
+    "outboundLinks": [],
+    "inboundLinks": []
+  },
+  {
+    "ids": [
       "From Saving Conversations to Learning from Experience",
       "从保存对话到积累经验：我对 Agent Memory 的一点思考"
     ],
